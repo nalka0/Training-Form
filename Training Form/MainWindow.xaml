@@ -6,5 +6,7 @@
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,2,1"/>
+    <Grid Margin="0,0,2,1">
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="127,160,0,0"/>
+    </Grid>
 </Window>
