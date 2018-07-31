@@ -34,12 +34,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassesRefaitesWpf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ClassesRefaitesWpf\ClassesRefaites\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
+    <Reference Include="ClassesRefaitesWpf">
+      <HintPath>..\..\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,15 +58,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Client.cs" />
-    <Compile Include="FenetreClients.xaml.cs">
-      <DependentUpon>FenetreClients.xaml</DependentUpon>
+    <Compile Include="Article.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Produit.cs" />
+    <Compile Include="Produit.xaml.cs">
+      <DependentUpon>Produit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services.cs" />
     <Compile Include="User.cs" />
-    <Page Include="FenetreClients.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,11 +74,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Produit.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Produit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
