@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using ClassesRefaitesWpf;
 
 namespace Training_Form
@@ -49,12 +50,19 @@ namespace Training_Form
             get { return _mail; }
             set
             {
-                string stock = _mail;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging == null || !argsChanging.Cancel)
+                if (value.Contains("@") && value.Contains("."))
                 {
-                    _mail = value;
-                    BetterNotifyPropertyChanged(stock, value);
+                    string stock = _mail;
+                    BetterNotifyPropertyChanging(stock, value);
+                    if (argsChanging == null || !argsChanging.Cancel)
+                    {
+                        _mail = value;
+                        BetterNotifyPropertyChanged(stock, value);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Adresse e-mail invalide, veuillez recommencer", "Mauvaise adresse e-mail");
                 }
             }
         }
@@ -65,13 +73,21 @@ namespace Training_Form
             get { return _dateNaissance; }
             set
             {
-                DateTime stock = _dateNaissance;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging == null || !argsChanging.Cancel)
+                if (value.CompareTo(new DateTime(DateTime.Now.Year - 100, DateTime.Now.Month, DateTime.Now.Day)) < 0)
                 {
-                    _dateNaissance = value;
-                    BetterNotifyPropertyChanged(stock, value);
+                    DateTime stock = _dateNaissance;
+                    BetterNotifyPropertyChanging(stock, value);
+                    if (argsChanging == null || !argsChanging.Cancel)
+                    {
+                        _dateNaissance = value;
+                        BetterNotifyPropertyChanged(stock, value);
+                    }
                 }
+                else
+                {
+                    MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance");
+                }
+                
             }
         }
 
@@ -106,7 +122,6 @@ namespace Training_Form
                 }
             }
         }
-
         #endregion
 
         #region notify
