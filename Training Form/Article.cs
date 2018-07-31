@@ -16,6 +16,13 @@ namespace Training_Form
             get { return _imageProduit; }
             set
             {
+                Image stock = _imageProduit;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _imageProduit = value;
+                    BetterNotifyPropertyChanging(stock, value);
+                }
                 _imageProduit = value;
             }
         }

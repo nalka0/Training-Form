@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Produit
+    class Produit : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
         private int _codeProduit;
         private string _nom;
@@ -26,7 +27,14 @@ namespace Training_Form
             get { return _nom; } 
             set
             {
-                _nom = value;
+                string stock = _nom;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _nom = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+                
             }
         }
         public string Description
@@ -34,8 +42,39 @@ namespace Training_Form
             get { return _description; }
             set
             {
-                _description = value;
+                string stock = _description;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _description = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
             }
         }
+
+        #region notify d'Alan
+        public event BetterPropertyChangedEventHandler PropertyChanged;
+        public event BetterPropertyChangingEventHandler PropertyChanging;
+        internal BetterPropertyChangedEventArgs argsChanged;
+        internal BetterPropertyChangingEventArgs argsChanging;
+
+        public void BetterNotifyPropertyChanged(object oldValue, object newValue, [CallerMemberName] string propertyName = "")
+        {
+            argsChanged = new BetterPropertyChangedEventArgs(propertyName, oldValue, newValue);
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, argsChanged);
+            }
+        }
+
+        public void BetterNotifyPropertyChanging(object oldValue, object newValue, [CallerMemberName] string propertyName = "")
+        {
+            argsChanging = new BetterPropertyChangingEventArgs(propertyName, oldValue, newValue);
+            if (PropertyChanging != null)
+            {
+                PropertyChanging(this, argsChanging);
+            }
+        }
+        #endregion
     }
 }
