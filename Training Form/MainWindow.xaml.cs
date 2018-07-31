@@ -22,8 +22,7 @@ namespace Training_Form
     {
         public MainWindow()
         {
-            this.WindowState = WindowState.Maximized;
-                        
+            this.WindowState = WindowState.Maximized;                       
             InitializeComponent();
 
         }

@@ -20,13 +20,14 @@ namespace Training_Form
     /// </summary>
     public partial class ProduitWind : Window
     {
-        private ObservableCollection<Article> CollectionArticles { get; set; }
+        private  ObservableCollection<Article> CollectionArticles { get; set; }
 
         public ProduitWind()
         {
             InitializeComponent();
             this.DataContext = this;
             CollectionArticles = new ObservableCollection<Article>();
+           
             dataGrid.ItemsSource = CollectionArticles;
             Article proteine = new Article() { Nom = "prot200", CodeProduit = "000141", Description = "La meilleur du marché de tibo inshape" };
             Article proteine2 = new Article() { Nom = "prot200", CodeProduit = "000141", Description = "La meilleur du marché de tibo inshape" };
