@@ -34,8 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ClassesRefaitesWpf">
-      <HintPath>..\..\..\..\Downloads\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
+    <Reference Include="ClassesRefaitesWpf, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\source\repos\ClasseRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
