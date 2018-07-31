@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClassesRefaitesWpf">
-      <HintPath>..\..\..\..\Downloads\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
+      <HintPath>C:\Users\tsgeri\Downloads\ClassesRefaitesWpf\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -59,6 +59,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Article.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
