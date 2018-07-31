@@ -35,11 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClassesRefaitesWpf">
-      <HintPath>C:\Users\tsgeri\Downloads\ClassesRefaitesWpf\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
+      <HintPath>..\..\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,7 +58,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Article.cs" />
-    <Compile Include="Services.cs" />
+    <Compile Include="Permissions.cs" />
+    <Compile Include="Produit.cs" />
+    <Compile Include="Produit.xaml.cs">
+      <DependentUpon>Produit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -69,11 +72,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Produit.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Produit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

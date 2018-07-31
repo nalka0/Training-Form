@@ -10,11 +10,11 @@ namespace Training_Form
 {
     class Produit : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
-        private int _codeProduit;
+        private string _codeProduit;
         private string _nom;
         private string _description;
 
-        public int CodeProduit
+        public string CodeProduit
         {
             get { return _codeProduit; }
             set
