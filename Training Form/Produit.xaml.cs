@@ -20,7 +20,7 @@ namespace Training_Form
     /// </summary>
     public partial class ProduitWind : Window
     {
-        private  ObservableCollection<Article> CollectionArticles { get; set; }
+        internal  ObservableCollection<Article> CollectionArticles { get; set; }
 
         public ProduitWind()
         {
@@ -29,10 +29,10 @@ namespace Training_Form
             CollectionArticles = new ObservableCollection<Article>();
            
             dataGrid.ItemsSource = CollectionArticles;
-            Article proteine = new Article() { Nom = "prot200", CodeProduit = "000141", Description = "La meilleur du marché de tibo inshape" };
-            Article proteine2 = new Article() { Nom = "prot200", CodeProduit = "000141", Description = "La meilleur du marché de tibo inshape" };
-            Article proteine3 = new Article() { Nom = "prot200", CodeProduit ="000141", Description = "La meilleur du marché de tibo inshape" };
-            Article proteine4 = new Article() { Nom = "prot200", CodeProduit = "000141", Description = "La meilleur du marché de tibo inshape" };
+            Article proteine = new Article() { Nom = "prot200", CodeProduit = "00014184789", Description = "La meilleur du marché de tibo inshape" };
+            Article proteine2 = new Article() { Nom = "prot2000", CodeProduit = "00014256656", Description = "La meilleur du marché de tibo inshape" };
+            Article proteine3 = new Article() { Nom = "prot20000", CodeProduit ="00014696594", Description = "La meilleur du marché de tibo inshape" };
+            Article proteine4 = new Article() { Nom = "prot200000", CodeProduit = "00014654954", Description = "La meilleur du marché de tibo inshape" };
             CollectionArticles.Add(proteine);
             CollectionArticles.Add(proteine2);
             CollectionArticles.Add(proteine4);

@@ -63,6 +63,7 @@
     <Compile Include="FenetreClients.xaml.cs">
       <DependentUpon>FenetreClients.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JeuxTest.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="Produit.xaml.cs">

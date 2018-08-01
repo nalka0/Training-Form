@@ -7,7 +7,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Client : User
+    public class Client : User
     {
 
 

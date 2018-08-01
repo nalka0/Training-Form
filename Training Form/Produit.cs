@@ -8,7 +8,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Produit : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
+  public  class Produit : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
         private string _codeProduit;
         private string _nom;

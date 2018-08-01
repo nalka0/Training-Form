@@ -25,6 +25,23 @@ namespace Training_Form
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
+            this.DataContext = this;
+            emplacementActuel.Content = "Gestion Client";
+            dataArticles.ItemsSource = JeuxTest.Articles;
+            dataClients.ItemsSource = JeuxTest.Clients;
+        }
+        
+        private void TabItem_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TabItem tab = sender as TabItem;
+
+            emplacementActuel.Content = String.Format("Gestion {0}", tab.Name);
+            ajoutElement.Content = String.Format("Nouveau {0}", tab.Name);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

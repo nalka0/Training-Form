@@ -5,25 +5,135 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Margin="0,0,2,1">
-        <TabControl HorizontalAlignment="Left" TabStripPlacement="Left" Height="418" VerticalAlignment="Top" Width="790" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" UseLayoutRounding="False">
-            <TabItem Header="">
-                <Grid Background="#FFE5E5E5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="12"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
+        Title="MainWindow" WindowState="Maximized">
+
+    <Grid Margin="0,0,0,0">
+
+        <TabControl TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"  >
+
+            <TabItem x:Name="Client" Header="Clients" Margin="0,83,-2,-100" FontSize="20" Height="35"  GotFocus="TabItem_GotFocus">
+
+                <DataGrid Name="dataClients" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Code Client" Binding="{Binding Identifiant}"/>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
+                        <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
+                        <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
+                        <DataGridTextColumn Header="Interets" Binding="{Binding Interets}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header=" Modifier">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Modifier" Name="modifierSalarie"/>
+                                    <!--Click="modifierSalarie_Click" />-->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="128*"/>
-                        <ColumnDefinition Width="303*"/>
-                    </Grid.ColumnDefinitions>
-                </Grid>
+            
+            <TabItem x:Name="Article" Header="Articles" Margin="0,92,-2,-92" Height="35"  FontSize="20" GotFocus="TabItem_GotFocus" >
+
+                <DataGrid Name="dataArticles" Margin="10,10,10,10" AutoGenerateColumns="False" ItemsSource="{Binding Articles}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Code Produit" Binding="{Binding CodeProduit}"/>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Image" Binding="{Binding ImageProduit}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header=" Modifier">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Modifier" Name="modifierArticle"/>
+                                    <!--Click="modifierSalarie_Click" />-->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
             </TabItem>
+
+            <TabItem x:Name="Service" Header="Services" Margin="0,92,-2,-92" Height="35" FontSize="20" GotFocus="TabItem_GotFocus" >
+
+                <DataGrid Name="dataServices" Margin="10,10,10,10"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding CollectionServices}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Code Service"   Binding="{Binding CodeProduit}"/>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Date de Début" Binding="{Binding DateDebut}"/>
+                        <DataGridTextColumn Header="Date de Fin" Binding="{Binding DateFin}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header=" Modifier">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Modifier" Name="modifierSalarie"/>
+                                    <!--Click="modifierSalarie_Click" />-->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </TabItem>
+            
+            <TabItem x:Name="Salarie" Header="Salariés" Margin="0,83,-2,-100" FontSize="20" Height="35"  GotFocus="TabItem_GotFocus">
+
+                <DataGrid Name="dataSalaries" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Salaries}">
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Identifiant" Binding="{Binding Identifiant}"/>
+                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
+                        <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
+                        <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
+                        <DataGridTextColumn Header="Role" Binding="{Binding Role}"/>
+                        <DataGridTextColumn Header="Date d'embauche" Binding="{Binding DateEmbauche}"/>
+                        <DataGridTemplateColumn Header=" Modifier">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Modifier" Name="modifierSalarie"/>
+                                    <!--Click="modifierSalarie_Click" />-->
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+            </TabItem>
+
         </TabControl>
+        <Label Name="emplacementActuel" Content="Label" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="527" Height="40" FontSize="25"/>
+        <Button Name="ajoutElement" Content="Nouveau Client" Width="100" Height="36" Margin="0,10,10,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Right" FontSize="13"/>
+
     </Grid>
+
 </Window>
