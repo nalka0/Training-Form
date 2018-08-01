@@ -1,0 +1,32 @@
+﻿<Window x:Class="Training_Form.FenetreClients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Training_Form"
+        mc:Ignorable="d"
+        Title="FenetreClients" Height="450" Width="800">
+    <Grid>
+        <DataGrid Name="DonneesClients" Background="#FFE5E5E5" Margin="0,0,1,-4" ItemsSource="{Binding listeClients}" AutoGenerateColumns="False" ColumnWidth="auto">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Mail" Binding="{Binding Email}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Interets" Binding="{Binding Interets}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Justificatif" Binding="{Binding Justificatif}" IsReadOnly="True" />
+                <DataGridTemplateColumn Header=" Modifier">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Modifier" Name="modifierSalarie"/>
+                            <!--Click="modifierSalarie_Click" />-->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+    </Grid>
+</Window>
