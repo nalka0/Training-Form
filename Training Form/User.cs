@@ -148,5 +148,20 @@ namespace Training_Form
             }
         }
         #endregion
+
+        public User()
+        {
+
+        }
+
+        public int getAge()
+        {
+            int modif = 0;
+            if (DateTime.Now.Month <= DateNaissance.Month && DateTime.Now.Day < DateNaissance.Day)
+            {
+                modif++;
+            }
+            return DateTime.Now.Year - DateNaissance.Year + modif;
+        }
     }
 }
