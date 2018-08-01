@@ -90,21 +90,38 @@ namespace Training_Form
             }
         }
 
+        private float _prix;
+        public float Prix
+        {
+            get { return _prix; }
+            set
+            {
+                float stock = _prix;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _prix = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
+
         private static int nombreFormules = 0;
         /// <summary>
         /// Créé une nouvelle formule avec la durée, le statut et le nom specifié.
         /// </summary>
-        /// <param name="duree">En mois</param>
+        /// <param name="duree">Durée en mois de la formule</param>
         /// <param name="statut">Définit si le bénéficiaire de la formule est un Adulte, un Etudiant ou un Couple</param>
         /// <param name="avecCours">Définit si le bénéficiaire de la formule a des cours ou non</param>
         /// <param name="nom">Nom de la formule</param>
-        public Formule( int duree, Statuts statut, bool avecCours, string nom)
+        public Formule( int duree, Statuts statut, bool avecCours, string nom, float prix)
         {
             _duree = duree;
             _statut = statut;
             _cours = avecCours;
             _nom = nom;
             _identifiant = nombreFormules;
+            _prix = prix;
             nombreFormules++;
         }
         #region notify
