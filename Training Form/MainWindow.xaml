@@ -7,9 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0,0,2,1">
-        <TabControl HorizontalAlignment="Left" TabStripPlacement="Left" Height="186" Margin="147,100,0,0" VerticalAlignment="Top" Width="437" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" UseLayoutRounding="False">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+        <TabControl HorizontalAlignment="Left" TabStripPlacement="Left" Height="418" VerticalAlignment="Top" Width="790" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" UseLayoutRounding="False">
+            <TabItem Header="">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="12"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
             </TabItem>
             <TabItem Header="TabItem">
                 <Grid Background="#FFE5E5E5" HorizontalAlignment="Left" VerticalAlignment="Top">
