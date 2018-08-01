@@ -40,7 +40,7 @@ namespace Training_Form
 
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }
