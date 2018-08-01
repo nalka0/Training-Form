@@ -11,13 +11,13 @@ namespace Training_Form
     {
 
 
-        private String _interets;
-        private String _justificatif;
+        private string _interets;
+        private string _justificatif;
         public Client()
         {
             
         }
-        public Client(string nom,string prenom,string email, DateTime dateNaissance,string interets,string justificatif)
+        public Client(string nom, string prenom, string email, DateTime dateNaissance, string interets, string justificatif)
         {
             base.Nom = nom;
             base.Prenom = prenom;
@@ -36,7 +36,14 @@ namespace Training_Form
             }
             set
             {
-                _interets = value;
+                string stock = _interets;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging != null && !argsChanging.Cancel)
+                {
+                    _interets = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+
             }
         }
 
@@ -48,17 +55,23 @@ namespace Training_Form
             }
             set
             {
-                if ((DateTime.Now.Year - DateNaissance.Year) < 25)
+                if (getAge() < 25)
                 {
-                    _justificatif = value;
+                    string stock = _justificatif;
+                    BetterNotifyPropertyChanging(stock, value);
+                    if (argsChanging == null || argsChanging.Cancel)
+                    {
+                        _justificatif = value;
+                        BetterNotifyPropertyChanged(stock, value);
+                    }
                 }
                
             }
         }
       
-        public override String ToString()
+        public override string ToString()
         {
-            return String.Format(Interets + ";" + Justificatif) ;
+            return string.Format(Interets + ";" + Justificatif);
         }
     }
 }
