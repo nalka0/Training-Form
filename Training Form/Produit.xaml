@@ -11,7 +11,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Code Produit" Binding="{Binding CodeProduit}" Width="120" />
                 <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="60" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="6000"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300"/>
             </DataGrid.Columns>
         </DataGrid>
                   

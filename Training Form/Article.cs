@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Training_Form
 {
-    class Article : Produit
+    public class Article : Produit
     {
         private Image _imageProduit;
 

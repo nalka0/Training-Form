@@ -7,23 +7,17 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Client : User
+    public class Client : User
     {
-
-
         private string _interets;
         private string _justificatif;
-        public Client()
-        {
+        //public Client()
+        //{
             
-        }
-        public Client(string nom, string prenom, string email, DateTime dateNaissance, string interets, string justificatif)
+        //}
+        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets)
+            : base( nom, prenom, email, dateNaissance, Permissions.Client)
         {
-            base.Nom = nom;
-            base.Prenom = prenom;
-            base.Mail = email;
-            base.DateNaissance = dateNaissance;
-            base.Permission = Permissions.Client;
             this.Interets = interets;
             this.Justificatif = justificatif;
 

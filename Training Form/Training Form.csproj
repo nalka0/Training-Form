@@ -63,12 +63,18 @@
     <Compile Include="FenetreClients.xaml.cs">
       <DependentUpon>FenetreClients.xaml</DependentUpon>
     </Compile>
+    <Compile Include="JeuxTest.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Permissions.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="Produit.xaml.cs">
       <DependentUpon>Produit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services.cs" />
+    <Compile Include="Statuts.cs" />
+    <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
     <Page Include="FenetreClients.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -80,10 +86,6 @@
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Produit.xaml">
