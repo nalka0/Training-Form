@@ -73,7 +73,7 @@ namespace Training_Form
             get { return _dateNaissance; }
             set
             {
-                if (value.CompareTo(new DateTime(DateTime.Now.Year - 100, DateTime.Now.Month, DateTime.Now.Day)) < 0)
+                if (value.CompareTo(new DateTime(DateTime.Now.Year - 100, DateTime.Now.Month, DateTime.Now.Day)) > 0)
                 {
                     DateTime stock = _dateNaissance;
                     BetterNotifyPropertyChanging(stock, value);
@@ -159,7 +159,7 @@ namespace Training_Form
             int modif = 0;
             if (DateTime.Now.Month <= DateNaissance.Month && DateTime.Now.Day < DateNaissance.Day)
             {
-                modif++;
+                modif--;
             }
             return DateTime.Now.Year - DateNaissance.Year + modif;
         }
