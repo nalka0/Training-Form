@@ -25,29 +25,15 @@ namespace GestionSalaries
         {
             InitializeComponent();
             this.DataContext = this;
-            maListeSalaries = new MalisteSalaries();
-            TableauSalaries.ItemsSource = maListeSalaries;
-
-            maListeSalaries.Add(new Salarie("aa123aa", "toto", "martin", "coach", new DateTime(2000, 10, 23), "azerty", "mail@domaine.fr"));
-            maListeSalaries.Add(new Salarie("aa123aa", "flo", "carrey", "coach", new DateTime(2000, 10, 23), "azerty", "mail@domaine.fr"));
-            maListeSalaries.Add(new Salarie("aa123aa", "julien", "moreau", "coach", new DateTime(2000, 10, 23), "azerty", "mail@domaine.fr"));
-            maListeSalaries.Add(new Salarie("aa123aa", "anthony", "arena", "gerant", new DateTime(2000, 10, 23), "azerty", "mail@domaine.fr"));
-            
-
+            TableauSalaries.ItemsSource = DataBase.Salaries;
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Salarie sal = new Salarie() { NumSalarie = "1234", Nom = "toto", Prenom = "titi" };
 
-        }
-
-        private void BoutonAjouterSalarie_Click(object sender, RoutedEventArgs e)
-        {
-            FormSalarie formSalarie = new FormSalarie();
-            formSalarie.ShowDialog();
-
+            if (!DataBase.Salaries.Contains(sal))
+                { DataBase.Salaries.Add(sal); }
         }
     }
-
-
 }

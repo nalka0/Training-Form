@@ -8,7 +8,7 @@ namespace GestionSalaries
 {
     public class Salarie
     {
-        private string _numClient;
+        private string _numSalarie;
         private string _nom;
         private string _prenom;
         private string _role;
@@ -16,18 +16,15 @@ namespace GestionSalaries
         private string _password;
         private string _mail;
 
-        
-       //rivate List<Salarie> MalisteSalaries { get ; set };
-
 
         public Salarie()
         {
         }
-
-        public Salarie (string numClient, string nom, string prenom, string role, DateTime dateNaissance, string password, string mail)
+        
+        public Salarie (string numSalarie, string nom, string prenom, string role, DateTime dateNaissance, string password, string mail)
             :this()
         {
-            NumClient = numClient;
+            NumSalarie = numSalarie;
             Nom = nom;
             Prenom = prenom;
             Role = role;
@@ -36,19 +33,70 @@ namespace GestionSalaries
             Mail = mail;
         }
 
+        public string NumSalarie
+        {
+            get { return _numSalarie; }
+            set { _numSalarie = value; }
+        }
 
-        public string NumClient { get => _numClient; set => _numClient = value; }
-        public string Nom { get => _nom; set => _nom = value; }
-        public string Prenom { get => _prenom; set => _prenom = value; }
-        public string Role { get => _role; set => _role = value; }
-        public DateTime DateNaissance { get => _dateNaissance; set => _dateNaissance = value; }
-        public string Password { get => _password; set => _password = value; }
-        public string Mail { get => _mail; set => _mail = value; }
+        public string Nom
+        {
+            get { return _nom; }
+            set { _nom = value; }
+        }
 
+        public string Prenom
+        {
+            get { return _prenom; }
+            set { _prenom = value; }
+        }
 
-        
+        public string Role
+        {
+            get { return _role; }
+            set { _role = value; }
+        }
 
-        
+        public DateTime DateNaissance
+        {
+            get { return _dateNaissance; }
+            set { _dateNaissance = value; }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
+        }
+
+        public string Mail
+        {
+            get { return _mail; }
+            set { _mail = value; }
+        }
+
+        public override bool Equals(object obj)
+        {
+            Salarie sal = obj as Salarie;
+            if (sal==null)
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(sal);
+            } 
+        }
+
+        public  bool Equals(Salarie sal)
+        {
+            return this.NumSalarie == sal.NumSalarie;
+        }
+        public override int GetHashCode()
+        {
+            return NumSalarie.GetHashCode();
+        }
+
     }
     public class MalisteSalaries : List<Salarie> { }
 
