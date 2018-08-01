@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Services : Produit, IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
+    class Services : Produit
     {
         private int _duree;
         private DateTime _debutAbo, _finAbo, _valid;
@@ -19,44 +20,66 @@ namespace Training_Form
         public int Duree
         {
             get { return _duree; }
-            set { _duree = value; }
+            set
+            {
+                int stock = _duree;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _duree = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
         }
         /// <summary>
-        /// Bonjour. Ça va ?
+        /// Date de début de l'abonement.
         /// </summary>
         public DateTime DebutAbo
         {
             get { return _debutAbo; }
             set
             {
-                DateTime stock = _debutAbo;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging==null||!argsChanging.Cancel)
+                if (_finAbo == null || _finAbo.CompareTo(value) < 0)
                 {
-                    _debutAbo = value;
+                    DateTime stock = _debutAbo;
                     BetterNotifyPropertyChanging(stock, value);
+                    if (argsChanging == null || !argsChanging.Cancel)
+                    {
+                        _debutAbo = value;
+                        BetterNotifyPropertyChanging(stock, value);
+                    }
                 }
-                _debutAbo = value;
+                else
+                {
+                    MessageBox.Show("La date de début ne peut pas être ultérieure à la date de fin", "Mauvaise date de début");
+                }
             }
         }
         /// <summary>
-        /// Moi ça va pas trop mal.
+        /// Date de fin de l'abonnement.
         /// </summary>
         public DateTime FinAbo
         {
             get { return _finAbo; }
             set
             {
-                DateTime stock = _finAbo;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging == null || !argsChanging.Cancel)
+                if (_debutAbo == null || _debutAbo.CompareTo(value) > 0)
                 {
-                    _finAbo = value;
+                    DateTime stock = _finAbo;
                     BetterNotifyPropertyChanging(stock, value);
+                    if (argsChanging == null || !argsChanging.Cancel)
+                    {
+                        _finAbo = value;
+                        BetterNotifyPropertyChanging(stock, value);
+                    }
                 }
-                _finAbo = value;
+                else
+                {
+                    MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début", "Mauvaise date de fin");
+                }
             }
         }
+
         public DateTime Valid
         {
             get { return _valid; }
@@ -64,18 +87,27 @@ namespace Training_Form
             {
                 DateTime stock = _valid;
                 BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging==null||!argsChanging.Cancel)
+                if (argsChanging == null||!argsChanging.Cancel)
                 {
                     _valid = value;
                     BetterNotifyPropertyChanging(stock, value);
                 }
-                _valid = value;
             }
         }
-        private int Seance
+
+        private int Seances
         {
             get { return _seances; }
-            set { _seances = value; }
+            set
+            {
+                int stock = _seances;
+                BetterNotifyPropertyChanged(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _seances = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
         }
 
     }
