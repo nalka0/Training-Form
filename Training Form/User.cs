@@ -13,6 +13,9 @@ namespace Training_Form
     {
         #region variables
         private string _nom;
+        /// <summary>
+        /// Nom du <see cref="User"/>
+        /// </summary>
         public string Nom
         {
             get { return _nom; }
@@ -29,6 +32,9 @@ namespace Training_Form
         }
 
         private string _prenom;
+        /// <summary>
+        /// Prenom du <see cref="User"/>
+        /// </summary>
         public string Prenom
         {
             get { return _prenom; }
@@ -45,6 +51,9 @@ namespace Training_Form
         }
 
         private string _mail;
+        /// <summary>
+        /// Adresse mail du <see cref="User"/>
+        /// </summary>
         public string Mail
         {
             get { return _mail; }
@@ -68,6 +77,9 @@ namespace Training_Form
         }
 
         private DateTime _dateNaissance;
+        /// <summary>
+        /// Date de naissance du <see cref="User"/>
+        /// </summary>
         public DateTime DateNaissance
         {
             get { return _dateNaissance; }
@@ -92,6 +104,9 @@ namespace Training_Form
         }
 
         private Permissions _permission;
+        /// <summary>
+        /// Permissions du <see cref="User"/>
+        /// </summary>
         public Permissions Permission
         {
             get { return _permission; }
@@ -108,6 +123,9 @@ namespace Training_Form
         }
 
         private int _identifiant;
+        /// <summary>
+        /// Identifiant du <see cref="User"/>
+        /// </summary>
         public int Identifiant
         {
             get { return _identifiant; }
@@ -149,11 +167,17 @@ namespace Training_Form
         }
         #endregion
 
+        /// <summary>
+        /// Constructeur de <see cref="User"/>
+        /// </summary>
         public User()
         {
 
         }
 
+        /// <summary>
+        /// Retourne l'âge du <see cref="User"/>
+        /// </summary>
         public int getAge()
         {
             int modif = 0;
