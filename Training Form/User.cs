@@ -13,6 +13,9 @@ namespace Training_Form
     {
         #region variables
         private string _nom;
+        /// <summary>
+        /// Nom du <see cref="User"/>
+        /// </summary>
         public string Nom
         {
             get { return _nom; }
@@ -29,6 +32,9 @@ namespace Training_Form
         }
 
         private string _prenom;
+        /// <summary>
+        /// Prenom du <see cref="User"/>
+        /// </summary>
         public string Prenom
         {
             get { return _prenom; }
@@ -45,6 +51,9 @@ namespace Training_Form
         }
 
         private string _mail;
+        /// <summary>
+        /// Adresse mail du <see cref="User"/>
+        /// </summary>
         public string Mail
         {
             get { return _mail; }
@@ -62,12 +71,15 @@ namespace Training_Form
                 }
                 else
                 {
-                    MessageBox.Show("Adresse e-mail invalide, veuillez recommencer", "Mauvaise adresse e-mail");
+                    MessageBox.Show("Adresse e-mail invalide, veuillez recommencer", "Mauvaise adresse e-mail", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
 
         private DateTime _dateNaissance;
+        /// <summary>
+        /// Date de naissance du <see cref="User"/>
+        /// </summary>
         public DateTime DateNaissance
         {
             get { return _dateNaissance; }
@@ -85,13 +97,16 @@ namespace Training_Form
                 }
                 else
                 {
-                    MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance");
+                    MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 
             }
         }
 
         private Permissions _permission;
+        /// <summary>
+        /// Permissions du <see cref="User"/>
+        /// </summary>
         public Permissions Permission
         {
             get { return _permission; }
@@ -108,6 +123,9 @@ namespace Training_Form
         }
 
         private int _identifiant;
+        /// <summary>
+        /// Identifiant du <see cref="User"/>
+        /// </summary>
         public int Identifiant
         {
             get { return _identifiant; }
@@ -124,6 +142,7 @@ namespace Training_Form
         }
         #endregion
 
+        private static int nombreUsers;
         #region notify
         public event BetterPropertyChangedEventHandler PropertyChanged;
         public event BetterPropertyChangingEventHandler PropertyChanging;
@@ -149,11 +168,23 @@ namespace Training_Form
         }
         #endregion
 
-        public User()
+        /// <summary>
+        /// Constructeur de <see cref="User"/>
+        /// </summary>
+        public User(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission)
         {
-
+            Nom = nom;
+            Prenom = prenom;
+            Mail = mail;
+            DateNaissance = dateNaissance;
+            Permission = permission;
+            _identifiant = nombreUsers;
+            nombreUsers++;
         }
 
+        /// <summary>
+        /// Retourne l'âge du <see cref="User"/>
+        /// </summary>
         public int getAge()
         {
             int modif = 0;

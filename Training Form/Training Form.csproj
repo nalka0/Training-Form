@@ -70,6 +70,8 @@
       <DependentUpon>Produit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services.cs" />
+    <Compile Include="Statuts.cs" />
+    <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
     <Page Include="FenetreClients.xaml">
       <Generator>MSBuild:Compile</Generator>

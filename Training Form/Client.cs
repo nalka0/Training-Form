@@ -9,8 +9,6 @@ namespace Training_Form
 {
     public class Client : User
     {
-
-
         private string _interets;
         private string _justificatif;
         public Client()
