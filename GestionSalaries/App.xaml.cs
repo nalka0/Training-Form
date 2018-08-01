@@ -13,5 +13,12 @@ namespace GestionSalaries
     /// </summary>
     public partial class App : Application
     {
+        public new void Run()
+        {
+            Demarrage.Initialiser();
+
+            // Call the base method
+            base.Run();
+        }
     }
 }
