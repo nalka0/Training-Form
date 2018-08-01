@@ -9,7 +9,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    public class User : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
+    public abstract class User : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
         #region variables
         private string _nom;
