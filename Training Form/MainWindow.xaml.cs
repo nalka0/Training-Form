@@ -34,12 +34,11 @@ namespace Training_Form
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
-
             emplacementActuel.Content = String.Format("Gestion {0}", tab.Name);
-            ajoutElement.Content = String.Format("Nouveau {0}", tab.Name);
+            ajoutElement.Content = String.Format("Ajouter {0}", tab.Name);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ajoutElement_Click(object sender, RoutedEventArgs e)
         {
 
         }
