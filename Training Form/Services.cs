@@ -12,10 +12,11 @@ namespace Training_Form
     class Services : Produit
     {
         private int _duree;
-        private DateTime _debutAbo, _finAbo, _valid;
+        private DateTime _debutAbo;
+        private DateTime _finAbo;
         private int _seances;
         /// <summary>
-        /// Ceci est un commentaire pour la durée.
+        /// Durée en mois du service.
         /// </summary>
         public int Duree
         {
@@ -39,7 +40,7 @@ namespace Training_Form
             get { return _debutAbo; }
             set
             {
-                if (_finAbo == null || _finAbo.CompareTo(value) < 0)
+                if (_finAbo == new DateTime() || _finAbo.CompareTo(value) > 0)
                 {
                     DateTime stock = _debutAbo;
                     BetterNotifyPropertyChanging(stock, value);
@@ -63,7 +64,7 @@ namespace Training_Form
             get { return _finAbo; }
             set
             {
-                if (_debutAbo == null || _debutAbo.CompareTo(value) > 0)
+                if (_debutAbo == new DateTime() || _debutAbo.CompareTo(value) < 0)
                 {
                     DateTime stock = _finAbo;
                     BetterNotifyPropertyChanging(stock, value);
@@ -79,22 +80,9 @@ namespace Training_Form
                 }
             }
         }
-
-        public DateTime Valid
-        {
-            get { return _valid; }
-            set
-            {
-                DateTime stock = _valid;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging == null||!argsChanging.Cancel)
-                {
-                    _valid = value;
-                    BetterNotifyPropertyChanging(stock, value);
-                }
-            }
-        }
-
+        /// <summary>
+        /// Nombre de séances restantes avant expiration.
+        /// </summary>
         private int Seances
         {
             get { return _seances; }
@@ -110,5 +98,12 @@ namespace Training_Form
             }
         }
 
+        public Services(int duree, DateTime debut, int seances)
+        {
+            _duree = duree;
+            _debutAbo = debut;
+            _seances = seances;
+            FinAbo = _debutAbo.AddMonths(duree);
+        }
     }
 }
