@@ -19,7 +19,14 @@ namespace Training_Form
             get { return _codeProduit; }
             set
             {
-                _codeProduit = value;
+                string stock = _codeProduit;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _codeProduit = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+                
             }
         }
         public string Nom
