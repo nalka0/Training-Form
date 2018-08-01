@@ -71,7 +71,7 @@ namespace Training_Form
                 }
                 else
                 {
-                    MessageBox.Show("Adresse e-mail invalide, veuillez recommencer", "Mauvaise adresse e-mail");
+                    MessageBox.Show("Adresse e-mail invalide, veuillez recommencer", "Mauvaise adresse e-mail", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace Training_Form
                 }
                 else
                 {
-                    MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance");
+                    MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 
             }
@@ -142,6 +142,7 @@ namespace Training_Form
         }
         #endregion
 
+        private static int nombreUsers;
         #region notify
         public event BetterPropertyChangedEventHandler PropertyChanged;
         public event BetterPropertyChangingEventHandler PropertyChanging;
@@ -170,9 +171,15 @@ namespace Training_Form
         /// <summary>
         /// Constructeur de <see cref="User"/>
         /// </summary>
-        public User()
+        public User(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission)
         {
-
+            Nom = nom;
+            Prenom = prenom;
+            Mail = mail;
+            DateNaissance = dateNaissance;
+            Permission = permission;
+            _identifiant = nombreUsers;
+            nombreUsers++;
         }
 
         /// <summary>

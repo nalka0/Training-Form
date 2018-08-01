@@ -40,7 +40,7 @@ namespace Training_Form
             get { return _debutAbo; }
             set
             {
-                if (_finAbo == new DateTime() || _finAbo.CompareTo(value) > 0)
+                if (_finAbo == new DateTime() && DateTime.Now.CompareTo(value) < 0 || _finAbo.CompareTo(value) > 0)
                 {
                     DateTime stock = _debutAbo;
                     BetterNotifyPropertyChanging(stock, value);
@@ -52,7 +52,14 @@ namespace Training_Form
                 }
                 else
                 {
-                    MessageBox.Show("La date de début ne peut pas être ultérieure à la date de fin", "Mauvaise date de début");
+                    if (DateTime.Now.CompareTo(value) < 0)
+                    {
+                        MessageBox.Show("La date de début ne peut pas être avant aujourd'hui", "Mauvaise date de début", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                    else if (_finAbo.CompareTo(value) > 0)
+                    {
+                        MessageBox.Show("La date de début ne peut pas être ultérieure à la date de fin", "Mauvaise date de début", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
         }
@@ -76,7 +83,7 @@ namespace Training_Form
                 }
                 else
                 {
-                    MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début", "Mauvaise date de fin");
+                    MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début", "Mauvaise date de fin", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
@@ -101,7 +108,7 @@ namespace Training_Form
         public Services(int duree, DateTime debut, int seances)
         {
             _duree = duree;
-            _debutAbo = debut;
+            DebutAbo = debut;
             _seances = seances;
             FinAbo = _debutAbo.AddMonths(duree);
         }
