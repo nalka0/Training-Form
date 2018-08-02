@@ -20,43 +20,33 @@ namespace Training_Form
     /// </summary>
     public partial class ProduitWind : Window
     {
-        
+
         public ProduitWind()
         {
             InitializeComponent();
             this.DataContext = this;
-            CollectionArticles = new ObservableCollection<Article>();
-           
-            Article proteine = new Article("prot200", "00014184789", "La meilleur du marché de tibo inshape");
-            Article proteine2 = new Article("prot2000", "00014256656", "La meilleur du marché de tibo inshape");
-            Article proteine3 = new Article("prot20000", "00014696594", "La meilleur du marché de tibo inshape");
-            Article proteine4 = new Article("prot200000", "00014654954", "La meilleur du marché de tibo inshape");
-            CollectionArticles.Add(proteine);
-            CollectionArticles.Add(proteine2);
-            CollectionArticles.Add(proteine4);
-            CollectionArticles.Add(proteine3);
         }
 
-    }
-}
-            this.DataContext = this;  
-        }
+
+
+
 
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
 
             Button but = sender as Button;
             if (but != null)
-            {                
+            {
                 if (but.Name == "Valider")
                 {
 
-                    Article article = new Article(RefTextBox.Text,NomTextBox.Text,descriptTextBox.Text);
+                    Article article = new Article(RefTextBox.Text, NomTextBox.Text, descriptTextBox.Text);
                     JeuxTest.Articles.Add(article);
                 }
             }
-            
+
 
         }
     }
+    
 }
