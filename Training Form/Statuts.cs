@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Training_Form
 {
-    enum Statuts
+    public enum Statuts
     {
         Adulte,
         Etudiant,

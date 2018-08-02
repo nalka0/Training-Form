@@ -8,7 +8,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Formule : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
+    public class Formule : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
         #region variables
         private int _duree;
