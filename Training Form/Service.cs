@@ -72,7 +72,7 @@ namespace Training_Form
             get { return _finAbo; }
             set
             {
-                if (_debutAbo == new DateTime() || _debutAbo.CompareTo(value) < 0)
+                if (_debutAbo == new DateTime() || _debutAbo.CompareTo(value) >= 0)
                 {
                     DateTime stock = _finAbo;
                     BetterNotifyPropertyChanging(stock, value);
