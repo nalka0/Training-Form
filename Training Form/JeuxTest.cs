@@ -12,7 +12,6 @@ namespace Training_Form
         public static ObservableCollection<Article> Articles = new ObservableCollection<Article>();
         public static ObservableCollection<Client> Clients = new ObservableCollection<Client>();
         public static ObservableCollection<Salarie> Salaries = new ObservableCollection<Salarie>();
-        public static ObservableCollection<User> User = new ObservableCollection<User>();
         public static ObservableCollection<Service> Services = new ObservableCollection<Service>();
     }
 }
