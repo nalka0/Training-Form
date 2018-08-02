@@ -10,35 +10,35 @@
         <TextBox x:Name="tbNom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
         <TextBox x:Name="tbPrenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="120" Margin="199,10,0,0"/>
         <Label x:Name="lDateNaissance" Content="Date naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,33,0,0"/>
-        <DatePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,39,0,0" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Ville" VerticalAlignment="Top" Width="309" Margin="10,64,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rue" VerticalAlignment="Top" Width="309" Margin="10,92,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,120,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Telephone" VerticalAlignment="Top" Width="120" Margin="199,120,0,0"/>
-        <GroupBox Header="Statuts" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="89" Margin="41,170,0,0">
-            <StackPanel Width="90" Margin="0,0,0,-4">
-                <RadioButton Content="Adulte"/>
-                <RadioButton Content="Couple"/>
-                <RadioButton Content="Etudiant"/>
+        <DatePicker x:Name="tbDateNaissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,39,0,0" Width="120"/>
+        <TextBox x:Name="tbVille" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Ville" VerticalAlignment="Top" Width="309" Margin="10,64,0,0"/>
+        <TextBox x:Name="tbRue" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rue" VerticalAlignment="Top" Width="309" Margin="10,92,0,0"/>
+        <TextBox x:Name="tbMail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,120,0,0"/>
+        <TextBox x:Name="tbTelephone" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Telephone" VerticalAlignment="Top" Width="120" Margin="199,120,0,0"/>
+        <GroupBox x:Name="gbStatuts" Header="Statuts" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="89" Margin="41,170,0,0">
+            <StackPanel Width="79" Margin="0,0,0,-4">
+                <RadioButton x:Name="rbAdulte" Content="Adulte"/>
+                <RadioButton x:Name="rbCouple" Content="Couple"/>
+                <RadioButton x:Name="rbEtudiant" Content="Etudiant"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Sexe" HorizontalAlignment="Left" Height="93" VerticalAlignment="Top" Width="100" Margin="350,10,0,0">
+        <GroupBox x:Name="gbSexe" Header="Sexe" HorizontalAlignment="Left" Height="93" VerticalAlignment="Top" Width="100" Margin="350,10,0,0">
             <StackPanel Margin="0,0,0,-4" Width="90">
-                <RadioButton Content="Femme"/>
-                <RadioButton Content="Homme"/>
+                <RadioButton x:Name="rbFemme" Content="Femme"/>
+                <RadioButton x:Name="rbHomme" Content="Homme"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Intérêts" HorizontalAlignment="Left" Height="135" VerticalAlignment="Top" Width="100" Margin="350,148,0,0">
+        <GroupBox x:Name="gbInterets" Header="Intérêts" HorizontalAlignment="Left" Height="135" VerticalAlignment="Top" Width="100" Margin="350,148,0,0">
             <StackPanel Margin="0,0,0,-4" Width="90">
-                <CheckBox Content="Zumba"/>
-                <CheckBox Content="Fitness"/>
-                <CheckBox Content="Muscu"/>
-                <CheckBox Content="Cardio"/>
-                <CheckBox Content="Pilate"/>
+                <CheckBox x:Name="cbZumba" Content="Zumba"/>
+                <CheckBox x:Name="cbFitness" Content="Fitness"/>
+                <CheckBox x:Name="cbMuscu" Content="Muscu"/>
+                <CheckBox x:Name="cbCardio" Content="Cardio"/>
+                <CheckBox x:Name="cbPilate" Content="Pilate"/>
             </StackPanel>
         </GroupBox>
-        <Button Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="42,337,0,0"/>
-        <Button Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="375,337,0,0"/>
+        <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="42,337,0,0" Click="boutonAnnuler_Click"/>
+        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="375,337,0,0"/>
 
     </Grid>
 </Window>

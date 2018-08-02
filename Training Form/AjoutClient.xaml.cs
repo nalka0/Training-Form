@@ -19,11 +19,21 @@ namespace Training_Form
     /// </summary>
     public partial class AjoutClient : Window
     {
+        string nom;
+        string prenom;
+        DateTime dateNaissance;
+        string adresse;
+        string email;
+        string tel;
+
         public AjoutClient()
         {
             InitializeComponent();
         }
 
-        
+        private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
