@@ -31,12 +31,12 @@ namespace Training_Form
         string email;
         string telephone;
         string mobile;
-        string role;
         string password;
         DateTime dateEmbauche;
 
         private void boutonValider_Click(object sender, RoutedEventArgs e)
         {
+
             nom = textBoxNom.Text;
             prenom = textBoxPrenom.Text;
             dateNaissance = textBoxDateNaissance.DisplayDate;
@@ -44,13 +44,12 @@ namespace Training_Form
             email = textBoxEmail.Text;
             telephone = textBoxTelephone.Text;
             mobile = textBoxMobile.Text;
-            role = textBoxRole.Text;
             password = textBoxPassword.Text;
             dateEmbauche = textBoxDateEmbauche.DisplayDate;
-
             Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password);
             JeuxTest.Salaries.Add(salarie);
             this.Close();
+
         }
 
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)

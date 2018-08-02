@@ -109,7 +109,6 @@
                 <DataGrid Name="dataSalaries" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Salaries}">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Identifiant" Binding="{Binding Identifiant}"/>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
                         <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>

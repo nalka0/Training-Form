@@ -62,11 +62,9 @@ namespace Training_Form
             Salarie Sal1 = new Salarie("carrey", "florian", "flo@mail.fr", new DateTime(1995, 11, 01), Permissions.Salarie, new DateTime(2018, 06, 19), "test");
             Salarie Sal2 = new Salarie("martin", "toto", "toto@mail.fr", new DateTime(2000, 11, 01), Permissions.Salarie, new DateTime(2018, 06, 19), "test1");
             Salarie Sal3 = new Salarie("machin", "marc", "marc@mail.fr", new DateTime(1993, 02, 08), Permissions.Salarie, new DateTime(2018, 06, 19), "test2");
-
             JeuxTest.Salaries.Add(Sal1);
             JeuxTest.Salaries.Add(Sal2);
             JeuxTest.Salaries.Add(Sal3);
-
             base.Run();
         }
     }
