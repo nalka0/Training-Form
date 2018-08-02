@@ -5,44 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="AjoutUser" Height="504.771" Width="550.632">
+        Title="AjoutUser" Height="363.771" Width="393.632">
     <Grid Margin="0,0,2,-21">
         <TextBox x:Name="textBoxNom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <TextBox x:Name="textBoxPrenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prénom" VerticalAlignment="Top" Width="120" Margin="135,10,0,0"/>
-        <DatePicker x:Name="textBoxDateNaissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
-        <TextBox x:Name="textBoxAdresse1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="245" Margin="10,68,0,0"/>
-        <TextBox x:Name="textBoxAdresse2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="245" Margin="10,96,0,0"/>
+        <TextBox x:Name="textBoxPrenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prénom" VerticalAlignment="Top" Width="120" Margin="224,10,0,0"/>
+        <DatePicker x:Name="textBoxDateNaissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
+        <TextBox x:Name="textBoxAdresse1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,68,0,0"/>
+        <TextBox x:Name="textBoxAdresse2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,96,0,0"/>
         <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,124,0,0"/>
         <TextBox x:Name="textBoxTelephone" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Téléphone" VerticalAlignment="Top" Width="120" Margin="10,152,0,0"/>
-        <TextBox x:Name="textBoxMobile" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Mobile" VerticalAlignment="Top" Width="120" Margin="135,152,0,0"/>
-        <GroupBox x:Name="groupBoxStatuts" Header="Statuts" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="99" Margin="2,254,0,0">
-            <StackPanel Width="89" Margin="0,0,0,-7">
-                <RadioButton x:Name="radioEtudiant" Content="Etudiant"/>
-                <RadioButton x:Name="radioCouple" Content="Couple"/>
-            </StackPanel>
-
-        </GroupBox>
-        <GroupBox x:Name="groupBoxSexe" Header="Sexe" HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="100" Margin="284,10,0,0">
-            <StackPanel Width="90" Margin="0,0,0,-9">
-                <RadioButton x:Name="radioHomme" Content="Homme"/>
-                <RadioButton x:Name="radioFemme" Content="Femme"/>
-            </StackPanel>
-        </GroupBox>
-        <GroupBox x:Name="groupBoxInterets" Header="Intérêts" HorizontalAlignment="Left" Height="146" VerticalAlignment="Top" Width="100" Margin="284,130,0,0">
-            <StackPanel Width="90" Margin="0,0,0,2">
-                <CheckBox x:Name="checkZumba" Content="Zumba"/>
-                <CheckBox x:Name="checkFitness" Content="Fitness"/>
-                <CheckBox x:Name="checkMuscu" Content="Muscu"/>
-                <CheckBox x:Name="checkCardio" Content="Cardio"/>
-                <CheckBox x:Name="checkPilate" Content="Pilate"/>
-            </StackPanel>
-        </GroupBox>
-        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="296,314,0,0" Click="boutonValider_Click"/>
-        <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="106,314,0,0" Click="boutonAnnuler_Click"/>
-        <TextBox x:Name="textBoxPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Margin="135,180,0,0"/>
-        <DatePicker x:Name="textBoxDateEmbauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,208,0,0" Width="120"/>
-        <TextBox x:Name="textBoxRole" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rôle" VerticalAlignment="Top" Width="120" Margin="10,180,0,0"/>
-        <Label Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,207,0,0"/>
+        <TextBox x:Name="textBoxMobile" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Mobile" VerticalAlignment="Top" Width="120" Margin="224,152,0,0"/>
+        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="256,258,0,0" Click="boutonValider_Click"/>
+        <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="10,258,0,0" Click="boutonAnnuler_Click"/>
+        <TextBox x:Name="textBoxPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Margin="224,124,0,0"/>
+        <DatePicker x:Name="textBoxDateEmbauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,181,0,0" Width="120"/>
+        <Label x:Name="labelDateEmbauche" Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,180,0,0"/>
         <Label Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>
 
     </Grid>

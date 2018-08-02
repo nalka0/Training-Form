@@ -24,8 +24,7 @@ namespace Training_Form
         {
             this.WindowState = WindowState.Maximized;
             InitializeComponent();
-            this.DataContext = this;
-            emplacementActuel.Content = "Gestion Client";
+            this.DataContext = this;            
             dataArticles.ItemsSource = JeuxTest.Articles;
             dataClients.ItemsSource = JeuxTest.Clients;
             dataServices.ItemsSource = JeuxTest.Services;
@@ -37,7 +36,19 @@ namespace Training_Form
         {
             TabItem tab = sender as TabItem;
             emplacementActuel.Content = String.Format("Gestion {0}", tab.Name);
-            ajoutElement.Content = String.Format("Ajouter {0}", tab.Name);
+            switch (tab.Name)
+            {
+                case "Service":
+                    ajoutElement.Content="";
+                    break;
+                case "Article":
+                    ;
+                    break;
+                case "Salarie":
+                    ;
+                    break;
+            }
+
         }
 
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
@@ -53,6 +64,9 @@ namespace Training_Form
                     break;
                 case "Salarie":
                     AddSalarie();
+                    break;
+                case "Client":
+                    AddClient();
                     break;
             }
         }
@@ -77,6 +91,11 @@ namespace Training_Form
         void AddSalarie()
         {
             AjoutUser fenetreAjout = new AjoutUser();
+            fenetreAjout.ShowDialog();
+        }
+        void AddClient()
+        {
+            AjoutClient fenetreAjout = new AjoutClient();
             fenetreAjout.ShowDialog();
         }
         #endregion

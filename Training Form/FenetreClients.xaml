@@ -7,26 +7,6 @@
         mc:Ignorable="d"
         Title="FenetreClients" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="DonneesClients" Background="#FFE5E5E5" Margin="0,0,1,-4" ItemsSource="{Binding listeClients}" AutoGenerateColumns="False" ColumnWidth="auto">
-            <DataGrid.Columns>
-
-                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Mail" Binding="{Binding Email}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Interets" Binding="{Binding Interets}" IsReadOnly="True" />
-                <DataGridTextColumn Header="Justificatif" Binding="{Binding Justificatif}" IsReadOnly="True" />
-                <DataGridTemplateColumn Header=" Modifier">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="Modifier" Name="modifierSalarie"/>
-                            <!--Click="modifierSalarie_Click" />-->
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-
-        </DataGrid>
-
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
     </Grid>
 </Window>

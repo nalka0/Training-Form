@@ -30,7 +30,6 @@ namespace Training_Form
             InitializeComponent();
             this.DataContext = this;
             listeClients = new ObservableCollection<Client>();
-            DonneesClients.ItemsSource = listeClients;
             Console.WriteLine(Cl1.getAge());
             Console.WriteLine(Cl2.getAge());
             Console.WriteLine(Cl3.getAge());
