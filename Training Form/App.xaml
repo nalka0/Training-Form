@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Training_Form"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!--Exemple de style pour un bouton personnalisé-->
+        <!--<Style x:Key="adduser" TargetType="{x:Type Button}">
+            <Setter Property="Button.Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="images\adduser.png" />
+                </Setter.Value>
+            </Setter>
+        </Style>-->
     </Application.Resources>
 </Application>

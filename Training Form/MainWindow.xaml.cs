@@ -40,7 +40,27 @@ namespace Training_Form
 
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
         {
-            
+            TabItem ongletActuel = onglets.SelectedItem as TabItem;
+            switch (ongletActuel.Name)
+            {
+                case "Service":
+                    addService();
+                    break;
+            }
+        }
+
+        void addService()
+        {
+            ajouterService fenetreAjout = new ajouterService();
+            fenetreAjout.ShowDialog();
+            //J'ai créé la liste ici temporairement, il faudra se servir d'une liste qui sera utilisée globalement
+            //une fois que vous l'aurez créée
+            List<Services> listeServices = new List<Services>();
+            string nomNouveauService = fenetreAjout.nomTB.Text;
+            int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
+            string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
+            DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.Value;
+            listeServices.Add(new Services(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
         }
     }
 }

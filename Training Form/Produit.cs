@@ -8,7 +8,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-  public  class Produit : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
+  public abstract class Produit : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
         private string _codeProduit;
         private string _nom;
@@ -57,6 +57,13 @@ namespace Training_Form
                     BetterNotifyPropertyChanged(stock, value);
                 }
             }
+        }
+
+        public Produit(string codeProduit, string nom, string description)
+        {
+            CodeProduit = codeProduit;
+            Nom = nom;
+            Description = description;
         }
 
         #region notify d'Alan
