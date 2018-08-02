@@ -105,13 +105,38 @@ namespace Training_Form
             }
         }
 
-        public Service(int duree, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
+        /// <summary>
+        /// Créé un <see cref="Service"/> avec une durée en semaines.
+        /// </summary>
+        /// <param name="debut">Date de début du service</param>
+        /// <param name="dureeSemaines">Durée du service en semaines</param>
+        /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
+        /// <param name="nom">Nom du service</param>
+        /// <param name="description">Description du service</param>
+        public Service(DateTime debut, int dureeSemaines, string codeProduit, string nom, string description)
             : base(codeProduit, nom, description)
         {
-            _duree = duree;
+            Duree = dureeSemaines;
             DebutAbo = debut;
-            _seances = seances;
-            FinAbo = _debutAbo.AddMonths(duree);
+            FinAbo = debut.AddDays(Duree * 7);
+        }
+
+        /// <summary>
+        /// Créé un <see cref="Service"/> avec une durée en mois.
+        /// </summary>
+        /// <param name="dureeMois">Durée du service en mois</param>
+        /// <param name="debut">Date de début du service</param>
+        /// <param name="codeProduit">Code d'identification du produit, sera peut-être supprimé dans des versions futures</param>
+        /// <param name="nom">Nom du service</param>
+        /// <param name="description">Description du service</param>
+        /// <param name="seances">Nombre de séances avant expiration</param>
+        public Service(int dureeMois, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
+            : base(codeProduit, nom, description)
+        {
+            Duree = dureeMois;
+            DebutAbo = debut;
+            Seances = seances;
+            FinAbo = debut.AddMonths(dureeMois);
         }
     }
 }
