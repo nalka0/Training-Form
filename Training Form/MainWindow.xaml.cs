@@ -31,7 +31,8 @@ namespace Training_Form
             dataServices.ItemsSource = JeuxTest.Services;
             dataSalaries.ItemsSource = JeuxTest.Salaries;
         }
-        
+
+        #region evenements
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
@@ -55,7 +56,9 @@ namespace Training_Form
                     break;
             }
         }
+        #endregion
 
+        #region methodes
         void addService()
         {
             ajouterService fenetreAjout = new ajouterService();
@@ -76,6 +79,6 @@ namespace Training_Form
             AjoutUser fenetreAjout = new AjoutUser();
             fenetreAjout.ShowDialog();
         }
-
+        #endregion
     }
 }
