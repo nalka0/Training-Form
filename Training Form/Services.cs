@@ -105,6 +105,15 @@ namespace Training_Form
             }
         }
 
+        /// <summary>
+        /// Créé un nouveau service.
+        /// </summary>
+        /// <param name="duree">Durée du service en mois</param>
+        /// <param name="debut">Date de début du service</param>
+        /// <param name="codeProduit">Code d'identification du produit, sera peut-être supprimé dans des versions futures</param>
+        /// <param name="nom">Nom du service.</param>
+        /// <param name="description">Description du service</param>
+        /// <param name="seances">Nombre de séances avant expiration. Ce paramètre est optionnel et sera défini à 0 s'il n'est pas renseigné</param>
         public Services(int duree, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
             : base(codeProduit, nom, description)
         {
