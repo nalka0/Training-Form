@@ -44,8 +44,8 @@ namespace Training_Form
         #endregion
 
         #region constructeurs
-        public Salarie(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, DateTime dateEmbauche, string password)
-           : base(nom, prenom, mail, dateEmbauche, permission)
+        public Salarie(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, DateTime dateEmbauche, string password, string numTelephonne)
+           : base(nom, prenom, mail, dateEmbauche, permission, numTelephonne)
         {
             DateEmbauche = dateEmbauche;
             Password = password;

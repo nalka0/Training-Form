@@ -99,7 +99,7 @@ namespace Training_Form
                 {
                     MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                
+
             }
         }
 
@@ -136,7 +136,7 @@ namespace Training_Form
                 if (argsChanging == null || argsChanging.Cancel)
                 {
                     _identifiant = value;
-                    BetterNotifyPropertyChanged(stock ,value);
+                    BetterNotifyPropertyChanged(stock, value);
                 }
             }
         }
@@ -160,6 +160,35 @@ namespace Training_Form
             }
         }
 
+        private string _numTelephonne;
+        /// <summary>
+        /// Numéro de téléphonne du <see cref="User"/>
+        /// </summary>
+        public string NumTelephonne
+        {
+            get { return _numTelephonne; }
+            set
+            {
+                foreach (char character in value)
+                {
+                    if (!Char.IsDigit(character))
+                    {
+                        MessageBox.Show("Le numéro de téléphonne " + value + " n'est pas valide", "Muavais numéro de teléphonne", MessageBoxButton.OK, MessageBoxImage.Error);
+                        value = "";
+                    }
+                }
+                if (value.Length == 10)
+                {
+                    string stock = _numTelephonne;
+                    BetterNotifyPropertyChanging(stock, value);
+                    if (argsChanging == null || !argsChanging.Cancel)
+                    {
+                        BetterNotifyPropertyChanged(stock, value);
+                        _numTelephonne = value;
+                    }
+                }
+            }
+        }
         private static int nombreUsers;
         #endregion
 
@@ -192,7 +221,7 @@ namespace Training_Form
         /// <summary>
         /// Constructeur de <see cref="User"/>
         /// </summary>
-        public User(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission)
+        public User(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, string numTelephonne)
         {
             Nom = nom;
             Prenom = prenom;
@@ -200,6 +229,7 @@ namespace Training_Form
             DateNaissance = dateNaissance;
             Permission = permission;
             Identifiant = nombreUsers;
+            NumTelephonne = numTelephonne;
             nombreUsers++;
         }
         #endregion
