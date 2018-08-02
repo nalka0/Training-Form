@@ -26,12 +26,12 @@ namespace Training_Form
             this.Closing += AjoutClient_Closing;
         }
 
-        private void AjoutClient_Loaded(object sender, RoutedEventArgs e)
+        public void AjoutClient_Loaded(object sender, RoutedEventArgs e)
         {
             tbDateNaissance.SelectedDate = DateTime.Now;
         }
 
-        private void AjoutClient_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        public void AjoutClient_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
                 e.Cancel = true;
@@ -47,14 +47,14 @@ namespace Training_Form
 
         }
 
-        private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
+        public void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
         }
 
-        private void boutonValider_Click(object sender, RoutedEventArgs e)
+        public void boutonValider_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
 }

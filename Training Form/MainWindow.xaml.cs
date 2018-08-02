@@ -107,9 +107,21 @@ namespace Training_Form
             string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
             string email = fenetreAjout.tbMail.Text;
             string tel = fenetreAjout.tbTelephone.Text;
-            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets", tel, "adresse de jean michel pierre paul");
+            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, "adresse de jean michel pierre paul");
             JeuxTest.Clients.Add(client);
         }
         #endregion
+
+        private void editerClient_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutClient test = new AjoutClient();
+            test.Loaded -= test.AjoutClient_Loaded;
+            test.Closing -= test.AjoutClient_Closing;
+            test.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
+            test.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
+            test.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
+            test.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
+            test.ShowDialog();
+        }
     }
 }

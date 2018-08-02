@@ -75,20 +75,17 @@ namespace Training_Form
         public decimal PrixHT
         {
             get { return _prixHT; }
-
             set { _prixHT = value; }
 
         }
         public decimal TauxTVA
         {
             get { return _tauxTVA; }
-
             set { _tauxTVA = value; }
         }
         public decimal PrixTTC
         {
             get { return _prixTTC; }
-
             set { _prixTTC = value; }
         }
         #endregion
