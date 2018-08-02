@@ -93,9 +93,6 @@
     </Compile>
     <Compile Include="Article.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="FenetreClients.xaml.cs">
-      <DependentUpon>FenetreClients.xaml</DependentUpon>
-    </Compile>
     <Compile Include="JeuxTest.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -121,10 +118,6 @@
     <Page Include="AjoutUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FenetreClients.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

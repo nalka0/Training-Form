@@ -19,16 +19,32 @@ namespace Training_Form
     /// </summary>
     public partial class AjoutClient : Window
     {
-        string nom;
-        string prenom;
-        DateTime dateNaissance;
-        string adresse;
-        string email;
-        string tel;
-
         public AjoutClient()
         {
             InitializeComponent();
+            this.Loaded += AjoutClient_Loaded;
+            this.Closing += AjoutClient_Closing;
+        }
+
+        private void AjoutClient_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbDateNaissance.SelectedDate = DateTime.Now;
+        }
+
+        private void AjoutClient_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
+                e.Cancel = true;
+            if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains("."))
+                e.Cancel = true;
+            foreach (char character in tbTelephone.Text)
+            {
+                if (!Char.IsDigit(character))
+                    e.Cancel = true;
+            }
+            if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0')
+                e.Cancel = true;
+
         }
 
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
@@ -38,15 +54,6 @@ namespace Training_Form
 
         private void boutonValider_Click(object sender, RoutedEventArgs e)
         {
-            nom = tbNom.Text;
-            prenom = tbPrenom.Text;
-            dateNaissance = tbDateNaissance.DisplayDate;
-            adresse = tbVille.Text + tbRue.Text;
-            email = tbMail.Text;
-            tel = tbTelephone.Text;
-
-            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets", tel);
-            JeuxTest.Clients.Add(client);
             this.Close();
         }
     }

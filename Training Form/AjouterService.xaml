@@ -21,8 +21,8 @@
         <Button x:Name="valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="60,233.218,0,0" Click="valider_Click" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="nomTB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="nom" VerticalAlignment="Top" Width="120" Margin="40,73.218,0,0" Grid.Column="1" Grid.Row="1"/>
         <TextBox x:Name="descriptionTB" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="description" VerticalAlignment="Top" Width="120" Margin="123,61,0,0" Grid.ColumnSpan="2"/>
-        <xctk:DateTimePicker x:Name="debutDTP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="79,58.218,0,0" Grid.Row="1"/>
         <xctk:IntegerUpDown x:Name="dureeNUD" Grid.Column="2" HorizontalAlignment="Left" Margin="62,73,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178"/>
+        <DatePicker x:Name="debutDTP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="77,108,0,0" Grid.Row="1"/>
 
     </Grid>
 </Window>

@@ -22,6 +22,19 @@ namespace Training_Form
         public AjoutUser()
         {
             InitializeComponent();
+            this.Loaded += AjoutUser_Loaded;
+            this.Closing += AjoutUser_Closing;
+        }
+
+        private void AjoutUser_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBoxDateNaissance.SelectedDate = DateTime.Now;
+        }
+
+        private void AjoutUser_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (DateTime.Compare((DateTime)textBoxDateNaissance.SelectedDate, DateTime.Now) >= 0)
+                e.Cancel = true;
         }
 
         string nom;
@@ -29,8 +42,6 @@ namespace Training_Form
         DateTime dateNaissance;
         string adresse;
         string email;
-        string telephone;
-        string mobile;
         string password;
         DateTime dateEmbauche;
         string numTelephonne;
@@ -41,20 +52,17 @@ namespace Training_Form
             dateNaissance = textBoxDateNaissance.DisplayDate;
             adresse = textBoxAdresse1.Text + textBoxAdresse2.Text;
             email = textBoxEmail.Text;
-            telephone = textBoxTelephone.Text;
-            mobile = textBoxMobile.Text;
             password = textBoxPassword.Text;
             dateEmbauche = textBoxDateEmbauche.DisplayDate;
             numTelephonne = numTelephonneTB.Text;
             Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne);
             JeuxTest.Salaries.Add(salarie);
-            this.Close();
-
+            Close();
         }
 
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Hide();
         }
     }
 }

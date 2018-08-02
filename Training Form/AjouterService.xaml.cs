@@ -24,6 +24,15 @@ namespace Training_Form
         public ajouterService()
         {
             InitializeComponent();
+            this.Closing += AjouterService_Closing;
+        }
+
+        private void AjouterService_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (DateTime.Compare((DateTime)debutDTP.SelectedDate, DateTime.Now) >= 0)
+                e.Cancel = true;
+            if (dureeNUD.Value < 0)
+                e.Cancel = true;
         }
 
         private void annuler_Click(object sender, RoutedEventArgs e)
@@ -41,7 +50,7 @@ namespace Training_Form
         private void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)
         {
             dureeNUD.Value = 0;
-            debutDTP.Value = DateTime.Now;
+            debutDTP.SelectedDate = DateTime.Now;
         }
     }
 }

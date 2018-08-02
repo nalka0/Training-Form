@@ -80,7 +80,7 @@ namespace Training_Form
             string nomNouveauService = fenetreAjout.nomTB.Text;
             int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
             string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
-            DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.Value;
+            DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
             JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
         }
         void AddArticle()
@@ -97,6 +97,14 @@ namespace Training_Form
         {
             AjoutClient fenetreAjout = new AjoutClient();
             fenetreAjout.ShowDialog();
+            string nom = fenetreAjout.tbNom.Text;
+            string prenom = fenetreAjout.tbPrenom.Text;
+            DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
+            string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
+            string email = fenetreAjout.tbMail.Text;
+            string tel = fenetreAjout.tbTelephone.Text;
+            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets", tel);
+            JeuxTest.Clients.Add(client);
         }
         #endregion
     }
