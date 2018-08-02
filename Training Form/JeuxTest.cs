@@ -9,7 +9,10 @@ namespace Training_Form
 {
     public static class  JeuxTest
     {
+
         public static ObservableCollection<Article> Articles = new ObservableCollection<Article>();
         public static ObservableCollection<Client> Clients = new ObservableCollection<Client>();
+        public static ObservableCollection<Service> Services = new ObservableCollection<Service>();
+
     }
 }

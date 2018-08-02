@@ -9,7 +9,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Service : Produit
+    public class Service : Produit
     {
         private int _duree;
         private int _seances;
@@ -105,40 +105,13 @@ namespace Training_Form
             }
         }
 
-        /// <summary>
-        /// Créé un nouveau service avec un durée en semaines
-        /// </summary>
-        /// <param name="debut">Date de début du service</param>
-        /// <param name="dureeSemaines">Durée du service en mois</param>
-        /// <param name="codeProduit">Code d'identification du produit, sera peut-être supprimé dans des versions futures</param>
-        /// <param name="nom">Nom du service.</param>
-        /// <param name="description">Description du service.</param>
-        public Service(DateTime debut, int dureeSemaines, string codeProduit, string nom, string description)
-            :base(codeProduit, nom, description)
-        {
-            DebutAbo = debut;
-            Duree = dureeSemaines;
-            CodeProduit = codeProduit;
-            Nom = nom;
-            Description = description;
-            FinAbo = debut.AddDays(dureeSemaines * 7);
-        }
-        /// <summary>
-        /// Créé un nouveau service avec un durée en mois.
-        /// </summary>
-        /// <param name="dureeMois">Durée du service en mois</param>
-        /// <param name="debut">Date de début du service</param>
-        /// <param name="codeProduit">Code d'identification du produit, sera peut-être supprimé dans des versions futures</param>
-        /// <param name="nom">Nom du service.</param>
-        /// <param name="description">Description du service</param>
-        /// <param name="seances">Nombre de séances avant expiration. Ce paramètre est optionnel et sera défini à 0 s'il n'est pas renseigné</param>
-        public Service(int dureeMois, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
+        public Service(int duree, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
             : base(codeProduit, nom, description)
         {
-            Duree = dureeMois;
+            _duree = duree;
             DebutAbo = debut;
-            Seances = seances;
-            FinAbo = _debutAbo.AddMonths(dureeMois);
+            _seances = seances;
+            FinAbo = _debutAbo.AddMonths(duree);
         }
     }
 }
