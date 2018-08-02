@@ -5,19 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="ProduitWind" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="792" ItemsSource="{Binding CollectionArticles}" Margin="0,52,0,0">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Code Produit" Binding="{Binding CodeProduit}" Width="120" />
-                <DataGridTextColumn Header="Nom" Binding="{Binding Nom}" Width="60" />
-                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300"/>
-            </DataGrid.Columns>
-        </DataGrid>
-                  
+        Title="Ajout d'un nouvelle article" Height="360" Width="701">
+    <Grid Margin="0,0,2,0">
 
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="52" Stroke="Black" VerticalAlignment="Top" Width="532"/>
-        <Label Content="Gestion Produits" HorizontalAlignment="Left" Margin="22,0,0,0" VerticalAlignment="Top" Width="231" Height="42" FontSize="30"/>
-        <TextBox x:Name="barreDeRecherche" HorizontalAlignment="Left" Height="23" Margin="386,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Reference" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>
+        <TextBox HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Desciption" VerticalAlignment="Top" Width="319"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="225,257,0,0" TextWrapping="Wrap" Text="Prix TTC" VerticalAlignment="Top" Width="50" IsReadOnly="True"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="192" Margin="427,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="197" Grid.ColumnSpan="2"/>
+        <Button x:Name="Valider" Content="Valider" HorizontalAlignment="Left" Margin="549,257,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Annuler" Content="Annuler" HorizontalAlignment="Left" Margin="427,257,0,0" VerticalAlignment="Top" Width="86" Grid.ColumnSpan="2"/>
+
     </Grid>
 </Window>

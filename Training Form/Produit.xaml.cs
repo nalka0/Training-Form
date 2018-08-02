@@ -38,5 +38,6 @@ namespace Training_Form
             CollectionArticles.Add(proteine4);
             CollectionArticles.Add(proteine3);
         }
+
     }
 }
