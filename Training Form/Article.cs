@@ -9,6 +9,7 @@ namespace Training_Form
 {
     public class Article : Produit
     {
+        #region variables
         private Image _imageProduit;
 
         public Image ImageProduit
@@ -23,14 +24,19 @@ namespace Training_Form
                     _imageProduit = value;
                     BetterNotifyPropertyChanging(stock, value);
                 }
-                _imageProduit = value;
             }
         }
+        #endregion
 
+        #region constructeurs
         public Article(string codeProduit, string nom, string description)
             :base (codeProduit, nom, description)
         {
 
         }
+        #endregion
+
+        #region methodes
+        #endregion
     }
 }

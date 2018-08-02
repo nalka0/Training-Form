@@ -10,6 +10,7 @@ namespace Training_Form
 {
     class Formule : IBetterNotifyPropertyChanged, IBetterNotifyPropertyChanging
     {
+        #region variables
         private int _duree;
         public int Duree
         {
@@ -107,6 +108,9 @@ namespace Training_Form
         }
 
         private static int nombreFormules = 0;
+        #endregion
+
+        #region constructeurs
         /// <summary>
         /// Créé une nouvelle formule avec la durée, le statut et le nom specifié.
         /// </summary>
@@ -124,6 +128,11 @@ namespace Training_Form
             _prix = prix;
             nombreFormules++;
         }
+        #endregion
+        
+        #region methodes
+        #endregion
+
         #region notify
         public event BetterPropertyChangedEventHandler PropertyChanged;
         public event BetterPropertyChangingEventHandler PropertyChaning;
