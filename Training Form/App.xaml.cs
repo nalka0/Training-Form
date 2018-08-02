@@ -37,7 +37,7 @@ namespace Training_Form
             JeuxTest.Clients.Add(Cl2);
             JeuxTest.Clients.Add(Cl3);
 
-            Service AboDouzeMoisCours = new Service(12, new DateTime(2018, 08, 02), "00055588889", "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0);
+            Service AboDouzeMoisCours = new Service(12, new DateTime(2019, 08, 02), "00055588889", "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0);
             Service AboDouzeMois = new Service(12, new DateTime(2017, 09, 06), "00096878412", "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0);
             Service AboSixMoisCours = new Service(6, new DateTime(2018, 05, 15), "00054123687", "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0);
             Service AboSixMois = new Service(6, new DateTime(2017, 01, 02), "00054879132", "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0);

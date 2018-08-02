@@ -13,9 +13,6 @@ namespace Training_Form
         private DateTime _dateEmbauche;
         private string _password;
 
-
-        
-
         public Salarie(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, string numSalarie, string role, DateTime dateEmbauche, string password)
            : base( nom, prenom, mail, dateEmbauche, permission)
         {
@@ -62,7 +59,7 @@ namespace Training_Form
             } 
         }
 
-        public  bool Equals(Salarie sal)
+        public bool Equals(Salarie sal)
         {
             return this.NumSalarie == sal.NumSalarie;
         }
@@ -70,9 +67,6 @@ namespace Training_Form
         {
             return NumSalarie.GetHashCode();
         }
-
     }
-    public class MalisteSalaries : List<Salarie> { }
-
 }
 

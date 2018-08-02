@@ -11,6 +11,7 @@ namespace Training_Form
 {
     public class Service : Produit
     {
+        #region variables
         private int _duree;
         private int _seances;
         private DateTime _debutAbo;
@@ -71,7 +72,7 @@ namespace Training_Form
             get { return _finAbo; }
             set
             {
-                if (_debutAbo == new DateTime() || _debutAbo.CompareTo(value) < 0)
+                if (_debutAbo == new DateTime() || DateTime.Compare(_debutAbo, value) <= 0)
                 {
                     DateTime stock = _finAbo;
                     BetterNotifyPropertyChanging(stock, value);
@@ -104,7 +105,9 @@ namespace Training_Form
                 }
             }
         }
+        #endregion
 
+        #region Constructeurs
         /// <summary>
         /// Créé un <see cref="Service"/> avec une durée en semaines.
         /// </summary>
@@ -138,5 +141,9 @@ namespace Training_Form
             Seances = seances;
             FinAbo = debut.AddMonths(dureeMois);
         }
+        #endregion
+
+        #region methodes
+        #endregion
     }
 }

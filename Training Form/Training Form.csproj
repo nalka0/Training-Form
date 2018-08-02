@@ -85,6 +85,9 @@
     <Compile Include="AjouterService.xaml.cs">
       <DependentUpon>AjouterService.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AjoutUser.xaml.cs">
+      <DependentUpon>AjoutUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Article.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="FenetreClients.xaml.cs">
@@ -105,6 +108,10 @@
     <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
     <Page Include="AjouterService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AjoutUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -140,9 +140,30 @@ namespace Training_Form
                 }
             }
         }
+
+        private string _adresse;
+        /// <summary>
+        /// Identifiant du <see cref="User"/>
+        /// </summary>
+        public string Adresse
+        {
+            get { return _adresse; }
+            set
+            {
+                string stock = _adresse;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _adresse = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
         #endregion
 
         private static int nombreUsers;
+        #endregion
+
         #region notify
         public event BetterPropertyChangedEventHandler PropertyChanged;
         public event BetterPropertyChangingEventHandler PropertyChanging;
@@ -168,6 +189,7 @@ namespace Training_Form
         }
         #endregion
 
+        #region constructeurs
         /// <summary>
         /// Constructeur de <see cref="User"/>
         /// </summary>
@@ -178,10 +200,12 @@ namespace Training_Form
             Mail = mail;
             DateNaissance = dateNaissance;
             Permission = permission;
-            _identifiant = nombreUsers;
+            Identifiant = nombreUsers;
             nombreUsers++;
         }
+        #endregion
 
+        #region methodes
         /// <summary>
         /// Retourne l'âge du <see cref="User"/>
         /// </summary>
@@ -194,5 +218,6 @@ namespace Training_Form
             }
             return DateTime.Now.Year - DateNaissance.Year + modif;
         }
+        #endregion
     }
 }

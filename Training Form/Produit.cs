@@ -88,7 +88,7 @@ namespace Training_Form
         #region methodes
         #endregion
 
-        #region notify d'Alan
+        #region notify
         public event BetterPropertyChangedEventHandler PropertyChanged;
         public event BetterPropertyChangingEventHandler PropertyChanging;
         internal BetterPropertyChangedEventArgs argsChanged;
