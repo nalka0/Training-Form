@@ -65,7 +65,7 @@ namespace Training_Form
         void AddArticle()
         {
             ProduitWind fenetreAjout = new ProduitWind();
-            fenetreAjout.Show();
+            fenetreAjout.ShowDialog();
         }
     }
 }

@@ -42,11 +42,16 @@ namespace Training_Form
 
                     Article article = new Article(RefTextBox.Text, NomTextBox.Text, descriptTextBox.Text);
                     JeuxTest.Articles.Add(article);
-                }
+                    this.Close();
+                }            
             }
+
+          
 
 
         }
+
+
     }
     
 }
