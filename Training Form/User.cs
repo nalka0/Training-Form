@@ -143,7 +143,7 @@ namespace Training_Form
 
         private string _adresse;
         /// <summary>
-        /// Identifiant du <see cref="User"/>
+        /// Adresse du <see cref="User"/>
         /// </summary>
         public string Adresse
         {
