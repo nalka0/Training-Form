@@ -46,6 +46,9 @@ namespace Training_Form
                 case "Service":
                     addService();
                     break;
+                case "Article":
+                    AddArticle();
+                    break;
             }
         }
 
@@ -58,6 +61,11 @@ namespace Training_Form
             string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
             DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.Value;
             JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+        }
+        void AddArticle()
+        {
+            ProduitWind fenetreAjout = new ProduitWind();
+            fenetreAjout.Show();
         }
     }
 }
