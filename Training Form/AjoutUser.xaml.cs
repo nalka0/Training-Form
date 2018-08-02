@@ -66,7 +66,7 @@ namespace Training_Form
             password = textBoxPassword.Text;
             dateEmbauche = textBoxDateEmbauche.DisplayDate;
             numTelephonne = numTelephonneTB.Text;
-            Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne);
+            Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, "adresse de jean michel pierre paul");
             JeuxTest.Salaries.Add(salarie);
             Close();
         }

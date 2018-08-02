@@ -39,14 +39,18 @@ namespace Training_Form
             switch (tab.Name)
             {
                 case "Service":
-                    ajoutElement.Content="";
+                   ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.Dumbbell, Height = 24, Width = 24};
                     break;
                 case "Article":
-                    ;
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.PlusBoxOutline, Height = 24, Width = 24};
                     break;
                 case "Salarie":
-                    ;
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24};
                     break;
+                case "Client":
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24};
+                    break;
+
             }
 
         }
@@ -103,7 +107,7 @@ namespace Training_Form
             string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
             string email = fenetreAjout.tbMail.Text;
             string tel = fenetreAjout.tbTelephone.Text;
-            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets", tel);
+            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets", tel, "adresse de jean michel pierre paul");
             JeuxTest.Clients.Add(client);
         }
         #endregion

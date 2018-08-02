@@ -14,6 +14,9 @@ namespace Training_Form
         private string _codeProduit;
         private string _nom;
         private string _description;
+        private decimal _prixHT;
+        private decimal _tauxTVA;
+        private decimal _prixTTC;
 
         /// <summary>
         /// Code permettant d'identifier le produit
@@ -68,6 +71,26 @@ namespace Training_Form
                 }
             }
         }
+
+        public decimal PrixHT
+        {
+            get { return _prixHT; }
+
+            set { _prixHT = value; }
+
+        }
+        public decimal TauxTVA
+        {
+            get { return _tauxTVA; }
+
+            set { _tauxTVA = value; }
+        }
+        public decimal PrixTTC
+        {
+            get { return _prixTTC; }
+
+            set { _prixTTC = value; }
+        }
         #endregion
 
         #region constructeurs
@@ -77,7 +100,7 @@ namespace Training_Form
         /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
         /// <param name="nom">Nom du produit</param>
         /// <param name="description">Description du produit</param>
-        public Produit(string codeProduit, string nom, string description)
+        public Produit(string codeProduit, string nom, string description) //, decimal prixHT, decimal tauxTVA
         {
             CodeProduit = codeProduit;
             Nom = nom;

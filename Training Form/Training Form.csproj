@@ -97,6 +97,9 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModifierArticle.xaml.cs">
+      <DependentUpon>ModifierArticle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Permissions.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="Produit.xaml.cs">
@@ -127,6 +130,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModifierArticle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Produit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -160,13 +160,13 @@ namespace Training_Form
             }
         }
 
-        private string _numTelephonne;
+        private string _numTelephone;
         /// <summary>
         /// Numéro de téléphonne du <see cref="User"/>
         /// </summary>
-        public string NumTelephonne
+        public string NumTelephone
         {
-            get { return _numTelephonne; }
+            get { return _numTelephone; }
             set
             {
                 foreach (char character in value)
@@ -179,12 +179,12 @@ namespace Training_Form
                 }
                 if (value.Length == 10)
                 {
-                    string stock = _numTelephonne;
+                    string stock = _numTelephone;
                     BetterNotifyPropertyChanging(stock, value);
                     if (argsChanging == null || !argsChanging.Cancel)
                     {
                         BetterNotifyPropertyChanged(stock, value);
-                        _numTelephonne = value;
+                        _numTelephone = value;
                     }
                 }
             }
@@ -221,7 +221,7 @@ namespace Training_Form
         /// <summary>
         /// Constructeur de <see cref="User"/>
         /// </summary>
-        public User(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, string numTelephonne)
+        public User(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, string numTelephonne, string adresse)
         {
             Nom = nom;
             Prenom = prenom;
@@ -229,7 +229,8 @@ namespace Training_Form
             DateNaissance = dateNaissance;
             Permission = permission;
             Identifiant = nombreUsers;
-            NumTelephonne = numTelephonne;
+            NumTelephone = numTelephonne;
+            Adresse = adresse;
             nombreUsers++;
         }
         #endregion

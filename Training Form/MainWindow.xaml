@@ -23,6 +23,8 @@
                         <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
                         <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
                         <DataGridTextColumn Header="Interets" Binding="{Binding Interets}"/>
+                        <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}"/>
+                        <DataGridTextColumn Header="Telephone" Binding="{Binding NumTelephone}"/>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -68,6 +70,8 @@
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
                         <DataGridTextColumn Header="Image" Binding="{Binding ImageProduit}"/>
+                        <DataGridTextColumn Header="PrixHT" Binding="{Binding PrixHT}"/>
+                        <DataGridTextColumn Header="PrixTTC" Binding="{Binding PrixTTC}"/>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -163,7 +167,8 @@
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
                         <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
-                        <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Adresse}"/>
+                        <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}"/>
+                        <DataGridTextColumn Header="Telephone" Binding="{Binding NumTelephone}"/>
                         <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
                         <DataGridTextColumn Header="Date d'embauche" Binding="{Binding DateEmbauche}"/>
                         <DataGridTemplateColumn Header=" Modifier">
@@ -178,7 +183,6 @@
                                                 <RowDefinition Height="*" />
                                                 <RowDefinition Height="*" />
                                             </Grid.RowDefinitions>
-
                                             <Button Grid.Row="0" Content="Editer" />
                                             <Button Grid.Row="1" Content="Fiche Salarié" />
                                             <Button Grid.Row="2" Content="Supprimer" />
@@ -197,7 +201,7 @@
             </TabItem>
 
         </TabControl>
-        <Label Name="emplacementActuel" Content="Label" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="527" Height="40" FontSize="25"/>
+        <Label Name="emplacementActuel" Content="Gestion client" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="527" Height="40" FontSize="25"/>
         <Button   Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Name="ajoutElement"
   ToolTip="MaterialDesignFloatingActionAccentButton" Click="ajoutElement_Click" Margin="0,10,60,0" Width="56" Height="56" HorizontalAlignment="Right" VerticalAlignment="Top">
             <materialDesign:PackIcon Kind="AccountPlus" Height="24" Width="24"/>

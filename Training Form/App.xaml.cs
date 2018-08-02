@@ -29,10 +29,10 @@ namespace Training_Form
             JeuxTest.Articles.Add(proteine4);
             JeuxTest.Articles.Add(proteine3);
 
-            Client Cl1 = new Client("Pignon", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "gym tonic", "oui", "0123456789");
-            Client Cl2 = new Client("Lemon", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "zumba", "non", "9876543210");
-            Client Cl3 = new Client("Freeze", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "Yoga", "non", "1357902468");
-
+            Client Cl1 = new Client("Pignon", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "gym tonic", "oui", "0123456789", "adresse de jean michel pierre paul");
+            Client Cl2 = new Client("Lemon", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "zumba", "non", "9876543210", "adresse de jean michel pierre paul");
+            Client Cl3 = new Client("Freeze", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "Yoga", "non", "1357902468", "adresse de jean michel pierre paul");
+            
             JeuxTest.Clients.Add(Cl1);
             JeuxTest.Clients.Add(Cl2);
             JeuxTest.Clients.Add(Cl3);
@@ -59,9 +59,9 @@ namespace Training_Form
             JeuxTest.Services.Add(TroisMois);
             JeuxTest.Services.Add(CarteVingtQuatre);
 
-            Salarie Sal1 = new Salarie("carrey", "florian", "flo@mail.fr", new DateTime(1995, 11, 01), Permissions.Salarie, new DateTime(2018, 06, 19), "test", "0123456789");
-            Salarie Sal2 = new Salarie("martin", "toto", "toto@mail.fr", new DateTime(2000, 11, 01), Permissions.Salarie, new DateTime(2018, 06, 19), "test1", "9876543210");
-            Salarie Sal3 = new Salarie("machin", "marc", "marc@mail.fr", new DateTime(1993, 02, 08), Permissions.Salarie, new DateTime(2018, 06, 19), "test2", "0246813579");
+            Salarie Sal1 = new Salarie("carrey", "florian", "flo@mail.fr", new DateTime(1995, 11, 01), Permissions.Salarie, new DateTime(2018, 06, 19), "test", "0123456789", "adresse de jean michel pierre paul");
+            Salarie Sal2 = new Salarie("martin", "toto", "toto@mail.fr", new DateTime(2000, 11, 01), Permissions.Salarie, new DateTime(2018, 06, 19), "test1", "9876543210", "adresse de jean michel pierre paul");
+            Salarie Sal3 = new Salarie("machin", "marc", "marc@mail.fr", new DateTime(1993, 02, 08), Permissions.Salarie, new DateTime(2018, 06, 19), "test2", "0246813579", "adresse de jean michel pierre paul");
             JeuxTest.Salaries.Add(Sal1);
             JeuxTest.Salaries.Add(Sal2);
             JeuxTest.Salaries.Add(Sal3);

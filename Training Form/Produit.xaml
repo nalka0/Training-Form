@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="Ajout d'un nouvelle article" Height="360" Width="701">
-    <Grid Margin="0,0,2,0">
+        Title="Ajout d'un nouvelle article" Height="360" Width="650">
+    <Grid Margin="0,0,0,0">
 
         <TextBox x:Name="RefTextBox" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Reference" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="NomTextBox" HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>

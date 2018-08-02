@@ -56,8 +56,8 @@ namespace Training_Form
         #endregion
 
         #region constructeurs
-        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets, string numTelephonne)
-            : base(nom, prenom, email, dateNaissance, Permissions.Client, numTelephonne)
+        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets, string numTelephonne, string adresse)
+            : base(nom, prenom, email, dateNaissance, Permissions.Client, numTelephonne, adresse)
         {
             this.Justificatif = justificatif;
             this.Interets = interets;
