@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Training_Form
 {
-    public class Salarie:User
+    public class Salarie : User
     {
         private string _numSalarie;
         private string _role;

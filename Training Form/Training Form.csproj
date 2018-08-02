@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClassesRefaitesWpf">
-      <HintPath>..\..\ClassesRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
+      <HintPath>F:\source\repos\ClasseRefaitesWpf\ClassesRefaitesWpf\bin\Debug\ClassesRefaitesWpf.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.3\lib\net45\MaterialDesignColors.dll</HintPath>
@@ -103,7 +103,7 @@
       <DependentUpon>Produit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Salarie.cs" />
-    <Compile Include="Services.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Statuts.cs" />
     <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
@@ -159,7 +159,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

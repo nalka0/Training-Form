@@ -36,6 +36,29 @@ namespace Training_Form
             JeuxTest.Clients.Add(Cl1);
             JeuxTest.Clients.Add(Cl2);
             JeuxTest.Clients.Add(Cl3);
+
+            Service AboDouzeMoisCours = new Service(12, new DateTime(2019, 08, 02), "00055588889", "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0);
+            Service AboDouzeMois = new Service(12, new DateTime(2017, 09, 06), "00096878412", "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0);
+            Service AboSixMoisCours = new Service(6, new DateTime(2018, 05, 15), "00054123687", "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0);
+            Service AboSixMois = new Service(6, new DateTime(2017, 01, 02), "00054879132", "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0);
+            Service SeanceDecouverte = new Service(0, new DateTime(2018, 08, 02), "00044889977", "Seance Decouverte", "Seance de décourverte de la salle", 1);
+            Service Semaine = new Service(new DateTime(2018, 07, 25), 1, "00088665213", "Decouverte 1 semaine", "Semaine de découverte de la salle");
+            Service DeuxSemaines = new Service(new DateTime(2018,07,02),2,"00012348752","Decouverte 2 semaines","Deux semaines de découverte de la salle");
+            Service UnMois = new Service(1,new DateTime(2018,08,02),"00015498346","Découverte Abonnement 1 Mois", "Abonnement découverte de la salle d'un mois",0);
+            Service TroisMois = new Service(3,new DateTime(2018,08,01),"00065488859", "Découverte Abonnement 3 Mois","Abonnement découverte de la salle de 3 mois",0);
+            Service CarteVingtQuatre = new Service(12, new DateTime(2018,06,19), "00065977741","Cartes 24 Séances","Cartes découverte 24 séances valide 1 an",24);
+
+            JeuxTest.Services.Add(AboDouzeMoisCours);
+            JeuxTest.Services.Add(AboDouzeMois);
+            JeuxTest.Services.Add(AboSixMoisCours);
+            JeuxTest.Services.Add(AboSixMois);
+            JeuxTest.Services.Add(SeanceDecouverte);
+            JeuxTest.Services.Add(Semaine);
+            JeuxTest.Services.Add(DeuxSemaines);
+            JeuxTest.Services.Add(UnMois);
+            JeuxTest.Services.Add(TroisMois);
+            JeuxTest.Services.Add(CarteVingtQuatre);
+
             base.Run();
         }
     }

@@ -28,7 +28,6 @@ namespace Training_Form
             this.DataContext = this;
             CollectionArticles = new ObservableCollection<Article>();
            
-            dataGrid.ItemsSource = CollectionArticles;
             Article proteine = new Article("prot200", "00014184789", "La meilleur du marché de tibo inshape");
             Article proteine2 = new Article("prot2000", "00014256656", "La meilleur du marché de tibo inshape");
             Article proteine3 = new Article("prot20000", "00014696594", "La meilleur du marché de tibo inshape");
@@ -38,5 +37,6 @@ namespace Training_Form
             CollectionArticles.Add(proteine4);
             CollectionArticles.Add(proteine3);
         }
+
     }
 }

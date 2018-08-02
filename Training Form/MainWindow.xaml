@@ -75,14 +75,14 @@
 
             <TabItem x:Name="Service" Header="Services" Margin="0,92,-2,-92" Height="35" FontSize="20" GotFocus="TabItem_GotFocus" >
 
-                <DataGrid Name="dataServices" Margin="10,10,10,10"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding CollectionServices}">
+                <DataGrid Name="dataServices" Margin="10,10,10,10"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Code Service"   Binding="{Binding CodeProduit}"/>
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="Date de Début" Binding="{Binding DateDebut}"/>
-                        <DataGridTextColumn Header="Date de Fin" Binding="{Binding DateFin}"/>
+                        <DataGridTextColumn Header="Date de Début" Binding="{Binding DebutAbo}"/>
+                        <DataGridTextColumn Header="Date de Fin" Binding="{Binding FinAbo}"/>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>

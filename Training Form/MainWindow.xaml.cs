@@ -20,7 +20,6 @@ namespace Training_Form
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             this.WindowState = WindowState.Maximized;
@@ -29,6 +28,7 @@ namespace Training_Form
             emplacementActuel.Content = "Gestion Client";
             dataArticles.ItemsSource = JeuxTest.Articles;
             dataClients.ItemsSource = JeuxTest.Clients;
+            dataServices.ItemsSource = JeuxTest.Services;
         }
         
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
@@ -53,15 +53,11 @@ namespace Training_Form
         {
             ajouterService fenetreAjout = new ajouterService();
             fenetreAjout.ShowDialog();
-            //J'ai créé la liste ici temporairement, il faudra se servir d'une liste qui sera utilisée globalement
-            //une fois que vous l'aurez créée
-            List<Services> listeServices = new List<Services>();
             string nomNouveauService = fenetreAjout.nomTB.Text;
             int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
             string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
             DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.Value;
-            listeServices.Add(new Services(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+            JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
         }
     }
 }
-
