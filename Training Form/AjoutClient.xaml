@@ -38,7 +38,7 @@
             </StackPanel>
         </GroupBox>
         <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="42,337,0,0" Click="boutonAnnuler_Click"/>
-        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="375,337,0,0"/>
+        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="375,337,0,0" Click="boutonValider_Click"/>
 
     </Grid>
 </Window>

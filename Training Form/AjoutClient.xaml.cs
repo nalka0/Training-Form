@@ -35,5 +35,19 @@ namespace Training_Form
         {
             Close();
         }
+
+        private void boutonValider_Click(object sender, RoutedEventArgs e)
+        {
+            nom = tbNom.Text;
+            prenom = tbPrenom.Text;
+            dateNaissance = tbDateNaissance.DisplayDate;
+            adresse = tbVille.Text + tbRue.Text;
+            email = tbMail.Text;
+            tel = tbTelephone.Text;
+
+            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets");
+            JeuxTest.Clients.Add(client);
+            this.Close();
+        }
     }
 }

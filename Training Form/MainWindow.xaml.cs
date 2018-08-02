@@ -91,17 +91,11 @@ namespace Training_Form
         void AddSalarie()
         {
             AjoutUser fenetreAjout = new AjoutUser();
-            fenetreAjout.groupBoxStatuts.Visibility = Visibility.Hidden;
-            fenetreAjout.groupBoxInterets.Visibility = Visibility.Hidden;
-            fenetreAjout.groupBoxSexe.Visibility = Visibility.Hidden;
             fenetreAjout.ShowDialog();
         }
         void AddClient()
         {
-            AjoutUser fenetreAjout = new AjoutUser();
-            fenetreAjout.textBoxPassword.Visibility = Visibility.Hidden;
-            fenetreAjout.textBoxDateEmbauche.Visibility = Visibility.Hidden;
-            fenetreAjout.labelDateEmbauche.Visibility = Visibility.Hidden;
+            AjoutClient fenetreAjout = new AjoutClient();
             fenetreAjout.ShowDialog();
         }
         #endregion
