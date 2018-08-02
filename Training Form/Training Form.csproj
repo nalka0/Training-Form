@@ -99,6 +99,8 @@
     <Compile Include="Produit.xaml.cs">
       <DependentUpon>Produit.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Salarie.cs" />
+    <Compile Include="Services.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Statuts.cs" />
     <Compile Include="Formule.cs" />

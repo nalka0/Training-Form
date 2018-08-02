@@ -35,5 +35,11 @@ namespace GestionSalaries
             if (!DataBase.Salaries.Contains(sal))
                 { DataBase.Salaries.Add(sal); }
         }
+
+        private void test_Click(object sender, RoutedEventArgs e)
+        {
+            FenetreAjoutSalarie fenetre = new FenetreAjoutSalarie();
+            fenetre.Show();
+        }
     }
 }
