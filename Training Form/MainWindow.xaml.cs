@@ -55,12 +55,12 @@ namespace Training_Form
             fenetreAjout.ShowDialog();
             //J'ai créé la liste ici temporairement, il faudra se servir d'une liste qui sera utilisée globalement
             //une fois que vous l'aurez créée
-            List<Services> listeServices = new List<Services>();
+            List<Service> listeServices = new List<Service>();
             string nomNouveauService = fenetreAjout.nomTB.Text;
             int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
             string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
             DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.Value;
-            listeServices.Add(new Services(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+            listeServices.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
         }
     }
 }
