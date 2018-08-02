@@ -33,10 +33,9 @@ namespace Training_Form
         string mobile;
         string password;
         DateTime dateEmbauche;
-
+        string numTelephonne;
         private void boutonValider_Click(object sender, RoutedEventArgs e)
         {
-
             nom = textBoxNom.Text;
             prenom = textBoxPrenom.Text;
             dateNaissance = textBoxDateNaissance.DisplayDate;
@@ -46,7 +45,8 @@ namespace Training_Form
             mobile = textBoxMobile.Text;
             password = textBoxPassword.Text;
             dateEmbauche = textBoxDateEmbauche.DisplayDate;
-            Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password);
+            numTelephonne = numTelephonneTB.Text;
+            Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne);
             JeuxTest.Salaries.Add(salarie);
             this.Close();
 

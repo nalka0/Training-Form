@@ -21,9 +21,9 @@ namespace Training_Form
     public partial class FenetreClients : Window
     {
         private ObservableCollection<Client> listeClients { get; set; }
-        private Client Cl1 = new Client("Pignon", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000,12,25), "gym tonic", "oui");
-        private Client Cl2 = new Client("Lemon", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "zumba", "non");
-        private Client Cl3 = new Client("Freeze", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "Yoga", "non");
+        private Client Cl1 = new Client("Pignon", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000,12,25), "gym tonic", "oui", "0123456789");
+        private Client Cl2 = new Client("Lemon", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "zumba", "non", "9876543210");
+        private Client Cl3 = new Client("Freeze", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "Yoga", "non", "0147258369");
 
         public FenetreClients()
         {
