@@ -12,9 +12,9 @@ namespace Training_Form
     class Services : Produit
     {
         private int _duree;
+        private int _seances;
         private DateTime _debutAbo;
         private DateTime _finAbo;
-        private int _seances;
         /// <summary>
         /// Durée en mois du service.
         /// </summary>
@@ -90,7 +90,7 @@ namespace Training_Form
         /// <summary>
         /// Nombre de séances restantes avant expiration.
         /// </summary>
-        private int Seances
+        public int Seances
         {
             get { return _seances; }
             set
@@ -105,7 +105,8 @@ namespace Training_Form
             }
         }
 
-        public Services(int duree, DateTime debut, int seances)
+        public Services(int duree, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
+            : base(codeProduit, nom, description)
         {
             _duree = duree;
             DebutAbo = debut;

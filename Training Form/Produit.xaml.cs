@@ -29,10 +29,10 @@ namespace Training_Form
             CollectionArticles = new ObservableCollection<Article>();
            
             dataGrid.ItemsSource = CollectionArticles;
-            Article proteine = new Article() { Nom = "prot200", CodeProduit = "00014184789", Description = "La meilleur du marché de tibo inshape" };
-            Article proteine2 = new Article() { Nom = "prot2000", CodeProduit = "00014256656", Description = "La meilleur du marché de tibo inshape" };
-            Article proteine3 = new Article() { Nom = "prot20000", CodeProduit ="00014696594", Description = "La meilleur du marché de tibo inshape" };
-            Article proteine4 = new Article() { Nom = "prot200000", CodeProduit = "00014654954", Description = "La meilleur du marché de tibo inshape" };
+            Article proteine = new Article("prot200", "00014184789", "La meilleur du marché de tibo inshape");
+            Article proteine2 = new Article("prot2000", "00014256656", "La meilleur du marché de tibo inshape");
+            Article proteine3 = new Article("prot20000", "00014696594", "La meilleur du marché de tibo inshape");
+            Article proteine4 = new Article("prot200000", "00014654954", "La meilleur du marché de tibo inshape");
             CollectionArticles.Add(proteine);
             CollectionArticles.Add(proteine2);
             CollectionArticles.Add(proteine4);

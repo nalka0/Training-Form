@@ -26,5 +26,11 @@ namespace Training_Form
                 _imageProduit = value;
             }
         }
+
+        public Article(string codeProduit, string nom, string description)
+            :base (codeProduit, nom, description)
+        {
+
+        }
     }
 }
