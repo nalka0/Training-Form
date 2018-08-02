@@ -35,6 +35,17 @@ namespace Training_Form
         {
             if (DateTime.Compare((DateTime)textBoxDateNaissance.SelectedDate, DateTime.Now) >= 0)
                 e.Cancel = true;
+            if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains("."))
+                e.Cancel = true;
+            foreach (char character in numTelephonneTB.Text)
+            {
+                if (!Char.IsDigit(character))
+                    e.Cancel = true;
+            }
+            if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0')
+                e.Cancel = true;
+            if (DateTime.Compare((DateTime)textBoxDateEmbauche.SelectedDate, DateTime.Now) >= 0)
+                e.Cancel = true;
         }
 
         string nom;
