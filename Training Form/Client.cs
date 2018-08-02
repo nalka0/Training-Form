@@ -9,19 +9,10 @@ namespace Training_Form
 {
     public class Client : User
     {
+        #region variables
         private string _interets;
         private string _justificatif;
-        //public Client()
-        //{
-            
-        //}
-        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets)
-            : base( nom, prenom, email, dateNaissance, Permissions.Client)
-        {
-            this.Interets = interets;
-            this.Justificatif = justificatif;
 
-        }
         public string Interets
         {
             get
@@ -62,10 +53,22 @@ namespace Training_Form
                
             }
         }
-      
+        #endregion
+
+        #region constructeurs
+        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets)
+            : base(nom, prenom, email, dateNaissance, Permissions.Client)
+        {
+            this.Justificatif = justificatif;
+            this.Interets = interets;
+        }
+        #endregion
+
+        #region methodes
         public override string ToString()
         {
             return string.Format(Interets + ";" + Justificatif);
         }
+        #endregion
     }
 }
