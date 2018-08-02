@@ -19,10 +19,10 @@ namespace Training_Form
 
         public new void Run()
         {
-            Article proteine = new Article("prot200", "00014184789", "La meilleur du marché de tibo inshape");
-            Article proteine2 = new Article("prot2000", "00014256656", "La meilleur du marché de tibo inshape");
-            Article proteine3 = new Article("prot20000", "00014696594", "La meilleur du marché de tibo inshape");
-            Article proteine4 = new Article("prot200000", "00014654954", "La meilleur du marché de tibo inshape");
+            Article proteine = new Article("001", "prot200", "La meilleur du marché de tibo inshape");
+            Article proteine2 = new Article("002", "prot2000", "La meilleur du marché de tibo inshape");
+            Article proteine3 = new Article("003", "prot20000", "La meilleur du marché de tibo inshape");
+            Article proteine4 = new Article("004", "prot200000", "La meilleur du marché de tibo inshape");
             
             JeuxTest.Articles.Add(proteine);
             JeuxTest.Articles.Add(proteine2);
