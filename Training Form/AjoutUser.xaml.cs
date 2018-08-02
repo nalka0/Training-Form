@@ -47,6 +47,10 @@ namespace Training_Form
             role = textBoxRole.Text;
             password = textBoxPassword.Text;
             dateEmbauche = textBoxDateEmbauche.DisplayDate;
+
+            Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password);
+            JeuxTest.Salaries.Add(salarie);
+            this.Close();
         }
 
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
