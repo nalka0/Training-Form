@@ -9,7 +9,7 @@
 
     <Grid Margin="0,0,0,0">
 
-        <TabControl TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"  >
+        <TabControl x:Name="onglets" TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"  >
 
             <TabItem x:Name="Client" Header="Clients" Margin="0,83,-2,-100" FontSize="20" Height="35"  GotFocus="TabItem_GotFocus">
 
