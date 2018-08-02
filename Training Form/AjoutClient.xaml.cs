@@ -45,7 +45,7 @@ namespace Training_Form
             email = tbMail.Text;
             tel = tbTelephone.Text;
 
-            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets");
+            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "interets", tel);
             JeuxTest.Clients.Add(client);
             this.Close();
         }
