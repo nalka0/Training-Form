@@ -99,7 +99,7 @@
     <Compile Include="Produit.xaml.cs">
       <DependentUpon>Produit.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Services.cs" />
+    <Compile Include="Service.cs" />
     <Compile Include="Statuts.cs" />
     <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
@@ -151,7 +151,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

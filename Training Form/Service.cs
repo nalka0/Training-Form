@@ -9,7 +9,7 @@ using ClassesRefaitesWpf;
 
 namespace Training_Form
 {
-    class Services : Produit
+    public class Service : Produit
     {
         private int _duree;
         private int _seances;
@@ -105,7 +105,7 @@ namespace Training_Form
             }
         }
 
-        public Services(int duree, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
+        public Service(int duree, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
             : base(codeProduit, nom, description)
         {
             _duree = duree;
