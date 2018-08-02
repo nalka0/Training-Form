@@ -140,6 +140,25 @@ namespace Training_Form
                 }
             }
         }
+
+        private string _adresse;
+        /// <summary>
+        /// Identifiant du <see cref="User"/>
+        /// </summary>
+        public string Adresse
+        {
+            get { return _adresse; }
+            set
+            {
+                string stock = _adresse;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _adresse = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
         #endregion
 
         private static int nombreUsers;
