@@ -19,11 +19,13 @@ namespace Training_Form
     /// </summary>
     public partial class AjoutClient : Window
     {
+        public bool Canceled = true;
+
         public AjoutClient()
         {
             InitializeComponent();
-            this.Loaded += AjoutClient_Loaded;
-            this.Closing += AjoutClient_Closing;
+            Loaded += AjoutClient_Loaded;
+            Closing += AjoutClient_Closing;
         }
 
         public void AjoutClient_Loaded(object sender, RoutedEventArgs e)
@@ -33,28 +35,32 @@ namespace Training_Form
 
         public void AjoutClient_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
-                e.Cancel = true;
-            if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains("."))
-                e.Cancel = true;
-            foreach (char character in tbTelephone.Text)
+            if (!Canceled)
             {
-                if (!Char.IsDigit(character))
+                if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
+                    e.Cancel = true;
+                if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains("."))
+                    e.Cancel = true;
+                foreach (char character in tbTelephone.Text)
+                {
+                    if (!Char.IsDigit(character))
+                        e.Cancel = true;
+                }
+                if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0')
                     e.Cancel = true;
             }
-            if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0')
-                e.Cancel = true;
-
         }
 
         public void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
             Hide();
+            Canceled = true;
         }
 
         public void boutonValider_Click(object sender, RoutedEventArgs e)
         {
             Close();
+            Canceled = false;
         }
     }
 }

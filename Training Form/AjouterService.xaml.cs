@@ -19,12 +19,12 @@ namespace Training_Form
     /// </summary>
     public partial class ajouterService : Window
     {
-        public bool Canceled = false;
+        public bool Canceled = true;
 
         public ajouterService()
         {
             InitializeComponent();
-            this.Closing += AjouterService_Closing;
+            Closing += AjouterService_Closing;
         }
 
         private void AjouterService_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -37,14 +37,14 @@ namespace Training_Form
 
         private void annuler_Click(object sender, RoutedEventArgs e)
         {
+            Hide();
             Canceled = true;
-            Close();
         }
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            Canceled = false;
             Close();
+            Canceled = true;
         }
 
         private void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)

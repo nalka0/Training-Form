@@ -82,14 +82,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AjoutClient.xaml.cs">
-      <DependentUpon>AjoutClient.xaml</DependentUpon>
+    <Compile Include="AjouterClient.xaml.cs">
+      <DependentUpon>AjouterClient.xaml</DependentUpon>
     </Compile>
     <Compile Include="AjouterService.xaml.cs">
       <DependentUpon>AjouterService.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AjoutUser.xaml.cs">
-      <DependentUpon>AjoutUser.xaml</DependentUpon>
+    <Compile Include="AjouterSalarie.xaml.cs">
+      <DependentUpon>AjouterSalarie.xaml</DependentUpon>
     </Compile>
     <Compile Include="Article.cs" />
     <Compile Include="Client.cs" />
@@ -103,15 +103,15 @@
     </Compile>
     <Compile Include="Permissions.cs" />
     <Compile Include="Produit.cs" />
-    <Compile Include="Produit.xaml.cs">
-      <DependentUpon>Produit.xaml</DependentUpon>
+    <Compile Include="AjouterArticle.xaml.cs">
+      <DependentUpon>AjouterArticle.xaml</DependentUpon>
     </Compile>
     <Compile Include="Salarie.cs" />
     <Compile Include="Service.cs" />
     <Compile Include="Statuts.cs" />
     <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
-    <Page Include="AjoutClient.xaml">
+    <Page Include="AjouterClient.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,7 +119,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="AjoutUser.xaml">
+    <Page Include="AjouterSalarie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,7 +135,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Produit.xaml">
+    <Page Include="AjouterArticle.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

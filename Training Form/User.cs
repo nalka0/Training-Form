@@ -173,8 +173,8 @@ namespace Training_Form
                 {
                     if (!Char.IsDigit(character))
                     {
-                        MessageBox.Show("Le numéro de téléphonne " + value + " n'est pas valide", "Muavais numéro de teléphonne", MessageBoxButton.OK, MessageBoxImage.Error);
-                        value = "";
+                        MessageBox.Show("Le numéro de téléphone \"" + value + "\" contient des caractères invalides", "Muavais numéro de teléphonne", MessageBoxButton.OK, MessageBoxImage.Error);
+                        break;
                     }
                 }
                 if (value.Length == 10)
@@ -187,6 +187,8 @@ namespace Training_Form
                         _numTelephone = value;
                     }
                 }
+                else
+                    MessageBox.Show("Le numéro de téléphone\"" + value + "\" ne contient pas 10 chiffres", "Mauvais numéro de téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private static int nombreUsers;

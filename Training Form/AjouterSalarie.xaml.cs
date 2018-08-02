@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,18 +17,21 @@ namespace Training_Form
     /// <summary>
     /// Logique d'interaction pour AjoutUser.xaml
     /// </summary>
-    public partial class AjoutUser : Window
+    public partial class AjouterSalarie : Window
     {
-        public AjoutUser()
+        public bool Canceled = true;
+
+        public AjouterSalarie()
         {
             InitializeComponent();
-            this.Loaded += AjoutUser_Loaded;
-            this.Closing += AjoutUser_Closing;
+            Loaded += AjoutUser_Loaded;
+            Closing += AjoutUser_Closing;
         }
 
         private void AjoutUser_Loaded(object sender, RoutedEventArgs e)
         {
             textBoxDateNaissance.SelectedDate = DateTime.Now;
+            textBoxDateEmbauche.SelectedDate = DateTime.Now;
         }
 
         private void AjoutUser_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -38,42 +41,24 @@ namespace Training_Form
             if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains("."))
                 e.Cancel = true;
             foreach (char character in numTelephonneTB.Text)
-            {
                 if (!Char.IsDigit(character))
                     e.Cancel = true;
-            }
             if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0')
                 e.Cancel = true;
             if (DateTime.Compare((DateTime)textBoxDateEmbauche.SelectedDate, DateTime.Now) >= 0)
                 e.Cancel = true;
         }
 
-        string nom;
-        string prenom;
-        DateTime dateNaissance;
-        string adresse;
-        string email;
-        string password;
-        DateTime dateEmbauche;
-        string numTelephonne;
         private void boutonValider_Click(object sender, RoutedEventArgs e)
         {
-            nom = textBoxNom.Text;
-            prenom = textBoxPrenom.Text;
-            dateNaissance = textBoxDateNaissance.DisplayDate;
-            adresse = textBoxAdresse1.Text + textBoxAdresse2.Text;
-            email = textBoxEmail.Text;
-            password = textBoxPassword.Text;
-            dateEmbauche = textBoxDateEmbauche.DisplayDate;
-            numTelephonne = numTelephonneTB.Text;
-            Salarie salarie = new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, "adresse de jean michel pierre paul");
-            JeuxTest.Salaries.Add(salarie);
             Close();
+            Canceled = false;
         }
 
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
             Hide();
+            Canceled = true;
         }
     }
 }

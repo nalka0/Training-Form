@@ -18,27 +18,32 @@ namespace Training_Form
     /// <summary>
     /// Logique d'interaction pour Window1.xaml
     /// </summary>
-    public partial class ProduitWind : Window
+    public partial class AjouterArticle : Window
     {
-        public ProduitWind()
+        public bool Canceled = true;
+
+        public AjouterArticle()
         {
             InitializeComponent();
-            this.DataContext = this;
+            DataContext = this;
+            Closing += ProduitWind_Closing;
+        }
+        
+        private void ProduitWind_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //ajouter une verification pour s'assurer que les textBox on été remplies
         }
 
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            Button but = sender as Button;
-            if (but != null)
-            {
-                if (but.Name == "Valider")
-                {
+            Close();
+            Canceled = false;
+        }
 
-                    Article article = new Article(RefTextBox.Text, NomTextBox.Text, descriptTextBox.Text);
-                    JeuxTest.Articles.Add(article);
-                    this.Close();
-                }            
-            }
+        private void Annuler_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Canceled = true;
         }
     }
 }

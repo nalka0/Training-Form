@@ -22,9 +22,9 @@ namespace Training_Form
     {
         public MainWindow()
         {
-            this.WindowState = WindowState.Maximized;
+            WindowState = WindowState.Maximized;
             InitializeComponent();
-            this.DataContext = this;            
+            DataContext = this;            
             dataArticles.ItemsSource = JeuxTest.Articles;
             dataClients.ItemsSource = JeuxTest.Clients;
             dataServices.ItemsSource = JeuxTest.Services;
@@ -32,10 +32,23 @@ namespace Training_Form
         }
 
         #region evenements
+        private void editerClient_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutClient test = new AjoutClient();
+            test.Loaded -= test.AjoutClient_Loaded;
+            test.Closing -= test.AjoutClient_Closing;
+            test.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
+            test.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
+            test.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
+            test.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
+            test.ShowDialog();
+        }
+
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
-            emplacementActuel.Content = String.Format("Gestion {0}", tab.Name);
+            ajoutElement.ToolTip = "Ajouter un " + tab.Name.ToLower();
+            emplacementActuel.Content = String.Format("Gestion des {0}s", tab.Name.ToLower());
             switch (tab.Name)
             {
                 case "Service":
@@ -50,9 +63,7 @@ namespace Training_Form
                 case "Client":
                     ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24};
                     break;
-
             }
-
         }
 
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
@@ -64,13 +75,13 @@ namespace Training_Form
                     addService();
                     break;
                 case "Article":
-                    AddArticle();
+                    addArticle();
                     break;
                 case "Salarie":
-                    AddSalarie();
+                    addSalarie();
                     break;
                 case "Client":
-                    AddClient();
+                    addClient();
                     break;
             }
         }
@@ -81,47 +92,58 @@ namespace Training_Form
         {
             ajouterService fenetreAjout = new ajouterService();
             fenetreAjout.ShowDialog();
-            string nomNouveauService = fenetreAjout.nomTB.Text;
-            int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
-            string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
-            DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
-            JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+            if (!fenetreAjout.Canceled)
+            {
+                string nomNouveauService = fenetreAjout.nomTB.Text;
+                int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
+                string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
+                DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
+                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+            }
         }
-        void AddArticle()
+
+        void addArticle()
         {
-            ProduitWind fenetreAjout = new ProduitWind();
+            AjouterArticle fenetreAjout = new AjouterArticle();
             fenetreAjout.ShowDialog();
+            if (!fenetreAjout.Canceled)
+                JeuxTest.Articles.Add(new Article(fenetreAjout.RefTextBox.Text, fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text));
         }
-        void AddSalarie()
+
+        void addSalarie()
         {
-            AjoutUser fenetreAjout = new AjoutUser();
+            AjouterSalarie fenetreAjout = new AjouterSalarie();
             fenetreAjout.ShowDialog();
+            if (!fenetreAjout.Canceled)
+            {
+                string nom = fenetreAjout.textBoxNom.Text;
+                string prenom = fenetreAjout.textBoxPrenom.Text;
+                DateTime dateNaissance = fenetreAjout.textBoxDateNaissance.DisplayDate;
+                string adresse = fenetreAjout.textBoxAdresse1.Text + fenetreAjout.textBoxAdresse2.Text;
+                string email = fenetreAjout.textBoxEmail.Text;
+                string password = fenetreAjout.textBoxPassword.Text;
+                DateTime dateEmbauche = fenetreAjout.textBoxDateEmbauche.DisplayDate;
+                string numTelephonne = fenetreAjout.numTelephonneTB.Text;
+                JeuxTest.Salaries.Add(new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, "adresse de jean michel pierre paul"));
+            }
         }
-        void AddClient()
+
+        void addClient()
         {
             AjoutClient fenetreAjout = new AjoutClient();
             fenetreAjout.ShowDialog();
-            string nom = fenetreAjout.tbNom.Text;
-            string prenom = fenetreAjout.tbPrenom.Text;
-            DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
-            string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
-            string email = fenetreAjout.tbMail.Text;
-            string tel = fenetreAjout.tbTelephone.Text;
-            Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, "adresse de jean michel pierre paul");
-            JeuxTest.Clients.Add(client);
+            if (!fenetreAjout.Canceled)
+            {
+                string nom = fenetreAjout.tbNom.Text;
+                string prenom = fenetreAjout.tbPrenom.Text;
+                DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
+                string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
+                string email = fenetreAjout.tbMail.Text;
+                string tel = fenetreAjout.tbTelephone.Text;
+                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse);
+                JeuxTest.Clients.Add(client);
+            }
         }
         #endregion
-
-        private void editerClient_Click(object sender, RoutedEventArgs e)
-        {
-            AjoutClient test = new AjoutClient();
-            test.Loaded -= test.AjoutClient_Loaded;
-            test.Closing -= test.AjoutClient_Closing;
-            test.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
-            test.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
-            test.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
-            test.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
-            test.ShowDialog();
-        }
     }
 }
