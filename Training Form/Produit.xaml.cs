@@ -20,20 +20,14 @@ namespace Training_Form
     /// </summary>
     public partial class ProduitWind : Window
     {
-
         public ProduitWind()
         {
             InitializeComponent();
             this.DataContext = this;
         }
 
-
-
-
-
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-
             Button but = sender as Button;
             if (but != null)
             {
@@ -45,13 +39,6 @@ namespace Training_Form
                     this.Close();
                 }            
             }
-
-          
-
-
         }
-
-
     }
-    
 }
