@@ -159,7 +159,6 @@ namespace Training_Form
                 }
             }
         }
-        #endregion
 
         private static int nombreUsers;
         #endregion
