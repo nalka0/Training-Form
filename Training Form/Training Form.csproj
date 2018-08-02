@@ -82,6 +82,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AjoutClient.xaml.cs">
+      <DependentUpon>AjoutClient.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AjouterService.xaml.cs">
       <DependentUpon>AjouterService.xaml</DependentUpon>
     </Compile>
@@ -107,6 +110,10 @@
     <Compile Include="Statuts.cs" />
     <Compile Include="Formule.cs" />
     <Compile Include="User.cs" />
+    <Page Include="AjoutClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AjouterService.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

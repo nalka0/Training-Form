@@ -15,10 +15,11 @@
         <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,124,0,0"/>
         <TextBox x:Name="textBoxTelephone" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Téléphone" VerticalAlignment="Top" Width="120" Margin="10,152,0,0"/>
         <TextBox x:Name="textBoxMobile" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Mobile" VerticalAlignment="Top" Width="120" Margin="135,152,0,0"/>
-        <GroupBox x:Name="groupBoxStatuts" Header="Statuts" HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="99" Margin="2,254,0,0">
-            <StackPanel Width="89" Margin="0,0,0,-7">
-                <RadioButton x:Name="radioEtudiant" Content="Etudiant"/>
-                <RadioButton x:Name="radioCouple" Content="Couple"/>
+        <GroupBox x:Name="groupBoxStatuts" Header="Statuts" HorizontalAlignment="Left" Height="117" VerticalAlignment="Top" Width="99" Margin="2,254,0,0">
+            <StackPanel Width="89" Margin="0,0,0,-6">
+                <RadioButton x:Name="rbAdulte" Content="Adulte"/>
+                <RadioButton x:Name="rbCouple" Content="Couple"/>
+                <RadioButton x:Name="rbEtudiant" Content="Etudiant"/>
             </StackPanel>
 
         </GroupBox>
@@ -41,8 +42,7 @@
         <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="106,314,0,0" Click="boutonAnnuler_Click"/>
         <TextBox x:Name="textBoxPassword" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Margin="135,180,0,0"/>
         <DatePicker x:Name="textBoxDateEmbauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="135,208,0,0" Width="120"/>
-        <TextBox x:Name="textBoxRole" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Rôle" VerticalAlignment="Top" Width="120" Margin="10,180,0,0"/>
-        <Label Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,207,0,0"/>
+        <Label x:Name="labelDateEmbauche" Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,207,0,0"/>
         <Label Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>
 
     </Grid>
