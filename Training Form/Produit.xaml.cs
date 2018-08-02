@@ -20,8 +20,7 @@ namespace Training_Form
     /// </summary>
     public partial class ProduitWind : Window
     {
-        internal  ObservableCollection<Article> CollectionArticles { get; set; }
-
+        
         public ProduitWind()
         {
             InitializeComponent();
@@ -38,5 +37,26 @@ namespace Training_Form
             CollectionArticles.Add(proteine3);
         }
 
+    }
+}
+            this.DataContext = this;  
+        }
+
+        private void Valider_Click(object sender, RoutedEventArgs e)
+        {
+
+            Button but = sender as Button;
+            if (but != null)
+            {                
+                if (but.Name == "Valider")
+                {
+
+                    Article article = new Article(RefTextBox.Text,NomTextBox.Text,descriptTextBox.Text);
+                    JeuxTest.Articles.Add(article);
+                }
+            }
+            
+
+        }
     }
 }

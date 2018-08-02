@@ -8,14 +8,14 @@
         Title="Ajout d'un nouvelle article" Height="360" Width="701">
     <Grid Margin="0,0,2,0">
 
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Reference" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>
-        <TextBox HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Desciption" VerticalAlignment="Top" Width="319"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="225,257,0,0" TextWrapping="Wrap" Text="Prix TTC" VerticalAlignment="Top" Width="50" IsReadOnly="True"/>
+        <TextBox x:Name="RefTextBox" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Reference" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NomTextBox" HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="descriptTextBox" HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Desciption" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="prixHTTextBox" HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="TVATextBox" HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="prixTTCTextBox" HorizontalAlignment="Left" Height="23" Margin="225,257,0,0" TextWrapping="Wrap" Text="Prix TTC" VerticalAlignment="Top" Width="50" IsReadOnly="True"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="192" Margin="427,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="197" Grid.ColumnSpan="2"/>
-        <Button x:Name="Valider" Content="Valider" HorizontalAlignment="Left" Margin="549,257,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Valider" Content="Valider" HorizontalAlignment="Left" Margin="549,257,0,0" VerticalAlignment="Top" Width="75" Click="Valider_Click"/>
         <Button x:Name="Annuler" Content="Annuler" HorizontalAlignment="Left" Margin="427,257,0,0" VerticalAlignment="Top" Width="86" Grid.ColumnSpan="2"/>
 
     </Grid>
