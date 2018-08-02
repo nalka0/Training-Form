@@ -113,8 +113,8 @@
                         <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
                         <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
+                        <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Adresse}"/>
                         <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
-                        <DataGridTextColumn Header="Role" Binding="{Binding Role}"/>
                         <DataGridTextColumn Header="Date d'embauche" Binding="{Binding DateEmbauche}"/>
                         <DataGridTemplateColumn Header=" Modifier">
                             <DataGridTemplateColumn.CellTemplate>

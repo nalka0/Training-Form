@@ -29,6 +29,7 @@ namespace Training_Form
             dataArticles.ItemsSource = JeuxTest.Articles;
             dataClients.ItemsSource = JeuxTest.Clients;
             dataServices.ItemsSource = JeuxTest.Services;
+            dataSalaries.ItemsSource = JeuxTest.Salaries;
         }
         
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
@@ -49,6 +50,9 @@ namespace Training_Form
                 case "Article":
                     AddArticle();
                     break;
+                case "Salarie":
+                    AddSalarie();
+                    break;
             }
         }
 
@@ -67,5 +71,11 @@ namespace Training_Form
             ProduitWind fenetreAjout = new ProduitWind();
             fenetreAjout.ShowDialog();
         }
+        void AddSalarie()
+        {
+            AjoutUser fenetreAjout = new AjoutUser();
+            fenetreAjout.ShowDialog();
+        }
+
     }
 }
