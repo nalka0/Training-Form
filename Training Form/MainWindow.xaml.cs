@@ -34,23 +34,31 @@ namespace Training_Form
         #region evenements
         private void editerClient_Click(object sender, RoutedEventArgs e)
         {
-            AjoutClient test = new AjoutClient();
-            test.Loaded -= test.AjoutClient_Loaded;
-            test.Closing -= test.AjoutClient_Closing;
-            test.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
-            test.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
-            test.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
-            test.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
-            test.tbTelephone.Text = JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone;
-            test.tbAdresse.Text = JeuxTest.Clients[dataClients.SelectedIndex].Adresse;
+            AjoutClient editerClient = new AjoutClient();
+            editerClient.Loaded -= editerClient.AjoutClient_Loaded;
+            editerClient.Closing -= editerClient.AjoutClient_Closing;
+            editerClient.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
+            editerClient.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
+            editerClient.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
+            editerClient.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
+            editerClient.tbTelephone.Text = JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone;
+            editerClient.tbAdresse.Text = JeuxTest.Clients[dataClients.SelectedIndex].Adresse;
             //Si la liste des interets contient l'interet, alors la checkBox qui y correspond devient checkée, sinon elle est pas checkée
-            test.cbCardio.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Cardio");
-            test.cbFitness.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Fitness");
-            test.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
-            test.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
-            test.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
+            editerClient.cbCardio.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Cardio");
+            editerClient.cbFitness.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Fitness");
+            editerClient.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
+            editerClient.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
+            editerClient.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
             //test.rbAdulte.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex]
-            test.ShowDialog();
+            editerClient.ShowDialog();
+        }
+
+        private void editerArticle_Click(object sender, RoutedEventArgs e)
+        {
+            AjouterArticle editerArticle = new AjouterArticle();
+            editerArticle.NomTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Nom;
+            editerArticle.descriptTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Description;
+            editerArticle.ShowDialog();
         }
 
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
@@ -151,7 +159,12 @@ namespace Training_Form
                 string adresse = fenetreAjout.tbAdresse.Text;
                 string email = fenetreAjout.tbMail.Text;
                 string tel = fenetreAjout.tbTelephone.Text;
-                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse);
+                Statuts statut = Statuts.Adulte;
+                if ((bool)fenetreAjout.rbCouple.IsChecked)
+                    statut = Statuts.Couple;
+                else if ((bool)fenetreAjout.rbEtudiant.IsChecked)
+                    statut = Statuts.Etudiant;
+                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse, statut);
                 JeuxTest.Clients.Add(client);
             }
         }
