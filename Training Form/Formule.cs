@@ -27,21 +27,7 @@ namespace Training_Form
             }
         }
 
-        private Statuts _statut;
-        public Statuts Statut
-        {
-            get { return _statut; }
-            set
-            {
-                Statuts stock = _statut;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging == null || !argsChanging.Cancel)
-                {
-                    _statut = value;
-                    BetterNotifyPropertyChanged(stock, value);
-                }
-            }
-        }
+ 
 
         private bool _cours;
         public bool Cours
@@ -118,10 +104,9 @@ namespace Training_Form
         /// <param name="statut">Définit si le bénéficiaire de la formule est un Adulte, un Etudiant ou un Couple</param>
         /// <param name="avecCours">Définit si le bénéficiaire de la formule a des cours ou non</param>
         /// <param name="nom">Nom de la formule</param>
-        public Formule( int duree, Statuts statut, bool avecCours, string nom, float prix)
+        public Formule( int duree, bool avecCours, string nom, float prix)
         {
-            _duree = duree;
-            _statut = statut;
+            _duree = duree;            
             _cours = avecCours;
             _nom = nom;
             _identifiant = nombreFormules;
