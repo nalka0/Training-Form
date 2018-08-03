@@ -29,32 +29,14 @@ namespace Training_Form
             DataContext = this;
             Closing += ProduitWind_Closing;
         }
-        
+
         private void ProduitWind_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            decimal result;
-
-            if(!Canceled)
+            if (!Canceled)
             {
-                if (!decimal.TryParse(prixHTTextBox.Text, out result))
-                {
-                    //MessageBox.Show("Erreur de saisie", "Prix HT Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
-                    e.Cancel = true;
-                }
-
                 if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
                 {
                     //MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Notify = true;
-                }
-                if (prixHTTextBox.Text == "" || prixHTTextBox.Text == "Prix HT")
-                {
-                    //MessageBox.Show("Le prix hors taxe n'a pas été renseigné", "PrixHT manquant", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Notify = true;
-                }
-                if (TVATextBox.Text == "" || TVATextBox.Text == "TVA")
-                {
-                    //MessageBox.Show("La TVA n'a pas été renseignée", "TVA manquante", MessageBoxButton.OK, MessageBoxImage.Error);
                     Notify = true;
                 }
                 if (RefTextBox.Text == "" || RefTextBox.Text == "Référence")
@@ -68,9 +50,20 @@ namespace Training_Form
                     e.Cancel = true;
                 }
             }
+            decimal useless;
+            if (!decimal.TryParse(prixHTTextBox.Text, out useless))
+            {
+               MessageBox.Show("Le prix HT n'est pas une valeur correcte", "PrixHT incorrect", MessageBoxButton.OK, MessageBoxImage.Error);
+                e.Cancel = true;
+            }
+            if (!decimal.TryParse(TVATextBox.Text, out useless))
+            {
+                MessageBox.Show("La TVA n'est pas une valeur correcte", "TVA incorrecte", MessageBoxButton.OK, MessageBoxImage.Error);
+                e.Cancel = true;
+            }
 
         }
-      
+
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
             Canceled = false;
@@ -85,8 +78,10 @@ namespace Training_Form
 
         private void snackBarMessage_ActionClick(object sender, RoutedEventArgs e)
         {
-            Close();
+            Canceled = true;
+            Notify = false;
             Forced = true;
+            Close();
         }
     }
 }
