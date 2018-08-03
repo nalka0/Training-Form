@@ -105,6 +105,14 @@ namespace Training_Form
             PrixHT = prixHT;
             TauxTVA = tauxTVA;
         }
+        public Produit(string nom, string description, decimal prixHT, decimal tauxTVA)
+        {
+            Nom = nom;
+            Description = description;
+            PrixHT = prixHT;
+            TauxTVA = tauxTVA;
+        }
+
         #endregion
 
         #region methodes
