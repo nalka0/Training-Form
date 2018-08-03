@@ -32,6 +32,8 @@ namespace Training_Form
         }
 
         #region evenements
+
+        #region editer
         private void editerService_Click(object sender, RoutedEventArgs e)
         {
             ajouterService editerService = new ajouterService();
@@ -88,7 +90,7 @@ namespace Training_Form
             editerArticle.TVATextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].TauxTVA.ToString();
             editerArticle.ShowDialog();
         }
-
+        #endregion
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
@@ -111,6 +113,7 @@ namespace Training_Form
             }
         }
 
+        #region ajouter
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
         {
             TabItem ongletActuel = onglets.SelectedItem as TabItem;
@@ -130,6 +133,8 @@ namespace Training_Form
                     break;
             }
         }
+        #endregion
+
         #endregion
 
         #region methodes
@@ -153,8 +158,10 @@ namespace Training_Form
         {
             AjouterArticle fenetreAjout = new AjouterArticle();
             fenetreAjout.ShowDialog();
-            if (!fenetreAjout.Canceled)
-                JeuxTest.Articles.Add(new Article(fenetreAjout.RefTextBox.Text, fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, decimal.Parse(fenetreAjout.prixHTTextBox.Text), decimal.Parse(fenetreAjout.TVATextBox.Text)));
+            decimal prixHT;
+            decimal tauxTva;
+            if ((!fenetreAjout.Canceled || fenetreAjout.Forced) && decimal.TryParse(fenetreAjout.prixHTTextBox.Text, out prixHT) && decimal.TryParse(fenetreAjout.TVATextBox.Text, out tauxTva))
+                JeuxTest.Articles.Add(new Article(fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, prixHT, tauxTva));
         }
 
         void addSalarie()
