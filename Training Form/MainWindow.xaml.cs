@@ -106,8 +106,10 @@ namespace Training_Form
                 string nomNouveauService = fenetreAjout.nomTB.Text;
                 int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
                 string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
+                decimal prixHt = decimal.Parse(fenetreAjout.prixHTTB.Text);
+                decimal tauxTva = decimal.Parse(fenetreAjout.tauxTVATB.Text);
                 DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
-                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService,prixHt,tauxTva));
             }
         }
 
@@ -116,7 +118,7 @@ namespace Training_Form
             AjouterArticle fenetreAjout = new AjouterArticle();
             fenetreAjout.ShowDialog();
             if (!fenetreAjout.Canceled)
-                JeuxTest.Articles.Add(new Article(fenetreAjout.RefTextBox.Text, fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text));
+                JeuxTest.Articles.Add(new Article(fenetreAjout.RefTextBox.Text, fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, decimal.Parse(fenetreAjout.prixHTTextBox.Text), decimal.Parse(fenetreAjout.TVATextBox.Text)));
         }
 
         void addSalarie()
