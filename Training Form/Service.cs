@@ -116,8 +116,8 @@ namespace Training_Form
         /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
         /// <param name="nom">Nom du service</param>
         /// <param name="description">Description du service</param>
-        public Service(DateTime debut, int dureeSemaines, string codeProduit, string nom, string description)
-            : base(codeProduit, nom, description)
+        public Service(DateTime debut, int dureeSemaines, string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA)
+            : base(codeProduit, nom, description, prixHT, tauxTVA)
         {
             Duree = dureeSemaines;
             DebutAbo = debut;
@@ -133,8 +133,8 @@ namespace Training_Form
         /// <param name="nom">Nom du service</param>
         /// <param name="description">Description du service</param>
         /// <param name="seances">Nombre de séances avant expiration</param>
-        public Service(int dureeMois, DateTime debut, string codeProduit, string nom, string description, int seances = 0)
-            : base(codeProduit, nom, description)
+        public Service(int dureeMois, DateTime debut, string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA, int seances = 0)
+            : base(codeProduit, nom, description, prixHT, tauxTVA)
         {
             Duree = dureeMois;
             DebutAbo = debut;

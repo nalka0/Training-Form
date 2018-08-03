@@ -97,11 +97,13 @@ namespace Training_Form
         /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
         /// <param name="nom">Nom du produit</param>
         /// <param name="description">Description du produit</param>
-        public Produit(string codeProduit, string nom, string description) //, decimal prixHT, decimal tauxTVA
+        public Produit(string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA)
         {
             CodeProduit = codeProduit;
             Nom = nom;
             Description = description;
+            PrixHT = prixHT;
+            TauxTVA = tauxTVA;
         }
         #endregion
 

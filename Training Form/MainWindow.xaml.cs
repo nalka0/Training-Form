@@ -41,6 +41,15 @@ namespace Training_Form
             test.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
             test.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
             test.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
+            test.tbTelephone.Text = JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone;
+            test.tbAdresse.Text = JeuxTest.Clients[dataClients.SelectedIndex].Adresse;
+            //Si la liste des interets contient l'interet, alors la checkBox qui y correspond devient checkée, sinon elle est pas checkée
+            test.cbCardio.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Cardio");
+            test.cbFitness.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Fitness");
+            test.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
+            test.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
+            test.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
+            //test.rbAdulte.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex]
             test.ShowDialog();
         }
 
@@ -97,8 +106,10 @@ namespace Training_Form
                 string nomNouveauService = fenetreAjout.nomTB.Text;
                 int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
                 string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
+                decimal prixHt = decimal.Parse(fenetreAjout.prixHTTB.Text);
+                decimal tauxTva = decimal.Parse(fenetreAjout.tauxTVATB.Text);
                 DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
-                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService));
+                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService,prixHt,tauxTva));
             }
         }
 
@@ -107,7 +118,7 @@ namespace Training_Form
             AjouterArticle fenetreAjout = new AjouterArticle();
             fenetreAjout.ShowDialog();
             if (!fenetreAjout.Canceled)
-                JeuxTest.Articles.Add(new Article(fenetreAjout.RefTextBox.Text, fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text));
+                JeuxTest.Articles.Add(new Article(fenetreAjout.RefTextBox.Text, fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, decimal.Parse(fenetreAjout.prixHTTextBox.Text), decimal.Parse(fenetreAjout.TVATextBox.Text)));
         }
 
         void addSalarie()
@@ -137,7 +148,7 @@ namespace Training_Form
                 string nom = fenetreAjout.tbNom.Text;
                 string prenom = fenetreAjout.tbPrenom.Text;
                 DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
-                string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
+                string adresse = fenetreAjout.tbAdresse.Text;
                 string email = fenetreAjout.tbMail.Text;
                 string tel = fenetreAjout.tbTelephone.Text;
                 Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse);
