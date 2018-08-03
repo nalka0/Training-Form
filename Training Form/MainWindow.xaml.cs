@@ -24,7 +24,7 @@ namespace Training_Form
         {
             WindowState = WindowState.Maximized;
             InitializeComponent();
-            DataContext = this;            
+            DataContext = this;
             dataArticles.ItemsSource = JeuxTest.Articles;
             dataClients.ItemsSource = JeuxTest.Clients;
             dataServices.ItemsSource = JeuxTest.Services;
@@ -32,6 +32,21 @@ namespace Training_Form
         }
 
         #region evenements
+        private void editerService_Click(object sender, RoutedEventArgs e)
+        {
+            ajouterService editerService = new ajouterService();
+            editerService.nomTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Nom;
+            editerService.descriptionTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Description;
+            editerService.prixHTTB.Text = JeuxTest.Services[dataServices.SelectedIndex].PrixHT.ToString();
+            editerService.tauxTVATB.Text = JeuxTest.Services[dataServices.SelectedIndex].TauxTVA.ToString();
+            editerService.ShowDialog();
+        }
+
+        private void editerSalarie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void editerClient_Click(object sender, RoutedEventArgs e)
         {
             AjoutClient editerClient = new AjoutClient();
@@ -49,7 +64,18 @@ namespace Training_Form
             editerClient.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
             editerClient.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
             editerClient.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
-            //test.rbAdulte.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex]
+            switch (JeuxTest.Clients[dataClients.SelectedIndex].Statut)
+            {
+                case Statuts.Couple:
+                    editerClient.rbCouple.IsChecked = true;
+                    break;
+                case Statuts.Etudiant:
+                    editerClient.rbEtudiant.IsChecked = true;
+                    break;
+                default:
+                    editerClient.rbAdulte.IsChecked = true;
+                    break;
+            }
             editerClient.ShowDialog();
         }
 
@@ -58,6 +84,8 @@ namespace Training_Form
             AjouterArticle editerArticle = new AjouterArticle();
             editerArticle.NomTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Nom;
             editerArticle.descriptTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Description;
+            editerArticle.prixHTTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].PrixHT.ToString();
+            editerArticle.TVATextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].TauxTVA.ToString();
             editerArticle.ShowDialog();
         }
 
@@ -69,16 +97,16 @@ namespace Training_Form
             switch (tab.Name)
             {
                 case "Service":
-                   ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.Dumbbell, Height = 24, Width = 24};
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.Dumbbell, Height = 24, Width = 24 };
                     break;
                 case "Article":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.PlusBoxOutline, Height = 24, Width = 24};
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
                     break;
                 case "Salarie":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24};
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24 };
                     break;
                 case "Client":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24};
+                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24 };
                     break;
             }
         }
@@ -117,7 +145,7 @@ namespace Training_Form
                 decimal prixHt = decimal.Parse(fenetreAjout.prixHTTB.Text);
                 decimal tauxTva = decimal.Parse(fenetreAjout.tauxTVATB.Text);
                 DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
-                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService,prixHt,tauxTva));
+                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService, prixHt, tauxTva));
             }
         }
 

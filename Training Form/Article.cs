@@ -26,13 +26,17 @@ namespace Training_Form
                 }
             }
         }
+        private static int nombreArticle;
         #endregion
 
         #region constructeurs
-        public Article(string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA)
-            :base (codeProduit, nom, description, prixHT, tauxTVA)
+        public Article(string nom, string description, decimal prixHT, decimal tauxTVA)
+            :base (nom, description, prixHT, tauxTVA)
         {
 
+            CodeProduit = nombreArticle.ToString();
+            nombreArticle++;
+           
         }
         #endregion
 
