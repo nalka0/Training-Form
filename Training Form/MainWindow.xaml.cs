@@ -41,6 +41,15 @@ namespace Training_Form
             test.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
             test.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
             test.tbMail.Text = JeuxTest.Clients[dataClients.SelectedIndex].Mail;
+            test.tbTelephone.Text = JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone;
+            test.tbAdresse.Text = JeuxTest.Clients[dataClients.SelectedIndex].Adresse;
+            //Si la liste des interets contient l'interet, alors la checkBox qui y correspond devient checkée, sinon elle est pas checkée
+            test.cbCardio.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Cardio");
+            test.cbFitness.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Fitness");
+            test.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
+            test.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
+            test.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
+            //test.rbAdulte.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex]
             test.ShowDialog();
         }
 
@@ -137,7 +146,7 @@ namespace Training_Form
                 string nom = fenetreAjout.tbNom.Text;
                 string prenom = fenetreAjout.tbPrenom.Text;
                 DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
-                string adresse = fenetreAjout.tbVille.Text + fenetreAjout.tbRue.Text;
+                string adresse = fenetreAjout.tbAdresse.Text;
                 string email = fenetreAjout.tbMail.Text;
                 string tel = fenetreAjout.tbTelephone.Text;
                 Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse);
