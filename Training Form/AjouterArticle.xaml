@@ -22,7 +22,7 @@
             Padding="4"
             IsActive="False"
             HorizontalAlignment="Stretch">
-            <materialDesign:SnackbarMessage Name="snackBarMessage" Content="Tous n'est pas remplis" ActionContent="Passer" >
+            <materialDesign:SnackbarMessage Name="snackBarMessage" Content="Tous n'est pas remplis, voulez vous valider tout de même ?" ActionContent="Valider" ActionClick="snackBarMessage_ActionClick">
                 
             </materialDesign:SnackbarMessage>
         </materialDesign:Snackbar>

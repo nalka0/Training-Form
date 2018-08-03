@@ -21,7 +21,8 @@ namespace Training_Form
     public partial class AjouterArticle : Window
     {
         public bool Canceled = true;
-        public string Message;
+        public bool Notify = false;
+        public bool Forced = false;
         public AjouterArticle()
         {
             InitializeComponent();
@@ -36,31 +37,34 @@ namespace Training_Form
                 if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
                 {
                     //MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
-                    snackBarMessage.Content = "Le nom n'a pas été renseigné";
-                    e.Cancel = true;
+                    Notify = true;
                 }
                 if (prixHTTextBox.Text == "" || prixHTTextBox.Text == "Prix HT")
                 {
-                    MessageBox.Show("Le prix hors taxe n'a pas été renseigné", "PrixHT manquant", MessageBoxButton.OK, MessageBoxImage.Error);
-                    e.Cancel = true;
+                    //MessageBox.Show("Le prix hors taxe n'a pas été renseigné", "PrixHT manquant", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Notify = true;
                 }
                 if (TVATextBox.Text == "" || TVATextBox.Text == "TVA")
                 {
-                    MessageBox.Show("La TVA n'a pas été renseignée", "TVA manquante", MessageBoxButton.OK, MessageBoxImage.Error);
-                    e.Cancel = true;
+                    //MessageBox.Show("La TVA n'a pas été renseignée", "TVA manquante", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Notify = true;
                 }
                 if (RefTextBox.Text == "" || RefTextBox.Text == "Référence")
                 {
-                    MessageBox.Show("La référence n'a pas été renseignée", "Référence manquante", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //MessageBox.Show("La référence n'a pas été renseignée", "Référence manquante", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Notify = true;
+                }
+                if (Notify)
+                {
+                    snackBar.IsActive = true;
                     e.Cancel = true;
                 }
             }
 
         }
-
+      
         private void Valider_Click(object sender, RoutedEventArgs e)
         {
-            snackBar.IsActive = true;
             Canceled = false;
             Close();
         }
@@ -69,6 +73,12 @@ namespace Training_Form
         {
             Canceled = true;
             Close();
+        }
+
+        private void snackBarMessage_ActionClick(object sender, RoutedEventArgs e)
+        {
+            Close();
+            Forced = true;
         }
     }
 }
