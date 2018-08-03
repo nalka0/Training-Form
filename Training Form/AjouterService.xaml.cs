@@ -37,7 +37,7 @@ namespace Training_Form
 
         private void annuler_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
             Canceled = true;
         }
 

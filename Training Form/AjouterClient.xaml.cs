@@ -53,7 +53,7 @@ namespace Training_Form
 
         public void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
             Canceled = true;
         }
 

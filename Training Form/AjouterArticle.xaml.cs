@@ -31,7 +31,16 @@ namespace Training_Form
         
         private void ProduitWind_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //ajouter une verification pour s'assurer que les textBox on été remplies
+            if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
+            {
+                MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
+                e.Cancel = true;
+            }
+            if (descriptTextBox.Text == "" || descriptTextBox.Text == "Description")
+            {
+                MessageBox.Show("La description n'a pas été renseignée", "Description manquante", MessageBoxButton.OK, MessageBoxImage.Error);
+                e.Cancel = true;
+            }
         }
 
         private void Valider_Click(object sender, RoutedEventArgs e)
@@ -42,7 +51,7 @@ namespace Training_Form
 
         private void Annuler_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
+            Close();
             Canceled = true;
         }
     }
