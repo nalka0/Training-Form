@@ -53,14 +53,30 @@ namespace Training_Form
                
             }
         }
+        private Statuts _statut;
+        public Statuts Statut
+        {
+            get { return _statut; }
+            set
+            {
+                Statuts stock = _statut;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _statut = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
         #endregion
 
         #region constructeurs
-        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets, string numTelephonne, string adresse)
+        public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets, string numTelephonne, string adresse,Statuts statuts)
             : base(nom, prenom, email, dateNaissance, Permissions.Client, numTelephonne, adresse)
         {
             this.Justificatif = justificatif;
             this.Interets = interets;
+            Statut = statuts;
         }
         #endregion
 
