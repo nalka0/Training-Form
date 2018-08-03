@@ -51,14 +51,14 @@ namespace Training_Form
 
         private void boutonValider_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             Canceled = false;
+            Close();
         }
 
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             Canceled = true;
+            Close();
         }
     }
 }

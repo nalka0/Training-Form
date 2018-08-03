@@ -37,14 +37,14 @@ namespace Training_Form
 
         private void annuler_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             Canceled = true;
+            Close();
         }
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            Close();
             Canceled = true;
+            Close();
         }
 
         private void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)
