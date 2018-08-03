@@ -159,7 +159,12 @@ namespace Training_Form
                 string adresse = fenetreAjout.tbAdresse.Text;
                 string email = fenetreAjout.tbMail.Text;
                 string tel = fenetreAjout.tbTelephone.Text;
-                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse);
+                Statuts statut = Statuts.Adulte;
+                if ((bool)fenetreAjout.rbCouple.IsChecked)
+                    statut = Statuts.Couple;
+                else if ((bool)fenetreAjout.rbEtudiant.IsChecked)
+                    statut = Statuts.Etudiant;
+                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse, statut);
                 JeuxTest.Clients.Add(client);
             }
         }
