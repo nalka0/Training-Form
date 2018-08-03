@@ -32,8 +32,16 @@ namespace Training_Form
         
         private void ProduitWind_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            decimal result;
+
             if(!Canceled)
             {
+                if (!decimal.TryParse(prixHTTextBox.Text, out result))
+                {
+                    //MessageBox.Show("Erreur de saisie", "Prix HT Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+                    e.Cancel = true;
+                }
+
                 if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
                 {
                     //MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
