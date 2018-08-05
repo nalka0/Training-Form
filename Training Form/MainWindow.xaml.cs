@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MaterialDesignThemes.Wpf;
 
 namespace Training_Form
 {
@@ -22,8 +23,8 @@ namespace Training_Form
     {
         public MainWindow()
         {
-            WindowState = WindowState.Maximized;
             InitializeComponent();
+            WindowState = WindowState.Maximized;
             DataContext = this;
             dataArticles.ItemsSource = JeuxTest.Articles;
             dataClients.ItemsSource = JeuxTest.Clients;
@@ -42,6 +43,10 @@ namespace Training_Form
             editerService.prixHTTB.Text = JeuxTest.Services[dataServices.SelectedIndex].PrixHT.ToString();
             editerService.tauxTVATB.Text = JeuxTest.Services[dataServices.SelectedIndex].TauxTVA.ToString();
             editerService.ShowDialog();
+            JeuxTest.Services[dataServices.SelectedIndex].Nom = editerService.nomTB.Text;
+            JeuxTest.Services[dataServices.SelectedIndex].Description = editerService.descriptionTB.Text;
+            JeuxTest.Services[dataServices.SelectedIndex].PrixHT = decimal.Parse(editerService.prixHTTB.Text);
+            JeuxTest.Services[dataServices.SelectedIndex].TauxTVA = decimal.Parse(editerService.tauxTVATB.Text);
         }
 
         private void editerSalarie_Click(object sender, RoutedEventArgs e)
@@ -79,6 +84,20 @@ namespace Training_Form
                     break;
             }
             editerClient.ShowDialog();
+            JeuxTest.Clients[dataClients.SelectedIndex].Nom = editerClient.tbNom.Text;
+            JeuxTest.Clients[dataClients.SelectedIndex].Prenom = editerClient.tbPrenom.Text;
+            JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance = (DateTime)editerClient.tbDateNaissance.SelectedDate;
+            JeuxTest.Clients[dataClients.SelectedIndex].Mail = editerClient.tbMail.Text;
+            JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone = editerClient.tbTelephone.Text;
+            JeuxTest.Clients[dataClients.SelectedIndex].Adresse = editerClient.tbAdresse.Text;
+            //Si la checkbox est cochée, on ajoute l'interet concerné dans la liste des interets, sinon on y ajoute rien
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbCardio.IsChecked ? "Cardio, " : "";
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbFitness.IsChecked ? "Fitness, " : "";
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbMuscu.IsChecked ? "Muscu, " : "";
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbPilate.IsChecked ? "Pilate ," : "";
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbZumba.IsChecked ? "Zumba, " : "";
+            //Si le radioButton est sur couple alors le statut devient Couple sinon si le radioButton est sur Etudiant le statut devient étudiant sinon il de vient adulte.
+            JeuxTest.Clients[dataClients.SelectedIndex].Statut = (bool)editerClient.rbCouple.IsChecked ? Statuts.Couple : (bool)editerClient.rbEtudiant.IsChecked ? Statuts.Etudiant : Statuts.Adulte;
         }
 
         private void editerArticle_Click(object sender, RoutedEventArgs e)
@@ -91,6 +110,7 @@ namespace Training_Form
             editerArticle.ShowDialog();
         }
         #endregion
+
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
@@ -99,16 +119,16 @@ namespace Training_Form
             switch (tab.Name)
             {
                 case "Service":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.Dumbbell, Height = 24, Width = 24 };
+                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.Dumbbell, Height = 24, Width = 24 };
                     break;
                 case "Article":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
+                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
                     break;
                 case "Salarie":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24 };
+                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
                     break;
                 case "Client":
-                    ajoutElement.Content = new MaterialDesignThemes.Wpf.PackIcon() { Kind = MaterialDesignThemes.Wpf.PackIconKind.AccountPlus, Height = 24, Width = 24 };
+                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
                     break;
             }
         }

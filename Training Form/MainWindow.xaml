@@ -148,7 +148,6 @@
                                         </Grid>
 
                                     </materialDesign:PopupBox>
-                                    <!--Click="modifierSalarie_Click" />-->
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
