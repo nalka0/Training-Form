@@ -28,7 +28,7 @@ namespace Training_Form
             Closing += AjoutUser_Closing;
         }
 
-        private void AjoutUser_Loaded(object sender, RoutedEventArgs e)
+        public void AjoutUser_Loaded(object sender, RoutedEventArgs e)
         {
             textBoxDateNaissance.SelectedDate = DateTime.Now;
             textBoxDateEmbauche.SelectedDate = DateTime.Now;

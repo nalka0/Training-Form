@@ -10,8 +10,7 @@
         <TextBox x:Name="textBoxNom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
         <TextBox x:Name="textBoxPrenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prénom" VerticalAlignment="Top" Width="120" Margin="224,10,0,0"/>
         <DatePicker x:Name="textBoxDateNaissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
-        <TextBox x:Name="textBoxAdresse1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,68,0,0"/>
-        <TextBox x:Name="textBoxAdresse2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,96,0,0"/>
+        <TextBox x:Name="textBoxAdresse" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,68,0,0"/>
         <TextBox x:Name="textBoxEmail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,124,0,0"/>
         <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="256,258,0,0" Click="boutonValider_Click"/>
         <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="10,258,0,0" Click="boutonAnnuler_Click"/>

@@ -57,18 +57,14 @@ namespace Training_Form
         {
             Salarie sal = obj as Salarie;
             if (sal == null)
-            {
                 return false;
-            }
             else
-            {
                 return Equals(sal);
-            } 
         }
 
         public bool Equals(Salarie sal)
         {
-            return base.Identifiant == sal.Identifiant;
+            return Identifiant == sal.Identifiant;
         }
 
         public override int GetHashCode()

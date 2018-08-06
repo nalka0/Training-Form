@@ -27,8 +27,6 @@ namespace Training_Form
             }
         }
 
- 
-
         private bool _cours;
         public bool Cours
         {
@@ -106,11 +104,11 @@ namespace Training_Form
         /// <param name="nom">Nom de la formule</param>
         public Formule( int duree, bool avecCours, string nom, float prix)
         {
-            _duree = duree;            
-            _cours = avecCours;
-            _nom = nom;
-            _identifiant = nombreFormules;
-            _prix = prix;
+            Duree = duree;            
+            Cours = avecCours;
+            Nom = nom;
+            Identifiant = nombreFormules;
+            Prix = prix;
             nombreFormules++;
         }
         #endregion

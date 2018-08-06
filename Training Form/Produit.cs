@@ -16,7 +16,6 @@ namespace Training_Form
         private string _description;
         private decimal _prixHT;
         private decimal _tauxTVA;
-        private decimal _prixTTC;
 
         /// <summary>
         /// Code permettant d'identifier le produit
@@ -75,18 +74,31 @@ namespace Training_Form
         public decimal PrixHT
         {
             get { return _prixHT; }
-            set { _prixHT = value; }
+            set
+            {
+                decimal stock = _prixHT;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _prixHT = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
 
         }
         public decimal TauxTVA
         {
             get { return _tauxTVA; }
-            set { _tauxTVA = value; }
-        }
-        public decimal PrixTTC
-        {
-            get { return _prixTTC; }
-            set { _prixTTC = value; }
+            set
+            {
+                decimal stock = _tauxTVA;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _tauxTVA = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
         }
         #endregion
 
@@ -112,7 +124,6 @@ namespace Training_Form
             PrixHT = prixHT;
             TauxTVA = tauxTVA;
         }
-
         #endregion
 
         #region methodes

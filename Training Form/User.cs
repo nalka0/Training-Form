@@ -243,12 +243,9 @@ namespace Training_Form
         /// </summary>
         public int getAge()
         {
-            int modif = 0;
             if (DateTime.Now.Month <= DateNaissance.Month && DateTime.Now.Day < DateNaissance.Day)
-            {
-                modif--;
-            }
-            return DateTime.Now.Year - DateNaissance.Year + modif;
+                return DateTime.Now.Year - DateNaissance.Year - 1;
+            return DateTime.Now.Year - DateNaissance.Year;
         }
         #endregion
     }

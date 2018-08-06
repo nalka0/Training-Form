@@ -51,7 +51,25 @@ namespace Training_Form
 
         private void editerSalarie_Click(object sender, RoutedEventArgs e)
         {
-
+            AjouterSalarie editerSalarie = new AjouterSalarie();
+            editerSalarie.Loaded -= editerSalarie.AjoutUser_Loaded;
+            editerSalarie.textBoxNom.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Nom;
+            editerSalarie.textBoxPrenom.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Prenom;
+            editerSalarie.textBoxEmail.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Mail;
+            editerSalarie.textBoxDateNaissance.SelectedDate = JeuxTest.Salaries[dataSalaries.SelectedIndex].DateNaissance;
+            editerSalarie.textBoxDateEmbauche.SelectedDate = JeuxTest.Salaries[dataSalaries.SelectedIndex].DateEmbauche;
+            editerSalarie.textBoxAdresse.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Adresse;
+            editerSalarie.numTelephonneTB.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].NumTelephone;
+            editerSalarie.textBoxPassword.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Password;
+            editerSalarie.ShowDialog();
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].Nom = editerSalarie.textBoxNom.Text;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].Prenom = editerSalarie.textBoxPrenom.Text;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].Mail = editerSalarie.textBoxEmail.Text;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].Adresse = editerSalarie.textBoxAdresse.Text;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].DateNaissance = (DateTime)editerSalarie.textBoxDateNaissance.SelectedDate;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].DateEmbauche = (DateTime)editerSalarie.textBoxDateEmbauche.SelectedDate;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].NumTelephone = editerSalarie.numTelephonneTB.Text;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].Password = editerSalarie.textBoxPassword.Text;
         }
 
         private void editerClient_Click(object sender, RoutedEventArgs e)
@@ -108,6 +126,10 @@ namespace Training_Form
             editerArticle.prixHTTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].PrixHT.ToString();
             editerArticle.TVATextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].TauxTVA.ToString();
             editerArticle.ShowDialog();
+            JeuxTest.Articles[dataArticles.SelectedIndex].Nom = editerArticle.NomTextBox.Text;
+            JeuxTest.Articles[dataArticles.SelectedIndex].Description = editerArticle.descriptTextBox.Text;
+            JeuxTest.Articles[dataArticles.SelectedIndex].PrixHT = decimal.Parse(editerArticle.prixHTTextBox.Text);
+            JeuxTest.Articles[dataArticles.SelectedIndex].TauxTVA = decimal.Parse(editerArticle.TVATextBox.Text);
         }
         #endregion
 
@@ -192,13 +214,13 @@ namespace Training_Form
             {
                 string nom = fenetreAjout.textBoxNom.Text;
                 string prenom = fenetreAjout.textBoxPrenom.Text;
-                DateTime dateNaissance = fenetreAjout.textBoxDateNaissance.DisplayDate;
-                string adresse = fenetreAjout.textBoxAdresse1.Text + fenetreAjout.textBoxAdresse2.Text;
+                DateTime dateNaissance = (DateTime)fenetreAjout.textBoxDateNaissance.SelectedDate;
+                string adresse = fenetreAjout.textBoxAdresse.Text;
                 string email = fenetreAjout.textBoxEmail.Text;
                 string password = fenetreAjout.textBoxPassword.Text;
-                DateTime dateEmbauche = fenetreAjout.textBoxDateEmbauche.DisplayDate;
+                DateTime dateEmbauche = (DateTime)fenetreAjout.textBoxDateEmbauche.SelectedDate;
                 string numTelephonne = fenetreAjout.numTelephonneTB.Text;
-                JeuxTest.Salaries.Add(new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, "adresse de jean michel pierre paul"));
+                JeuxTest.Salaries.Add(new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, adresse));
             }
         }
 
