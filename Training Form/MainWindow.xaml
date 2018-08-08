@@ -18,13 +18,13 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Code Client" IsReadOnly="True" Binding="{Binding Identifiant}"/>
-                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
-                        <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
-                        <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
-                        <DataGridTextColumn Header="Interets" Binding="{Binding Interets}"/>
-                        <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}"/>
-                        <DataGridTextColumn Header="Telephone" Binding="{Binding NumTelephone}"/>
+                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
+                        <DataGridTextColumn Header="Adresse Mail" IsReadOnly="True" Binding="{Binding Mail}"/>
+                        <DataGridTextColumn Header="Date de Naissance" IsReadOnly="True" Binding="{Binding DateNaissance}"/>
+                        <DataGridTextColumn Header="Interets" IsReadOnly="True" Binding="{Binding Interets}"/>
+                        <DataGridTextColumn Header="Adresse" IsReadOnly="True" Binding="{Binding Adresse}"/>
+                        <DataGridTextColumn Header="Telephone" IsReadOnly="True" Binding="{Binding NumTelephone}"/>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -67,11 +67,11 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Code Produit" IsReadOnly="True" Binding="{Binding CodeProduit}"/>
-                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="Image" Binding="{Binding ImageProduit}"/>
-                        <DataGridTextColumn Header="PrixHT" Binding="{Binding PrixHT}"/>
-                        <DataGridTextColumn Header="PrixTTC" Binding="{Binding PrixTTC}"/>
+                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Image" IsReadOnly="True" Binding="{Binding ImageProduit}"/>
+                        <DataGridTextColumn Header="PrixHT" IsReadOnly="True" Binding="{Binding PrixHT}"/>
+                        <DataGridTextColumn Header="PrixTTC" IsReadOnly="True" Binding="{Binding PrixTTC}"/>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -116,11 +116,11 @@
                 <DataGrid Name="dataServices" Margin="10,10,10,10"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}">
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Code Service" IsReadOnly="True"  Binding="{Binding CodeProduit}"/>
-                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="Date de Début" Binding="{Binding DebutAbo}"/>
-                        <DataGridTextColumn Header="Date de Fin" Binding="{Binding FinAbo}"/>
+                        <DataGridTextColumn Header="Code Service" IsReadOnly="True" Binding="{Binding CodeProduit}"/>
+                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"/>
+                        <DataGridTextColumn Header="Date de Début" IsReadOnly="True" Binding="{Binding DebutAbo}"/>
+                        <DataGridTextColumn Header="Date de Fin" IsReadOnly="True" Binding="{Binding FinAbo}"/>
                         <DataGridTemplateColumn>
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -163,13 +163,13 @@
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Identifiant" IsReadOnly="True" Binding="{Binding Identifiant}"/>
-                        <DataGridTextColumn Header="Nom" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Prenom" Binding="{Binding Prenom}"/>
-                        <DataGridTextColumn Header="Adresse Mail" Binding="{Binding Mail}"/>
-                        <DataGridTextColumn Header="Adresse" Binding="{Binding Adresse}"/>
-                        <DataGridTextColumn Header="Telephone" Binding="{Binding NumTelephone}"/>
-                        <DataGridTextColumn Header="Date de Naissance" Binding="{Binding DateNaissance}"/>
-                        <DataGridTextColumn Header="Date d'embauche" Binding="{Binding DateEmbauche}"/>
+                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
+                        <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
+                        <DataGridTextColumn Header="Adresse Mail" IsReadOnly="True" Binding="{Binding Mail}"/>
+                        <DataGridTextColumn Header="Adresse" IsReadOnly="True" Binding="{Binding Adresse}"/>
+                        <DataGridTextColumn Header="Telephone" IsReadOnly="True" Binding="{Binding NumTelephone}"/>
+                        <DataGridTextColumn Header="Date de Naissance" IsReadOnly="True" Binding="{Binding DateNaissance}"/>
+                        <DataGridTextColumn Header="Date d'embauche" IsReadOnly="True" Binding="{Binding DateEmbauche}"/>
                         <DataGridTemplateColumn Header=" Modifier">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -185,11 +185,10 @@
                                             <Button Name="editerSalarie" Click="editerSalarie_Click" Grid.Row="0" Content="Editer" />
                                             <Button Grid.Row="1" Content="Fiche Salarié" />
                                             <Button Grid.Row="2" Content="Supprimer" />
-                                            
+
                                         </Grid>
 
                                     </materialDesign:PopupBox>
-                                    <!--Click="modifierSalarie_Click" />-->
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
