@@ -24,6 +24,7 @@ namespace Training_Form
         public AjoutClient()
         {
             InitializeComponent();
+            Title = "Ajouter un client";
             Loaded += AjoutClient_Loaded;
             Closing += AjoutClient_Closing;
         }

@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="AjoutClient" Height="450" Width="525.142">
     <Grid Margin="0,0,2,0">
-        <TextBox x:Name="tbNom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <TextBox x:Name="tbPrenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="120" Margin="199,10,0,0"/>
+        <TextBox x:Name="tbNom" ToolTip="Nom du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
+        <TextBox x:Name="tbPrenom" ToolTip ="Prenom du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="120" Margin="199,10,0,0"/>
         <Label x:Name="lDateNaissance" Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,46,0,0"/>
-        <DatePicker x:Name="tbDateNaissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,39,0,0" Width="120"/>
-        <TextBox x:Name="tbAdresse" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="309" Margin="10,64,0,0"/>
-        <TextBox x:Name="tbMail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,120,0,0"/>
-        <TextBox x:Name="tbTelephone" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Telephone" VerticalAlignment="Top" Width="120" Margin="199,120,0,0"/>
-        <GroupBox x:Name="gbStatuts" Header="Statuts" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="89" Margin="41,170,0,0">
+        <DatePicker x:Name="tbDateNaissance" ToolTip="Date de naissance du client" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,39,0,0" Width="120"/>
+        <TextBox x:Name="tbAdresse" ToolTip="Adresse physique du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="309" Margin="10,64,0,0"/>
+        <TextBox x:Name="tbMail" ToolTip="Adresse mail du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,120,0,0"/>
+        <TextBox x:Name="tbTelephone" ToolTip="Numéro de téléphonne du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Telephone" VerticalAlignment="Top" Width="120" Margin="199,120,0,0"/>
+        <GroupBox x:Name="gbStatuts" Header="Statut" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="89" Margin="41,170,0,0">
             <StackPanel Width="79" Margin="0,0,0,-4">
                 <RadioButton x:Name="rbAdulte" Content="Adulte"/>
                 <RadioButton x:Name="rbCouple" Content="Couple"/>

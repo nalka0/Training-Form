@@ -24,6 +24,7 @@ namespace Training_Form
         public MainWindow()
         {
             InitializeComponent();
+            Title = "Gestion de Training Form";
             WindowState = WindowState.Maximized;
             DataContext = this;
             dataArticles.ItemsSource = JeuxTest.Articles;

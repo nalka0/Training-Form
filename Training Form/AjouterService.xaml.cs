@@ -24,6 +24,7 @@ namespace Training_Form
         public ajouterService()
         {
             InitializeComponent();
+            Title = "Ajouter un service";
             Closing += AjouterService_Closing;
         }
 

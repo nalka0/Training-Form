@@ -23,10 +23,12 @@ namespace Training_Form
         public bool Canceled = true;
         public bool Notify = false;
         public bool Forced = false;
+
         public AjouterArticle()
         {
             InitializeComponent();
             DataContext = this;
+            Title = "Ajouter un article";
             Closing += ProduitWind_Closing;
         }
 

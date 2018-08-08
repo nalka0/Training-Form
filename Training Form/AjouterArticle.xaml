@@ -10,10 +10,10 @@
     <Grid Margin="0,0,0,0">
 
         <TextBox x:Name="RefTextBox" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Référence" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="NomTextBox" HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>
-        <TextBox x:Name="descriptTextBox" HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="319"/>
-        <TextBox x:Name="prixHTTextBox" HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319"/>
-        <TextBox x:Name="TVATextBox" HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NomTextBox" ToolTip="Nom du nouvel article" HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="descriptTextBox" ToolTip="Description de l'article" HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="prixHTTextBox" ToolTip="Prix hors taxes de l'article" HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319"/>
+        <TextBox x:Name="TVATextBox" ToolTip="Taux de TVA appliqué à l'article" HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="192" Margin="427,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="197" Grid.ColumnSpan="2"/>
         <Button x:Name="Valider" Content="Valider" HorizontalAlignment="Left" Margin="549,257,0,0" VerticalAlignment="Top" Width="75" Click="Valider_Click"/>
         <Button x:Name="Annuler" Content="Annuler" HorizontalAlignment="Left" Margin="427,257,0,0" VerticalAlignment="Top" Width="86" Grid.ColumnSpan="2" IsCancel="True" Click="Annuler_Click"/>

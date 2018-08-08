@@ -24,6 +24,7 @@ namespace Training_Form
         public AjouterSalarie()
         {
             InitializeComponent();
+            Title = "Ajouter un salarié";
             Loaded += AjoutUser_Loaded;
             Closing += AjoutUser_Closing;
         }
