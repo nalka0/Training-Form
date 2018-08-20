@@ -280,5 +280,12 @@ namespace Training_Form
             }
         }
         #endregion
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DashBoard fenetre = new DashBoard();
+            fenetre.Show();
+            
+        }
     }
 }

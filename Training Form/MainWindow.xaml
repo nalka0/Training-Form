@@ -204,6 +204,8 @@
             Click="ajoutElement_Click" Margin="0,10,60,0" Width="56" Height="56" HorizontalAlignment="Right" VerticalAlignment="Top">
             <materialDesign:PackIcon Kind="AccountPlus" Height="24" Width="24"/>
         </Button>
+        
+        <Image x:Name="icone" Margin="13,22,0,0" Source="trainingFormLogo.png" Stretch="Fill" MouseDown="Image_MouseDown" HorizontalAlignment="Left" Width="72" Height="74" VerticalAlignment="Top" Focusable="True"/>
     </Grid>
 
 </Window>
