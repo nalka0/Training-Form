@@ -48,7 +48,7 @@ namespace Training_Form
             Close();
         }
 
-        private void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)
+        public void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)
         {
             dureeNUD.Value = 0;
             debutDTP.SelectedDate = DateTime.Now;
