@@ -144,27 +144,23 @@ namespace Training_Form
         {
             MessageBoxResult result =  MessageBox.Show("Voulez-vous vraiment supprimer ce client ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (result == MessageBoxResult.OK) { JeuxTest.Clients.RemoveAt(dataClients.SelectedIndex); }
-            else result = MessageBoxResult.Cancel;
         }
 
         private void supprimerArticle_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer cet article ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (result == MessageBoxResult.OK) { JeuxTest.Articles.RemoveAt(dataArticles.SelectedIndex); }
-            else result = MessageBoxResult.Cancel;
         }
 
         private void supprimerService_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce service ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (result == MessageBoxResult.OK) { JeuxTest.Services.RemoveAt(dataServices.SelectedIndex); }
-            else result = MessageBoxResult.Cancel;
         }
         private void supprimerSalarie_Click(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce salarié ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (result == MessageBoxResult.OK) { JeuxTest.Salaries.RemoveAt(dataSalaries.SelectedIndex); }
-            else result = MessageBoxResult.Cancel;
         }
         #endregion
 
