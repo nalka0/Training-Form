@@ -70,7 +70,9 @@ namespace Training_Form
                 }
             }
         }
-
+        /// <summary>
+        /// Prix hors taxes du produit
+        /// </summary>
         public decimal PrixHT
         {
             get { return _prixHT; }
@@ -86,6 +88,9 @@ namespace Training_Form
             }
 
         }
+        /// <summary>
+        /// Taux de TVA appliqué au produit
+        /// </summary>
         public decimal TauxTVA
         {
             get { return _tauxTVA; }
