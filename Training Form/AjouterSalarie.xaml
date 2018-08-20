@@ -12,8 +12,8 @@
         <DatePicker x:Name="textBoxDateNaissance" ToolTip="Date de naissance du salarié" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
         <TextBox x:Name="textBoxAdresse" ToolTip="Adresse physique du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,68,0,0"/>
         <TextBox x:Name="textBoxEmail" ToolTip="Adresse mail du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,124,0,0"/>
-        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="256,258,0,0" Click="boutonValider_Click"/>
-        <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="10,258,0,0" Click="boutonAnnuler_Click"/>
+        <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="10,258,0,0" Click="boutonValider_Click"/>
+        <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="256,258,0,0" Click="boutonAnnuler_Click"/>
         <TextBox x:Name="textBoxPassword" ToolTip="Mot de passe du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Margin="224,124,0,0"/>
         <DatePicker x:Name="textBoxDateEmbauche" ToolTip="Date d'embauche du salarié" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,181,0,0" Width="120"/>
         <Label x:Name="labelDateEmbauche" Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,180,0,0"/>
