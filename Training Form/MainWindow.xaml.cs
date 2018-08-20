@@ -39,15 +39,20 @@ namespace Training_Form
         private void editerService_Click(object sender, RoutedEventArgs e)
         {
             ajouterService editerService = new ajouterService();
+            editerService.Loaded -= editerService.ajouterServiceWin_Loaded;
             editerService.nomTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Nom;
             editerService.descriptionTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Description;
             editerService.prixHTTB.Text = JeuxTest.Services[dataServices.SelectedIndex].PrixHT.ToString();
             editerService.tauxTVATB.Text = JeuxTest.Services[dataServices.SelectedIndex].TauxTVA.ToString();
+            editerService.dureeNUD.Value = JeuxTest.Services[dataServices.SelectedIndex].Duree;
+            editerService.debutDTP.SelectedDate = JeuxTest.Services[dataServices.SelectedIndex].DebutAbo;
             editerService.ShowDialog();
             JeuxTest.Services[dataServices.SelectedIndex].Nom = editerService.nomTB.Text;
             JeuxTest.Services[dataServices.SelectedIndex].Description = editerService.descriptionTB.Text;
             JeuxTest.Services[dataServices.SelectedIndex].PrixHT = decimal.Parse(editerService.prixHTTB.Text);
             JeuxTest.Services[dataServices.SelectedIndex].TauxTVA = decimal.Parse(editerService.tauxTVATB.Text);
+            JeuxTest.Services[dataServices.SelectedIndex].Duree = (int)editerService.dureeNUD.Value;
+            JeuxTest.Services[dataServices.SelectedIndex].DebutAbo = (DateTime)editerService.debutDTP.SelectedDate;
         }
 
         private void editerSalarie_Click(object sender, RoutedEventArgs e)
@@ -134,6 +139,31 @@ namespace Training_Form
         }
         #endregion
 
+        #region supprimer
+        private void supprimerClient_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result =  MessageBox.Show("Voulez-vous vraiment supprimer ce client ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.OK) { JeuxTest.Clients.RemoveAt(dataClients.SelectedIndex); }
+        }
+
+        private void supprimerArticle_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer cet article ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.OK) { JeuxTest.Articles.RemoveAt(dataArticles.SelectedIndex); }
+        }
+
+        private void supprimerService_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce service ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.OK) { JeuxTest.Services.RemoveAt(dataServices.SelectedIndex); }
+        }
+        private void supprimerSalarie_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce salarié ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.OK) { JeuxTest.Salaries.RemoveAt(dataSalaries.SelectedIndex); }
+        }
+        #endregion
+
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
@@ -190,10 +220,13 @@ namespace Training_Form
                 string nomNouveauService = fenetreAjout.nomTB.Text;
                 int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
                 string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
-                decimal prixHt = decimal.Parse(fenetreAjout.prixHTTB.Text);
-                decimal tauxTva = decimal.Parse(fenetreAjout.tauxTVATB.Text);
+                decimal prixHT = decimal.Parse(fenetreAjout.prixHTTB.Text);
+                decimal tauxTVA = decimal.Parse(fenetreAjout.tauxTVATB.Text);
                 DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
-                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService, prixHt, tauxTva));
+                if ((bool)fenetreAjout.moisRB.IsChecked)
+                    JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService, prixHT, tauxTVA));
+                else if ((bool)fenetreAjout.semainesRB.IsChecked)
+                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, "0121255555", nomNouveauService, descriptionNouveauService, prixHT, tauxTVA));
             }
         }
 

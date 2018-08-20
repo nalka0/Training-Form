@@ -44,11 +44,11 @@ namespace Training_Form
 
         private void valider_Click(object sender, RoutedEventArgs e)
         {
-            Canceled = true;
+            Canceled = false;
             Close();
         }
 
-        private void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)
+        public void ajouterServiceWin_Loaded(object sender, RoutedEventArgs e)
         {
             dureeNUD.Value = 0;
             debutDTP.SelectedDate = DateTime.Now;
