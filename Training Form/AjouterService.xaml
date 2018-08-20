@@ -21,16 +21,15 @@
         <Button x:Name="valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="123,269,0,0" Click="valider_Click" Grid.Row="1" RenderTransformOrigin="-0.699,-1.285" Grid.ColumnSpan="2"/>
         <TextBox x:Name="nomTB" ToolTip="Nom du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="nom" VerticalAlignment="Top" Width="120" Margin="123,24,0,0" Grid.Row="1" Grid.ColumnSpan="2"/>
         <TextBox x:Name="descriptionTB" ToolTip="Description du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="description" VerticalAlignment="Top" Width="120" Margin="123,61,0,0" Grid.ColumnSpan="2"/>
-        <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="85,203,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178" Grid.Column="1" Height="20" Width="41"/>
-        <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,102,0,0" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="3.243,0.63" Height="25" Width="21"/>
+        <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="200,203,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178" Grid.Column="1" Height="20" Width="41"/>
+        <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,102,0,0" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="3.243,0.63" Height="37" Width="68"/>
         <TextBox x:Name="prixHTTB" ToolTip="Prix hors taxes du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,61,0,0"/>
         <TextBox x:Name="tauxTVATB" ToolTip="Taux de TVA appliqué au service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Taux TVA" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,24,0,0" Grid.Row="1"/>
         <Label Content="Date de début" Grid.Column="1" Margin="191,102,73,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.253,4.032" Height="26"/>
         <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="142" Margin="123,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
             <StackPanel>
-                <RadioButton Content="RadioButton"/>
-                <RadioButton Content="RadioButton"/>
-
+                <RadioButton Name="semainesRB" Content="Semaines"/>
+                <RadioButton Name="moisRB"  Content="Mois"/>
             </StackPanel>
         </GroupBox>
 
