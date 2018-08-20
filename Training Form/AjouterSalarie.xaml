@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="AjoutUser" Height="363.771" Width="393.632">
+        Title="AjoutUser" Height="334.39" Width="368.99" ResizeMode="NoResize">
     <Grid Margin="0,0,2,-21">
         <TextBox x:Name="textBoxNom" ToolTip="Nom du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
         <TextBox x:Name="textBoxPrenom" ToolTip="Prenom du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prénom" VerticalAlignment="Top" Width="120" Margin="224,10,0,0"/>
