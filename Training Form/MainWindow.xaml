@@ -47,7 +47,7 @@
 
                                             <Button Click="editerClient_Click" Name="editerClient" Grid.Row="0" Content="Editer" />
                                             <Button Grid.Row="1" Content="Fiche Client" />
-                                            <Button Grid.Row="2" Content="Supprimer" />
+                                            <Button Click="supprimerClient_Click" Name="supprimerClient" Grid.Row="2" Content="Supprimer" />
 
                                         </Grid>
 
@@ -95,7 +95,7 @@
 
                                             <Button Name ="editerArticle" Click="editerArticle_Click" Grid.Row="0" Content="Editer" />
                                             <Button Grid.Row="1" Content="Fiche Article" />
-                                            <Button Grid.Row="2" Content="Supprimer" />
+                                            <Button Click="supprimerArticle_Click" Name="supprimerArticle" Grid.Row="2" Content="Supprimer" />
 
                                         </Grid>
 
@@ -143,7 +143,7 @@
 
                                             <Button Name="editerService" Click="editerService_Click" Grid.Row="0" Content="Editer" />
                                             <Button Grid.Row="1" Content="Fiche Service" />
-                                            <Button Grid.Row="2" Content="Supprimer" />
+                                            <Button Click="supprimerService_Click" Name="supprimerService" Grid.Row="2" Content="Supprimer" />
 
                                         </Grid>
 
@@ -184,7 +184,7 @@
                                             </Grid.RowDefinitions>
                                             <Button Name="editerSalarie" Click="editerSalarie_Click" Grid.Row="0" Content="Editer" />
                                             <Button Grid.Row="1" Content="Fiche Salarié" />
-                                            <Button Grid.Row="2" Content="Supprimer" />
+                                            <Button Click="supprimerSalarie_Click" Name="supprimerSalarie" Grid.Row="2" Content="Supprimer" />
 
                                         </Grid>
 
