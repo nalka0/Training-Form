@@ -65,6 +65,7 @@ namespace Training_Form
             JeuxTest.Salaries.Add(Sal1);
             JeuxTest.Salaries.Add(Sal2);
             JeuxTest.Salaries.Add(Sal3);
+
             base.Run();
         }
     }
