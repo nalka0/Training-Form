@@ -38,12 +38,12 @@ namespace Training_Form
             {
                 if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
                 {
-                    //MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
                     Notify = true;
                 }
                 if (RefTextBox.Text == "" || RefTextBox.Text == "Référence")
                 {
-                    //MessageBox.Show("La référence n'a pas été renseignée", "Référence manquante", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("La référence n'a pas été renseignée", "Référence manquante", MessageBoxButton.OK, MessageBoxImage.Error);
                     Notify = true;
                 }
                 if (Notify)
@@ -84,6 +84,28 @@ namespace Training_Form
             Notify = false;
             Forced = true;
             Close();
+        }
+
+        private void prixHTTextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            string resultat = "";
+            foreach (char element in prixHTTextBox.Text)
+            {
+                if (element != '.')
+                    resultat += element;
+                else
+                    resultat += ',';
+            }
+            prixHTTextBox.Text = resultat;
+            resultat = "";
+            foreach (char element in TVATextBox.Text)
+            {
+                if (element != '.')
+                    resultat += element;
+                else
+                    resultat += ',';
+            }
+            TVATextBox.Text = resultat;
         }
     }
 }

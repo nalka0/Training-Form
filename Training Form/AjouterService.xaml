@@ -23,8 +23,8 @@
         <TextBox x:Name="descriptionTB" ToolTip="Description du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="description" VerticalAlignment="Top" Width="120" Margin="123,61,0,0" Grid.ColumnSpan="2"/>
         <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="200,203,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178" Grid.Column="1" Height="20" Width="41"/>
         <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,102,0,0" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="3.243,0.63" Height="37" Width="68"/>
-        <TextBox x:Name="prixHTTB" ToolTip="Prix hors taxes du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,61,0,0"/>
-        <TextBox x:Name="tauxTVATB" ToolTip="Taux de TVA appliqué au service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Taux TVA" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,24,0,0" Grid.Row="1"/>
+        <TextBox x:Name="prixHTTB" ToolTip="Prix hors taxes du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,61,0,0" LostFocus="prixHTTB_LostFocus"/>
+        <TextBox x:Name="tauxTVATB" ToolTip="Taux de TVA appliqué au service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Taux TVA" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,24,0,0" Grid.Row="1" LostFocus="prixHTTB_LostFocus"/>
         <Label Content="Date de début" Grid.Column="1" Margin="191,102,73,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.253,4.032" Height="26"/>
         <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="142" Margin="123,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
             <StackPanel>

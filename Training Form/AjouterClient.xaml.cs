@@ -39,16 +39,25 @@ namespace Training_Form
             if (!Canceled)
             {
                 if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
+                {
+                    MessageBox.Show("Erreur dans la date", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
                     e.Cancel = true;
+                }
                 if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains("."))
+                {
+                    MessageBox.Show("Le mail n'est pas conforme", "Erreur mail", MessageBoxButton.OK, MessageBoxImage.Error);
                     e.Cancel = true;
+                }
                 foreach (char character in tbTelephone.Text)
                 {
                     if (!Char.IsDigit(character))
                         e.Cancel = true;
                 }
                 if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0')
+                {
+                    MessageBox.Show("Le numéro de téléphone n'est pas conforme", "Erreur téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
                     e.Cancel = true;
+                }
             }
         }
 
