@@ -287,5 +287,15 @@ namespace Training_Form
             fenetre.Show();
             
         }
+
+        private void icone_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Hand;
+        }
+
+        private void icone_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = null;
+        }
     }
 }

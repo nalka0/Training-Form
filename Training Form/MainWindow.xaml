@@ -205,7 +205,7 @@
             <materialDesign:PackIcon Kind="AccountPlus" Height="24" Width="24"/>
         </Button>
         
-        <Image x:Name="icone" Margin="13,22,0,0" Source="trainingFormLogo.png" Stretch="Fill" MouseDown="Image_MouseDown" HorizontalAlignment="Left" Width="72" Height="74" VerticalAlignment="Top" Focusable="True"/>
+        <Image x:Name="icone" Margin="13,22,0,0" Source="trainingFormLogo.png" Stretch="Fill" MouseDown="Image_MouseDown" HorizontalAlignment="Left" Width="72" Height="74" VerticalAlignment="Top" Focusable="True" MouseEnter="icone_MouseEnter" MouseLeave="icone_MouseLeave"/>
     </Grid>
 
 </Window>
