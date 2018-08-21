@@ -11,8 +11,18 @@
     <Grid Margin="0,0,0,0">
 
         <TabControl x:Name="onglets" TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"  >
-
-            <TabItem x:Name="Client" Header="Clients" Margin="0,83,-2,-100" FontSize="20" Height="35"  GotFocus="TabItem_GotFocus">
+            <TabItem x:Name="DashBoard"  Margin="-2,-2,2,-6" >
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Name="img" Height="98" Width="100" Source="trainingFormLogo.png" />
+                    </StackPanel>
+                </TabItem.Header>
+                <WrapPanel>
+                    
+                    
+                </WrapPanel>
+            </TabItem>
+            <TabItem x:Name="Client" Header="Clients" Margin="0,7,0,-28" FontSize="20"  GotFocus="TabItem_GotFocus">
 
                 <DataGrid Name="dataClients" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
 
@@ -61,7 +71,7 @@
 
             </TabItem>
 
-            <TabItem x:Name="Article" Header="Articles" Margin="0,92,-2,-92" Height="35"  FontSize="20" GotFocus="TabItem_GotFocus" >
+            <TabItem x:Name="Article" Header="Articles" Margin="0,28,-2,-50"  FontSize="20" GotFocus="TabItem_GotFocus" >
 
                 <DataGrid Name="dataArticles" Margin="10,10,10,10" AutoGenerateColumns="False" ItemsSource="{Binding Articles}">
 
@@ -111,7 +121,7 @@
 
             </TabItem>
 
-            <TabItem x:Name="Service" Header="Services" Margin="0,92,-2,-92" Height="35" FontSize="20" GotFocus="TabItem_GotFocus" >
+            <TabItem x:Name="Service" Header="Services" Margin="0,50,-2,-71" FontSize="20" GotFocus="TabItem_GotFocus" >
 
                 <DataGrid Name="dataServices" Margin="10,10,10,10"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}">
 
@@ -157,7 +167,7 @@
 
             </TabItem>
 
-            <TabItem x:Name="Salarie" Header="Salariés" Margin="0,83,-2,-100" FontSize="20" Height="35"  GotFocus="TabItem_GotFocus">
+            <TabItem x:Name="Salarie" Header="Salariés" Margin="0,70,-2,-92" FontSize="20"  GotFocus="TabItem_GotFocus">
 
                 <DataGrid Name="dataSalaries" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Salaries}">
 
@@ -204,8 +214,6 @@
             Click="ajoutElement_Click" Margin="0,10,60,0" Width="56" Height="56" HorizontalAlignment="Right" VerticalAlignment="Top">
             <materialDesign:PackIcon Kind="AccountPlus" Height="24" Width="24"/>
         </Button>
-        
-        <Image x:Name="icone" Margin="13,22,0,0" Source="trainingFormLogo.png" Stretch="Fill" MouseDown="Image_MouseDown" HorizontalAlignment="Left" Width="72" Height="74" VerticalAlignment="Top" Focusable="True" MouseEnter="icone_MouseEnter" MouseLeave="icone_MouseLeave"/>
     </Grid>
 
 </Window>
