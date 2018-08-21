@@ -16,8 +16,26 @@ namespace Training_Form
         private int _seances;
         private DateTime _debutAbo;
         private DateTime _finAbo;
+        private bool _dureeMois;
         /// <summary>
-        /// Durée en mois du service.
+        /// Si true alors la durée est en mois sinon si false la durée est en semaines
+        /// </summary>
+        public bool DureeMois
+        {
+            get { return _dureeMois; }
+            set
+            {
+                bool stock = _dureeMois;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _dureeMois = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
+        /// <summary>
+        /// Durée du service.
         /// </summary>
         public int Duree
         {
@@ -29,6 +47,7 @@ namespace Training_Form
                 if (argsChanging == null || !argsChanging.Cancel)
                 {
                     _duree = value;
+                    FinAbo = DureeMois ? DebutAbo.AddMonths(Duree) : DebutAbo.AddDays(Duree * 7);
                     BetterNotifyPropertyChanged(stock, value);
                 }
             }
@@ -66,20 +85,15 @@ namespace Training_Form
         public DateTime FinAbo
         {
             get { return _finAbo; }
-            set
+            private set
             {
-                if (_debutAbo == new DateTime() || DateTime.Compare(_debutAbo, value) <= 0)
+                DateTime stock = _finAbo;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
                 {
-                    DateTime stock = _finAbo;
+                    _finAbo = value;
                     BetterNotifyPropertyChanging(stock, value);
-                    if (argsChanging == null || !argsChanging.Cancel)
-                    {
-                        _finAbo = value;
-                        BetterNotifyPropertyChanging(stock, value);
-                    }
                 }
-                else
-                    MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début", "Mauvaise date de fin", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         /// <summary>
@@ -106,34 +120,19 @@ namespace Training_Form
         /// Créé un <see cref="Service"/> avec une durée en semaines.
         /// </summary>
         /// <param name="debut">Date de début du service</param>
-        /// <param name="dureeSemaines">Durée du service en semaines</param>
-        /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
+        /// <param name="duree">Durée du service en semaines</param>
         /// <param name="nom">Nom du service</param>
         /// <param name="description">Description du service</param>
-        public Service(DateTime debut, int dureeSemaines, string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA)
-            : base(codeProduit, nom, description, prixHT, tauxTVA)
+        /// <param name="prixHT">Prix hors taxes du service</param>
+        /// <param name="tauxTVA">Taux de TVA appliqué au service</param>
+        /// <param name="dureeMois">Définit si la durée est en mois (true) ou si elle est en semaines (false)</param>
+        /// <param name="seances">Nombre de séances restantes avant expiration de l'abonnement</param>
+        public Service(DateTime debut, int duree, string nom, string description, decimal prixHT, decimal tauxTVA, bool dureeMois, int seances = 0)
+            : base(nom, description, prixHT, tauxTVA)
         {
-            Duree = dureeSemaines;
+            Duree = duree;
             DebutAbo = debut;
-            FinAbo = debut.AddDays(Duree * 7);
-        }
-
-        /// <summary>
-        /// Créé un <see cref="Service"/> avec une durée en mois.
-        /// </summary>
-        /// <param name="dureeMois">Durée du service en mois</param>
-        /// <param name="debut">Date de début du service</param>
-        /// <param name="codeProduit">Code d'identification du produit, sera peut-être supprimé dans des versions futures</param>
-        /// <param name="nom">Nom du service</param>
-        /// <param name="description">Description du service</param>
-        /// <param name="seances">Nombre de séances avant expiration</param>
-        public Service(int dureeMois, DateTime debut, string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA, int seances = 0)
-            : base(codeProduit, nom, description, prixHT, tauxTVA)
-        {
-            Duree = dureeMois;
-            DebutAbo = debut;
-            Seances = seances;
-            FinAbo = debut.AddMonths(dureeMois);
+            DureeMois = dureeMois;
         }
         #endregion
 

@@ -13,6 +13,11 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Collections;
+using System.Collections.ObjectModel;
+using LiveCharts.Defaults;
 
 namespace Training_Form
 {
@@ -31,6 +36,11 @@ namespace Training_Form
             dataClients.ItemsSource = JeuxTest.Clients;
             dataServices.ItemsSource = JeuxTest.Services;
             dataSalaries.ItemsSource = JeuxTest.Salaries;
+            dataDerniersClients.ItemsSource = afficherDeniersClients();
+            Chart.Series = JeuxTest.SeriesCollection;
+            Charts2.Series = JeuxTest.SeriesCollection2;
+            emplacementActuel.Content = "DASHBOARD";
+            DashBoard();
         }
 
         #region evenements
@@ -122,6 +132,7 @@ namespace Training_Form
             JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone = editerClient.tbTelephone.Text;
             JeuxTest.Clients[dataClients.SelectedIndex].Adresse = editerClient.tbAdresse.Text;
             //Si la checkbox est cochée, on ajoute l'interet concerné dans la liste des interets, sinon on y ajoute rien
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets = ""; 
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbCardio.IsChecked ? "Cardio, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbFitness.IsChecked ? "Fitness, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbMuscu.IsChecked ? "Muscu, " : "";
@@ -182,22 +193,52 @@ namespace Training_Form
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
-            ajoutElement.ToolTip = "Ajouter un " + tab.Name.ToLower();
-            emplacementActuel.Content = String.Format("Gestion des {0}s", tab.Name.ToLower());
-            switch (tab.Name)
+            if (tab.Name == "dashBoard")
             {
-                case "Service":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.Dumbbell, Height = 24, Width = 24 };
-                    break;
-                case "Article":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
-                    break;
-                case "Salarie":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
-                    break;
-                case "Client":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
-                    break;
+                emplacementActuel.Content = String.Format("{0}", tab.Name.ToUpper());
+            }
+            else
+            {
+                ajoutElement.ToolTip = "Ajouter un " + tab.Name.ToLower();
+                emplacementActuel.Content = String.Format("Gestion des {0}s", tab.Name.ToLower());
+                switch (tab.Name)
+                {
+                    case "Service":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.Dumbbell, Height = 24, Width = 24 };
+                        break;
+                    case "Article":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
+                        break;
+                    case "Salarie":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
+                        break;
+                    case "Client":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
+                        break;
+                }
+            }
+        }
+
+        private void recherche_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TabItem tabRecherche = onglets.SelectedItem as TabItem;
+            if (tabRecherche != null)
+            {
+                switch (tabRecherche.Name)
+                {
+                    case "Article":
+                        dataArticles.ItemsSource = JeuxTest.Articles.Where(item => (item.CodeProduit.ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
+                        break;
+                    case "Client":
+                        dataClients.ItemsSource = JeuxTest.Clients.Where(item => (item.Identifiant.ToString().ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower())) || (item.Prenom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
+                        break;
+                    case "Salarie":
+                        dataSalaries.ItemsSource = JeuxTest.Salaries.Where(item => (item.Identifiant.ToString().ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower())) || (item.Prenom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
+                        break;
+                    case "Service":
+                        dataServices.ItemsSource = JeuxTest.Services.Where(item => (item.CodeProduit.ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
+                        break;
+                }
             }
         }
 
@@ -239,9 +280,9 @@ namespace Training_Form
                 decimal tauxTVA = decimal.Parse(fenetreAjout.tauxTVATB.Text);
                 DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
                 if ((bool)fenetreAjout.moisRB.IsChecked)
-                    JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, "0450560650", nomNouveauService, descriptionNouveauService, prixHT, tauxTVA));
+                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, nomNouveauService, descriptionNouveauService, prixHT, tauxTVA, true));
                 else if ((bool)fenetreAjout.semainesRB.IsChecked)
-                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, "0121255555", nomNouveauService, descriptionNouveauService, prixHT, tauxTVA));
+                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, nomNouveauService, descriptionNouveauService, prixHT, tauxTVA, false));
             }
         }
 
@@ -294,23 +335,107 @@ namespace Training_Form
                 JeuxTest.Clients.Add(client);
             }
         }
+
+        public ObservableCollection<Client> afficherDeniersClients()
+        {
+            ObservableCollection<Client> listeClient = new ObservableCollection<Client>();
+            int i = JeuxTest.Clients.Count - 1;
+
+            while(i >= JeuxTest.Clients.Count - 5)
+            {
+                listeClient.Add(JeuxTest.Clients[i]);
+                i--;
+            }
+            return listeClient;
+        }
         #endregion
 
-        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            DashBoard fenetre = new DashBoard();
-            fenetre.Show();
-            
-        }
+        #region DashBoard
+        Activite bodyScultp = new Activite() { Title = "Body Scultp", Value = 80 };
+        Activite stretch = new Activite() { Title = "Stretch", Value = 55 };
+        Activite Cross = new Activite() { Title = "Cross", Value = 40 };
+        Activite zumba = new Activite() { Title = "Zumba", Value = 140 };
+        Activite yoga = new Activite() { Title = "Yoga", Value = 50 };
+        Activite pilates = new Activite() { Title = "Pilates", Value = 60 };
 
-        private void icone_MouseEnter(object sender, MouseEventArgs e)
-        {
-            Mouse.OverrideCursor = Cursors.Hand;
-        }
+        Abonnement abo1 = new Abonnement() { Mois = "janvier", Value = 10 };
+        public string[] Labels { get; set; }
+        public Func<double, string> Formatter { get; set; }
 
-        private void icone_MouseLeave(object sender, MouseEventArgs e)
+        public void DashBoard()
         {
-            Mouse.OverrideCursor = null;
+            JeuxTest.SeriesCollection.Add(new PieSeries {Title = bodyScultp.Title, Values = new ChartValues<ObservableValue> { new ObservableValue(bodyScultp.Value) }, DataLabels = true });
+            JeuxTest.SeriesCollection.Add(
+            new PieSeries
+            {
+                Title = stretch.Title,
+                Values = new ChartValues<ObservableValue> { new ObservableValue(stretch.Value) },
+                DataLabels = true
+            });
+            JeuxTest.SeriesCollection.Add(
+            new PieSeries
+            {
+                Title = Cross.Title,
+                Values = new ChartValues<ObservableValue> { new ObservableValue(Cross.Value) },
+                DataLabels = true
+            });
+            JeuxTest.SeriesCollection.Add(
+                new PieSeries
+                {
+                    Title = zumba.Title,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(zumba.Value) },
+                    DataLabels = true
+                });
+            JeuxTest.SeriesCollection.Add(
+                new PieSeries
+                {
+                    Title = yoga.Title,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(yoga.Value) },
+                    DataLabels = true
+                });
+            JeuxTest.SeriesCollection.Add(
+                new PieSeries
+                {
+                    Title = pilates.Title,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(pilates.Value) },
+                    DataLabels = true
+                });
+            JeuxTest.SeriesCollection2.Add(
+                new ColumnSeries
+                {
+                    Title = "2017",
+                    Values = new ChartValues<double> { 5, 8, 6, 5, 6, 4, 2, 11, 12, 1, 5, 2 },
+                    Fill = Brushes.LightSlateGray
+                }
+            );
+            JeuxTest.SeriesCollection2.Add(new ColumnSeries
+            {
+                Title = "2018",
+                Values = new ChartValues<double> { 10, 5, 10, 7, 14, 20, 10, 11, 14, 5, 0, 10 },
+                Fill = Brushes.DarkTurquoise
+
+            });
+
+            Labels = new[] { "janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre" };
+            Formatter = value => value.ToString("N");
+            Charts2.DataContext = this;
         }
+        #endregion
+
+       
     }
+
+
+    #region class dashboardTest
+    public class Activite
+    {
+        public string Title;
+        public int Value;
+    }
+    public class Abonnement
+    {
+        public string Mois;
+        public int Value;
+    }
+    #endregion
 }

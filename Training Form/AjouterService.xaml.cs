@@ -30,14 +30,14 @@ namespace Training_Form
 
         private void AjouterService_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (DateTime.Compare((DateTime)debutDTP.SelectedDate, DateTime.Now) >= 0)
+            if (DateTime.Compare((DateTime)debutDTP.SelectedDate, DateTime.Now) < 0)
             {
-                MessageBox.Show("La date est incorrect", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("La date est incorrecte", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
             }
-            if (dureeNUD.Value < 0)
+            if (dureeNUD.Value < 1)
             {
-                MessageBox.Show("La durée est incorrect", "Erreur durée", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("La durée est incorrecte", "Erreur durée", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
             }
         }

@@ -5,6 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Collections;
+using System.Collections.ObjectModel;
+using LiveCharts.Defaults;
 
 namespace Training_Form
 {
@@ -32,21 +37,33 @@ namespace Training_Form
             Client Cl1 = new Client("Pignon", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul",Statuts.Etudiant);
             Client Cl2 = new Client("Lemon", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul",Statuts.Couple);
             Client Cl3 = new Client("Freeze", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul",Statuts.Adulte);
-            
+            Client Cl4 = new Client("aveugle", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul", Statuts.Etudiant);
+            Client Cl5 = new Client("poignar", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul", Statuts.Couple);
+            Client Cl6 = new Client("cell", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", Statuts.Adulte);
+            Client Cl7 = new Client("Goku", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul", Statuts.Etudiant);
+            Client Cl8 = new Client("Gohan", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul", Statuts.Couple);
+            Client Cl9 = new Client("C18", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", Statuts.Adulte);
+
             JeuxTest.Clients.Add(Cl1);
             JeuxTest.Clients.Add(Cl2);
             JeuxTest.Clients.Add(Cl3);
+            JeuxTest.Clients.Add(Cl4);
+            JeuxTest.Clients.Add(Cl5);
+            JeuxTest.Clients.Add(Cl6);
+            JeuxTest.Clients.Add(Cl7);
+            JeuxTest.Clients.Add(Cl8);
+            JeuxTest.Clients.Add(Cl9);
 
-            Service AboDouzeMoisCours = new Service(12, new DateTime(2019, 08, 02), "00055588889", "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0, 300, 15);
-            Service AboDouzeMois = new Service(12, new DateTime(2017, 09, 06), "00096878412", "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0, 270, 15);
-            Service AboSixMoisCours = new Service(6, new DateTime(2018, 05, 15), "00054123687", "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0, 200, 15);
-            Service AboSixMois = new Service(6, new DateTime(2017, 01, 02), "00054879132", "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0, 150, 15);
-            Service SeanceDecouverte = new Service(0, new DateTime(2018, 08, 02), "00044889977", "Seance Decouverte", "Seance de décourverte de la salle", 1, 10, 15);
-            Service Semaine = new Service(new DateTime(2018, 07, 25), 1, "00088665213", "Decouverte 1 semaine", "Semaine de découverte de la salle", 50, 15);
-            Service DeuxSemaines = new Service(new DateTime(2018,07,02),2,"00012348752","Decouverte 2 semaines","Deux semaines de découverte de la salle", 100, 15);
-            Service UnMois = new Service(1,new DateTime(2018,08,02),"00015498346","Découverte Abonnement 1 Mois", "Abonnement découverte de la salle d'un mois",0, 150, 15);
-            Service TroisMois = new Service(3,new DateTime(2018,08,01),"00065488859", "Découverte Abonnement 3 Mois","Abonnement découverte de la salle de 3 mois",0, 200, 15);
-            Service CarteVingtQuatre = new Service(12, new DateTime(2018,06,19), "00065977741","Cartes 24 Séances","Cartes découverte 24 séances valide 1 an",24, 200, 15);
+            Service AboDouzeMoisCours = new Service(new DateTime(2019, 08, 02), 12, "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0, 300, true, 15);
+            Service AboDouzeMois = new Service(new DateTime(2017, 09, 06), 12, "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0, 270, true, 15);
+            Service AboSixMoisCours = new Service(new DateTime(2018, 05, 15), 6, "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0, 200, true, 15);
+            Service AboSixMois = new Service(new DateTime(2017, 01, 02), 6, "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0, 150, true, 15);
+            Service SeanceDecouverte = new Service(new DateTime(2018, 08, 02), 0, "Seance Decouverte", "Seance de décourverte de la salle", 1, 10, true, 15);
+            Service Semaine = new Service(new DateTime(2018, 07, 25), 1, "Decouverte 1 semaine", "Semaine de découverte de la salle", 50, 15, false);
+            Service DeuxSemaines = new Service(new DateTime(2018,07,02),2, "Decouverte 2 semaines","Deux semaines de découverte de la salle", 100, 15, false);
+            Service UnMois = new Service(new DateTime(2018, 08, 02), 1, "Découverte Abonnement 1 Mois", "Abonnement découverte de la salle d'un mois",0, 150, true, 15);
+            Service TroisMois = new Service(new DateTime(2018, 08, 01), 3, "Découverte Abonnement 3 Mois","Abonnement découverte de la salle de 3 mois",0, 200, true, 15);
+            Service CarteVingtQuatre = new Service(new DateTime(2018, 06, 19), 12, "Cartes 24 Séances","Cartes découverte 24 séances valide 1 an",24, 200, true, 15);
 
             JeuxTest.Services.Add(AboDouzeMoisCours);
             JeuxTest.Services.Add(AboDouzeMois);
@@ -65,7 +82,6 @@ namespace Training_Form
             JeuxTest.Salaries.Add(Sal1);
             JeuxTest.Salaries.Add(Sal2);
             JeuxTest.Salaries.Add(Sal3);
-
             base.Run();
         }
     }
