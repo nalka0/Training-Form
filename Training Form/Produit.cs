@@ -16,7 +16,7 @@ namespace Training_Form
         private string _description;
         private decimal _prixHT;
         private decimal _tauxTVA;
-
+        private static int nombreProduits;
         /// <summary>
         /// Code permettant d'identifier le produit
         /// </summary>
@@ -114,20 +114,13 @@ namespace Training_Form
         /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
         /// <param name="nom">Nom du produit</param>
         /// <param name="description">Description du produit</param>
-        public Produit(string codeProduit, string nom, string description, decimal prixHT, decimal tauxTVA)
-        {
-            CodeProduit = codeProduit;
-            Nom = nom;
-            Description = description;
-            PrixHT = prixHT;
-            TauxTVA = tauxTVA;
-        }
         public Produit(string nom, string description, decimal prixHT, decimal tauxTVA)
         {
             Nom = nom;
             Description = description;
             PrixHT = prixHT;
             TauxTVA = tauxTVA;
+            nombreProduits++;
         }
         #endregion
 
