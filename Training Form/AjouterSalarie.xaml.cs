@@ -38,16 +38,28 @@ namespace Training_Form
         private void AjoutUser_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (DateTime.Compare((DateTime)textBoxDateNaissance.SelectedDate, DateTime.Now) >= 0)
+            {
+                MessageBox.Show("La date est incorrect", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
+            }
             if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains("."))
+            {
+                MessageBox.Show("Le mail n'est pas conforme", "Erreur mail", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
+            }
             foreach (char character in numTelephonneTB.Text)
                 if (!Char.IsDigit(character))
                     e.Cancel = true;
             if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0')
+            {
+                MessageBox.Show("Le numéro detéléphone n'est pas conforme", "Erreur téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
+            }
             if (DateTime.Compare((DateTime)textBoxDateEmbauche.SelectedDate, DateTime.Now) >= 0)
+            {
+                MessageBox.Show("La date est incorrect", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
+            }
         }
 
         private void boutonValider_Click(object sender, RoutedEventArgs e)
