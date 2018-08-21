@@ -37,10 +37,22 @@ namespace Training_Form
             Client Cl1 = new Client("Pignon", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul",Statuts.Etudiant);
             Client Cl2 = new Client("Lemon", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul",Statuts.Couple);
             Client Cl3 = new Client("Freeze", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul",Statuts.Adulte);
-            
+            Client Cl4 = new Client("aveugle", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul", Statuts.Etudiant);
+            Client Cl5 = new Client("poignar", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul", Statuts.Couple);
+            Client Cl6 = new Client("cell", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", Statuts.Adulte);
+            Client Cl7 = new Client("Goku", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul", Statuts.Etudiant);
+            Client Cl8 = new Client("Gohan", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul", Statuts.Couple);
+            Client Cl9 = new Client("C18", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", Statuts.Adulte);
+
             JeuxTest.Clients.Add(Cl1);
             JeuxTest.Clients.Add(Cl2);
             JeuxTest.Clients.Add(Cl3);
+            JeuxTest.Clients.Add(Cl4);
+            JeuxTest.Clients.Add(Cl5);
+            JeuxTest.Clients.Add(Cl6);
+            JeuxTest.Clients.Add(Cl7);
+            JeuxTest.Clients.Add(Cl8);
+            JeuxTest.Clients.Add(Cl9);
 
             Service AboDouzeMoisCours = new Service(12, new DateTime(2019, 08, 02), "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0, 300, 15);
             Service AboDouzeMois = new Service(12, new DateTime(2017, 09, 06), "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0, 270, 15);

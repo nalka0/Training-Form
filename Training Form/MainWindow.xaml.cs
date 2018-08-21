@@ -36,6 +36,7 @@ namespace Training_Form
             dataClients.ItemsSource = JeuxTest.Clients;
             dataServices.ItemsSource = JeuxTest.Services;
             dataSalaries.ItemsSource = JeuxTest.Salaries;
+            dataDerniersClients.ItemsSource = afficherDeniersClients();
             Chart.Series = JeuxTest.SeriesCollection;
             Charts2.Series = JeuxTest.SeriesCollection2;
             emplacementActuel.Content = "DASHBOARD";
@@ -131,6 +132,7 @@ namespace Training_Form
             JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone = editerClient.tbTelephone.Text;
             JeuxTest.Clients[dataClients.SelectedIndex].Adresse = editerClient.tbAdresse.Text;
             //Si la checkbox est cochée, on ajoute l'interet concerné dans la liste des interets, sinon on y ajoute rien
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets = ""; 
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbCardio.IsChecked ? "Cardio, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbFitness.IsChecked ? "Fitness, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbMuscu.IsChecked ? "Muscu, " : "";
@@ -191,82 +193,51 @@ namespace Training_Form
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
-            if(tab.Name == "dashBoard")
+            if (tab.Name == "dashBoard")
             {
                 emplacementActuel.Content = String.Format("{0}", tab.Name.ToUpper());
             }
-            else { 
-            ajoutElement.ToolTip = "Ajouter un " + tab.Name.ToLower();
-            emplacementActuel.Content = String.Format("Gestion des {0}s", tab.Name.ToLower());
-            switch (tab.Name)
+            else
             {
-                case "Service":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.Dumbbell, Height = 24, Width = 24 };
-                    break;
-                case "Article":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
-                    break;
-                case "Salarie":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
-                    break;
-                case "Client":
-                    ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
-                    break;
-            }
+                ajoutElement.ToolTip = "Ajouter un " + tab.Name.ToLower();
+                emplacementActuel.Content = String.Format("Gestion des {0}s", tab.Name.ToLower());
+                switch (tab.Name)
+                {
+                    case "Service":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.Dumbbell, Height = 24, Width = 24 };
+                        break;
+                    case "Article":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.PlusBoxOutline, Height = 24, Width = 24 };
+                        break;
+                    case "Salarie":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
+                        break;
+                    case "Client":
+                        ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
+                        break;
+                }
             }
         }
 
         private void recherche_TextChanged(object sender, TextChangedEventArgs e)
         {
             TabItem tabRecherche = onglets.SelectedItem as TabItem;
-
             if (tabRecherche != null)
             {
-
                 switch (tabRecherche.Name)
                 {
                     case "Article":
-                        if (recherche.Text == "" || recherche.Text == "rechercher")
-                        {
-                            dataArticles.ItemsSource = JeuxTest.Articles;
-                        }
-                        else
-                        {
-                            dataArticles.ItemsSource = JeuxTest.Articles.Where(item => (item.CodeProduit.Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text))).ToList();
-                        }
+                        dataArticles.ItemsSource = JeuxTest.Articles.Where(item => (item.CodeProduit.ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
                         break;
                     case "Client":
-                        if (recherche.Text == "" || recherche.Text == "rechercher")
-                        {
-                            dataClients.ItemsSource = JeuxTest.Clients;
-                        }
-                        else
-                        {
-                            dataClients.ItemsSource = JeuxTest.Clients.Where(item => (item.Identifiant.ToString().Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text)) || (item.Prenom.Contains(recherche.Text))).ToList();
-                        }
+                        dataClients.ItemsSource = JeuxTest.Clients.Where(item => (item.Identifiant.ToString().ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower())) || (item.Prenom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
                         break;
                     case "Salarie":
-                        if (recherche.Text == "" || recherche.Text == "rechercher")
-                        {
-                            dataSalaries.ItemsSource = JeuxTest.Salaries;
-                        }
-                        else
-                        {
-                            dataSalaries.ItemsSource = JeuxTest.Salaries.Where(item => (item.Identifiant.ToString().Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text)) || (item.Prenom.Contains(recherche.Text))).ToList();
-                        }
+                        dataSalaries.ItemsSource = JeuxTest.Salaries.Where(item => (item.Identifiant.ToString().ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower())) || (item.Prenom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
                         break;
                     case "Service":
-                        if (recherche.Text == "" || recherche.Text == "rechercher")
-                        {
-                            dataServices.ItemsSource = JeuxTest.Services;
-                        }
-                        else
-                        {
-                            dataServices.ItemsSource = JeuxTest.Services.Where(item => (item.CodeProduit.Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text))).ToList();
-                        }
+                        dataServices.ItemsSource = JeuxTest.Services.Where(item => (item.CodeProduit.ToLower().Contains(recherche.Text.ToLower())) || (item.Nom.ToLower().Contains(recherche.Text.ToLower()))).ToList();
                         break;
-
-                    default: break;
                 }
             }
         }
@@ -363,6 +334,19 @@ namespace Training_Form
                 Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse, statut);
                 JeuxTest.Clients.Add(client);
             }
+        }
+
+        public ObservableCollection<Client> afficherDeniersClients()
+        {
+            ObservableCollection<Client> listeClient = new ObservableCollection<Client>();
+            int i = JeuxTest.Clients.Count - 1;
+
+            while(i >= JeuxTest.Clients.Count - 5)
+            {
+                listeClient.Add(JeuxTest.Clients[i]);
+                i--;
+            }
+            return listeClient;
         }
         #endregion
 

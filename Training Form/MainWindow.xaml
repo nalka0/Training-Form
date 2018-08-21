@@ -7,11 +7,11 @@
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
         xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        Title="MainWindow" WindowState="Maximized" Icon="trainingFormLogo.png">
+        Title="MainWindow" WindowState="Maximized" Icon="trainingFormLogo.png" Height="994" Width="1372">
 
     <Grid Margin="0,0,0,0">
 
-        <TabControl x:Name="onglets" TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"  >
+        <TabControl x:Name="onglets" TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"   >
             <TabItem x:Name="dashBoard"  Margin="-2,-2,2,-6" GotFocus="TabItem_GotFocus" >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
@@ -29,7 +29,15 @@
                             <lvc:DefaultTooltip BulletSize="20"/>
                         </lvc:PieChart.DataTooltip>
                     </lvc:PieChart>
-
+                    <StackPanel Height="280" Width="278">
+                        <Label Content="Cinq derniers abonnés" Height="36" HorizontalAlignment="Center" Width="225" VerticalAlignment="Center" FontSize="20" Margin="36,0,17,0" BorderBrush="#FF020202"/>
+                        <DataGrid x:Name="dataDerniersClients"  Margin="0,0,0,0" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
+                                <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </StackPanel>
                     <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top" Width="1000" Height="268" x:Name="Charts2">
                         <lvc:CartesianChart.AxisX>
                             <lvc:Axis Title="Mois" Labels="{Binding Labels}" FontSize="15" LabelsRotation="30" >
@@ -226,11 +234,8 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
-
                 </DataGrid>
-
             </TabItem>
-
         </TabControl>
         <Label Name="emplacementActuel" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="312" Height="40" FontSize="25"/>
         <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Name="ajoutElement"
