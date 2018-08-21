@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png">
     <Grid Margin="0,0,0,0">
 
         <materialDesign:DialogHost
