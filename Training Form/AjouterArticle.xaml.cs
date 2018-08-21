@@ -41,11 +41,7 @@ namespace Training_Form
                     MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
                     Notify = true;
                 }
-                if (RefTextBox.Text == "" || RefTextBox.Text == "Référence")
-                {
-                    MessageBox.Show("La référence n'a pas été renseignée", "Référence manquante", MessageBoxButton.OK, MessageBoxImage.Error);
-                    Notify = true;
-                }
+
                 if (Notify)
                 {
                     snackBar.IsActive = true;

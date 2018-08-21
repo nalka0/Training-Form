@@ -38,6 +38,7 @@ namespace Training_Form
             dataSalaries.ItemsSource = JeuxTest.Salaries;
             Chart.Series = JeuxTest.SeriesCollection;
             Charts2.Series = JeuxTest.SeriesCollection2;
+            emplacementActuel.Content = "DASHBOARD";
             DashBoard();
         }
 
@@ -190,6 +191,11 @@ namespace Training_Form
         private void TabItem_GotFocus(object sender, RoutedEventArgs e)
         {
             TabItem tab = sender as TabItem;
+            if(tab.Name == "dashBoard")
+            {
+                emplacementActuel.Content = String.Format("{0}", tab.Name.ToUpper());
+            }
+            else { 
             ajoutElement.ToolTip = "Ajouter un " + tab.Name.ToLower();
             emplacementActuel.Content = String.Format("Gestion des {0}s", tab.Name.ToLower());
             switch (tab.Name)
@@ -206,6 +212,62 @@ namespace Training_Form
                 case "Client":
                     ajoutElement.Content = new PackIcon() { Kind = PackIconKind.AccountPlus, Height = 24, Width = 24 };
                     break;
+            }
+            }
+        }
+
+        private void recherche_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TabItem tabRecherche = onglets.SelectedItem as TabItem;
+
+            if (tabRecherche != null)
+            {
+
+                switch (tabRecherche.Name)
+                {
+                    case "Article":
+                        if (recherche.Text == "" || recherche.Text == "rechercher")
+                        {
+                            dataArticles.ItemsSource = JeuxTest.Articles;
+                        }
+                        else
+                        {
+                            dataArticles.ItemsSource = JeuxTest.Articles.Where(item => (item.CodeProduit.Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text))).ToList();
+                        }
+                        break;
+                    case "Client":
+                        if (recherche.Text == "" || recherche.Text == "rechercher")
+                        {
+                            dataClients.ItemsSource = JeuxTest.Clients;
+                        }
+                        else
+                        {
+                            dataClients.ItemsSource = JeuxTest.Clients.Where(item => (item.Identifiant.ToString().Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text)) || (item.Prenom.Contains(recherche.Text))).ToList();
+                        }
+                        break;
+                    case "Salarie":
+                        if (recherche.Text == "" || recherche.Text == "rechercher")
+                        {
+                            dataSalaries.ItemsSource = JeuxTest.Salaries;
+                        }
+                        else
+                        {
+                            dataSalaries.ItemsSource = JeuxTest.Salaries.Where(item => (item.Identifiant.ToString().Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text)) || (item.Prenom.Contains(recherche.Text))).ToList();
+                        }
+                        break;
+                    case "Service":
+                        if (recherche.Text == "" || recherche.Text == "rechercher")
+                        {
+                            dataServices.ItemsSource = JeuxTest.Services;
+                        }
+                        else
+                        {
+                            dataServices.ItemsSource = JeuxTest.Services.Where(item => (item.CodeProduit.Contains(recherche.Text)) || (item.Nom.Contains(recherche.Text))).ToList();
+                        }
+                        break;
+
+                    default: break;
+                }
             }
         }
 
@@ -374,7 +436,13 @@ namespace Training_Form
             Formatter = value => value.ToString("N");
             Charts2.DataContext = this;
         }
+        #endregion
+
+       
     }
+
+
+    #region class dashboardTest
     public class Activite
     {
         public string Title;
