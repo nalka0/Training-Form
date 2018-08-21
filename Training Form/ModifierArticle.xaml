@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="ModifierArticle" Height="350" Width="650">
+        Title="ModifierArticle" Height="350" Width="650" Icon="trainingFormLogo.png">
     <Grid Margin="0,0,2,0">
 
 

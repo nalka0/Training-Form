@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Training_Form"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Name="ajouterServiceWin" x:Class="Training_Form.ajouterService"
         mc:Ignorable="d"
-        Title="Ajouter un service" Height="450" Width="498" Loaded="ajouterServiceWin_Loaded" ResizeMode="NoResize">
+        Title="Ajouter un service" Height="450" Width="498" Loaded="ajouterServiceWin_Loaded" ResizeMode="NoResize" Icon="trainingFormLogo.png">
     <Grid Margin="0,0,34,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="95*"/>

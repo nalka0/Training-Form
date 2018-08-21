@@ -6,11 +6,9 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize">
+        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png">
     <Grid Margin="0,0,0,0">
-
-        <TextBox x:Name="RefTextBox" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Référence" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="NomTextBox" ToolTip="Nom du nouvel article" HorizontalAlignment="Left" Height="23" Margin="210,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="178"/>
+        <TextBox x:Name="NomTextBox" ToolTip="Nom du nouvel article" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="316"/>
         <TextBox x:Name="descriptTextBox" ToolTip="Description de l'article" HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="319"/>
         <TextBox x:Name="prixHTTextBox" ToolTip="Prix hors taxes de l'article" HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319" LostFocus="prixHTTextBox_LostFocus"/>
         <TextBox x:Name="TVATextBox" ToolTip="Taux de TVA appliqué à l'article" HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120" LostFocus="prixHTTextBox_LostFocus"/>
@@ -23,9 +21,9 @@
             IsActive="False"
             HorizontalAlignment="Stretch">
             <materialDesign:SnackbarMessage Name="snackBarMessage" Content="Tous n'est pas remplis, voulez vous valider tout de même ?" ActionContent="Valider" ActionClick="snackBarMessage_ActionClick">
-                
+
             </materialDesign:SnackbarMessage>
         </materialDesign:Snackbar>
     </Grid>
-    
+
 </Window>
