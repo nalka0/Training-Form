@@ -6,20 +6,43 @@
         xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         Title="MainWindow" WindowState="Maximized">
 
     <Grid Margin="0,0,0,0">
 
         <TabControl x:Name="onglets" TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"  >
-            <TabItem x:Name="DashBoard"  Margin="-2,-2,2,-6" >
+            <TabItem x:Name="dashBoard"  Margin="-2,-2,2,-6" >
                 <TabItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Image Name="img" Height="98" Width="100" Source="trainingFormLogo.png" />
                     </StackPanel>
                 </TabItem.Header>
                 <WrapPanel>
-                    
-                    
+                    <Label Content="CAmois" FontSize="20" Height="50" Width="100" BorderThickness="1" VerticalAlignment="top" BorderBrush="Black" HorizontalAlignment="left" Margin="20,20,20,20"/>
+                    <lvc:PieChart x:Name="Chart" Series="{Binding SeriesCollection}" 
+                      LegendLocation="Right" InnerRadius="100"  Margin="20,30,20,20" Height="157" RenderTransformOrigin="0.46,0.58" HorizontalAlignment="left" VerticalAlignment="top" Width="358">
+                        <lvc:PieChart.ChartLegend>
+                            <lvc:DefaultLegend BulletSize="20"/>
+                        </lvc:PieChart.ChartLegend>
+                        <lvc:PieChart.DataTooltip>
+                            <lvc:DefaultTooltip BulletSize="20"/>
+                        </lvc:PieChart.DataTooltip>
+                    </lvc:PieChart>
+
+                    <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top" Width="1000" Height="268" x:Name="Charts2">
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis Title="Mois" Labels="{Binding Labels}" FontSize="15" LabelsRotation="30" >
+                                <lvc:Axis.Separator >
+                                    <lvc:Separator IsEnabled="False" Step="1" ></lvc:Separator>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis Title="Abonement" Labels="{Binding Abonement}" FontSize="20"></lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+                    </lvc:CartesianChart>
+
                 </WrapPanel>
             </TabItem>
             <TabItem x:Name="Client" Header="Clients" Margin="0,7,0,-28" FontSize="20"  GotFocus="TabItem_GotFocus">

@@ -5,6 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using LiveCharts;
+using LiveCharts.Wpf;
+using System.Collections;
+using System.Collections.ObjectModel;
+using LiveCharts.Defaults;
 
 namespace Training_Form
 {
@@ -65,7 +70,6 @@ namespace Training_Form
             JeuxTest.Salaries.Add(Sal1);
             JeuxTest.Salaries.Add(Sal2);
             JeuxTest.Salaries.Add(Sal3);
-
             base.Run();
         }
     }

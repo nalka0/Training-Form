@@ -99,9 +99,6 @@
     </Compile>
     <Compile Include="Article.cs" />
     <Compile Include="Client.cs" />
-    <Compile Include="DashBoard.xaml.cs">
-      <DependentUpon>DashBoard.xaml</DependentUpon>
-    </Compile>
     <Compile Include="JeuxTest.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -130,10 +127,6 @@
     <Page Include="AjouterSalarie.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DashBoard.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
