@@ -280,9 +280,9 @@ namespace Training_Form
                 decimal tauxTVA = decimal.Parse(fenetreAjout.tauxTVATB.Text);
                 DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
                 if ((bool)fenetreAjout.moisRB.IsChecked)
-                    JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, nomNouveauService, descriptionNouveauService, prixHT, tauxTVA));
+                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, nomNouveauService, descriptionNouveauService, prixHT, tauxTVA, true));
                 else if ((bool)fenetreAjout.semainesRB.IsChecked)
-                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, nomNouveauService, descriptionNouveauService, prixHT, tauxTVA));
+                    JeuxTest.Services.Add(new Service(debutNouveauService, dureeNouveauService, nomNouveauService, descriptionNouveauService, prixHT, tauxTVA, false));
             }
         }
 

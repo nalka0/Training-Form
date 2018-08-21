@@ -54,16 +54,16 @@ namespace Training_Form
             JeuxTest.Clients.Add(Cl8);
             JeuxTest.Clients.Add(Cl9);
 
-            Service AboDouzeMoisCours = new Service(12, new DateTime(2019, 08, 02), "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0, 300, 15);
-            Service AboDouzeMois = new Service(12, new DateTime(2017, 09, 06), "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0, 270, 15);
-            Service AboSixMoisCours = new Service(6, new DateTime(2018, 05, 15), "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0, 200, 15);
-            Service AboSixMois = new Service(6, new DateTime(2017, 01, 02), "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0, 150, 15);
-            Service SeanceDecouverte = new Service(0, new DateTime(2018, 08, 02), "Seance Decouverte", "Seance de décourverte de la salle", 1, 10, 15);
-            Service Semaine = new Service(new DateTime(2018, 07, 25), 1, "Decouverte 1 semaine", "Semaine de découverte de la salle", 50, 15);
-            Service DeuxSemaines = new Service(new DateTime(2018,07,02),2, "Decouverte 2 semaines","Deux semaines de découverte de la salle", 100, 15);
-            Service UnMois = new Service(1,new DateTime(2018,08,02), "Découverte Abonnement 1 Mois", "Abonnement découverte de la salle d'un mois",0, 150, 15);
-            Service TroisMois = new Service(3,new DateTime(2018,08,01), "Découverte Abonnement 3 Mois","Abonnement découverte de la salle de 3 mois",0, 200, 15);
-            Service CarteVingtQuatre = new Service(12, new DateTime(2018,06,19), "Cartes 24 Séances","Cartes découverte 24 séances valide 1 an",24, 200, 15);
+            Service AboDouzeMoisCours = new Service(new DateTime(2019, 08, 02), 12, "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0, 300, true, 15);
+            Service AboDouzeMois = new Service(new DateTime(2017, 09, 06), 12, "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0, 270, true, 15);
+            Service AboSixMoisCours = new Service(new DateTime(2018, 05, 15), 6, "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0, 200, true, 15);
+            Service AboSixMois = new Service(new DateTime(2017, 01, 02), 6, "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0, 150, true, 15);
+            Service SeanceDecouverte = new Service(new DateTime(2018, 08, 02), 0, "Seance Decouverte", "Seance de décourverte de la salle", 1, 10, true, 15);
+            Service Semaine = new Service(new DateTime(2018, 07, 25), 1, "Decouverte 1 semaine", "Semaine de découverte de la salle", 50, 15, false);
+            Service DeuxSemaines = new Service(new DateTime(2018,07,02),2, "Decouverte 2 semaines","Deux semaines de découverte de la salle", 100, 15, false);
+            Service UnMois = new Service(new DateTime(2018, 08, 02), 1, "Découverte Abonnement 1 Mois", "Abonnement découverte de la salle d'un mois",0, 150, true, 15);
+            Service TroisMois = new Service(new DateTime(2018, 08, 01), 3, "Découverte Abonnement 3 Mois","Abonnement découverte de la salle de 3 mois",0, 200, true, 15);
+            Service CarteVingtQuatre = new Service(new DateTime(2018, 06, 19), 12, "Cartes 24 Séances","Cartes découverte 24 séances valide 1 an",24, 200, true, 15);
 
             JeuxTest.Services.Add(AboDouzeMoisCours);
             JeuxTest.Services.Add(AboDouzeMois);
