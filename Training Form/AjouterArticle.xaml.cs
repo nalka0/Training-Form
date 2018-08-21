@@ -132,5 +132,10 @@ namespace Training_Form
                 textBox.Foreground = Brushes.Red;
             }
         }
+
+        private void NomTextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
