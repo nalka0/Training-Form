@@ -53,6 +53,10 @@ namespace Training_Form
             JeuxTest.Services[dataServices.SelectedIndex].TauxTVA = decimal.Parse(editerService.tauxTVATB.Text);
             JeuxTest.Services[dataServices.SelectedIndex].Duree = (int)editerService.dureeNUD.Value;
             JeuxTest.Services[dataServices.SelectedIndex].DebutAbo = (DateTime)editerService.debutDTP.SelectedDate;
+            //sert à actualiser l'affichage
+            JeuxTest.Services.Add(JeuxTest.Services[dataServices.SelectedIndex]);
+            JeuxTest.Services.Move(JeuxTest.Services.Count - 1, dataServices.SelectedIndex);
+            JeuxTest.Services.RemoveAt(dataServices.SelectedIndex);
         }
 
         private void editerSalarie_Click(object sender, RoutedEventArgs e)
@@ -76,13 +80,16 @@ namespace Training_Form
             JeuxTest.Salaries[dataSalaries.SelectedIndex].DateEmbauche = (DateTime)editerSalarie.textBoxDateEmbauche.SelectedDate;
             JeuxTest.Salaries[dataSalaries.SelectedIndex].NumTelephone = editerSalarie.numTelephonneTB.Text;
             JeuxTest.Salaries[dataSalaries.SelectedIndex].Password = editerSalarie.textBoxPassword.Text;
+            //sert à actualiser l'affichage
+            JeuxTest.Salaries.Add(JeuxTest.Salaries[dataSalaries.SelectedIndex]);
+            JeuxTest.Salaries.Move(JeuxTest.Salaries.Count - 1, dataSalaries.SelectedIndex);
+            JeuxTest.Salaries.RemoveAt(dataSalaries.SelectedIndex);
         }
 
         private void editerClient_Click(object sender, RoutedEventArgs e)
         {
             AjoutClient editerClient = new AjoutClient();
             editerClient.Loaded -= editerClient.AjoutClient_Loaded;
-            editerClient.Closing -= editerClient.AjoutClient_Closing;
             editerClient.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
             editerClient.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
             editerClient.tbDateNaissance.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DateNaissance;
@@ -120,8 +127,12 @@ namespace Training_Form
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbMuscu.IsChecked ? "Muscu, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbPilate.IsChecked ? "Pilate ," : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbZumba.IsChecked ? "Zumba, " : "";
-            //Si le radioButton est sur couple alors le statut devient Couple sinon si le radioButton est sur Etudiant le statut devient étudiant sinon il de vient adulte.
+            //Si le radioButton est sur couple alors le statut devient Couple sinon si le radioButton est sur Etudiant le statut devient étudiant sinon il devient adulte.
             JeuxTest.Clients[dataClients.SelectedIndex].Statut = (bool)editerClient.rbCouple.IsChecked ? Statuts.Couple : (bool)editerClient.rbEtudiant.IsChecked ? Statuts.Etudiant : Statuts.Adulte;
+            //sert à actualiser l'affichage
+            JeuxTest.Clients.Add(JeuxTest.Clients[dataClients.SelectedIndex]);
+            JeuxTest.Clients.Move(JeuxTest.Clients.Count - 1, dataClients.SelectedIndex);
+            JeuxTest.Clients.RemoveAt(dataClients.SelectedIndex);
         }
 
         private void editerArticle_Click(object sender, RoutedEventArgs e)
@@ -136,6 +147,10 @@ namespace Training_Form
             JeuxTest.Articles[dataArticles.SelectedIndex].Description = editerArticle.descriptTextBox.Text;
             JeuxTest.Articles[dataArticles.SelectedIndex].PrixHT = decimal.Parse(editerArticle.prixHTTextBox.Text);
             JeuxTest.Articles[dataArticles.SelectedIndex].TauxTVA = decimal.Parse(editerArticle.TVATextBox.Text);
+            //sert à actualiser l'affichage
+            JeuxTest.Articles.Add(JeuxTest.Articles[dataArticles.SelectedIndex]);
+            JeuxTest.Articles.Move(JeuxTest.Articles.Count - 1, dataArticles.SelectedIndex);
+            JeuxTest.Articles.RemoveAt(dataArticles.SelectedIndex);
         }
         #endregion
 
