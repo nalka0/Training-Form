@@ -6,24 +6,39 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png">
+        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None" BorderBrush="Purple">
     <Grid Margin="0,0,0,0">
-        <TextBox x:Name="NomTextBox" ToolTip="Nom du nouvel article" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="316"/>
-        <TextBox x:Name="descriptTextBox" ToolTip="Description de l'article" HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="319"/>
-        <TextBox x:Name="prixHTTextBox" ToolTip="Prix hors taxes de l'article" HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319" LostFocus="prixHTTextBox_LostFocus"/>
-        <TextBox x:Name="TVATextBox" ToolTip="Taux de TVA appliqué à l'article" HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120" LostFocus="prixHTTextBox_LostFocus"/>
+        <Rectangle
+            Width="{Binding Width}"
+            Height="{Binding Height}"
+            Stroke="Purple"
+            StrokeThickness="2"/>
+        <materialDesign:DialogHost
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          IsOpen="False"
+          CloseOnClickAway="True"
+          Name="PUWindow">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Padding="10" Margin="3" TextWrapping="Wrap" TextAlignment="Center">Tout les champs ne sont pas remplis
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="3">Voulez vous continuer ?</TextBlock>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Name="PUContinuer" Margin="5" Click="PUContinuer_Click">Continuer</Button>
+                        <Button Name="PUAnnuler" Margin="5" Click="PUAnnuler_Click">Annuler</Button>
+                    </WrapPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+
+        </materialDesign:DialogHost>
+        <TextBox x:Name="NomTextBox" ToolTip="Nom" HorizontalAlignment="Left" Height="23" Margin="69,36,0,0" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="316" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="descriptTextBox" ToolTip="Description" HorizontalAlignment="Left" Height="73" Margin="69,89,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="319" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="prixHTTextBox" ToolTip="Prix HT" HorizontalAlignment="Left" Height="23" Margin="69,205,0,0" TextWrapping="Wrap" Text="Prix HT" VerticalAlignment="Top" Width="319"  GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="TVATextBox" ToolTip="TVA" HorizontalAlignment="Left" Height="23" Margin="69,257,0,0" TextWrapping="Wrap" Text="TVA" VerticalAlignment="Top" Width="120"  GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="192" Margin="427,36,0,0" Stroke="Black" VerticalAlignment="Top" Width="197" Grid.ColumnSpan="2"/>
         <Button x:Name="Valider" Content="Valider" HorizontalAlignment="Left" Margin="427,257,0,0" VerticalAlignment="Top" Width="75" Click="Valider_Click"/>
         <Button x:Name="Annuler" Content="Annuler" HorizontalAlignment="Left" Margin="549,257,0,0" VerticalAlignment="Top" Width="86" Grid.ColumnSpan="2" IsCancel="True" Click="Annuler_Click"/>
-        <materialDesign:Snackbar 
-            Name="snackBar"
-            Padding="4"
-            IsActive="False"
-            HorizontalAlignment="Stretch">
-            <materialDesign:SnackbarMessage Name="snackBarMessage" Content="Tous n'est pas remplis, voulez vous valider tout de même ?" ActionContent="Valider" ActionClick="snackBarMessage_ActionClick">
-
-            </materialDesign:SnackbarMessage>
-        </materialDesign:Snackbar>
     </Grid>
 
 </Window>
