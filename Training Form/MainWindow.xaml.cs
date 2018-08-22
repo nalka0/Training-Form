@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -7,8 +8,26 @@ namespace Training_Form
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {
+    /// 
+
+    public partial class MainWindow : Window { 
+
+        private int _panelActif;
+
+
+        public int PanelActif
+        {
+            get
+            {
+                return _panelActif;
+            }
+            set
+            {
+                _panelActif = value;
+
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,9 +55,10 @@ namespace Training_Form
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = ListViewMenu.SelectedIndex;
+            
             GridMain.Children.Clear();
-
+            int index = ListViewMenu.SelectedIndex;
+            PanelActif = index;
             switch (index)
             {
                 case 0:
@@ -64,7 +84,6 @@ namespace Training_Form
                     GridMain.Children.Add(new UserControlServices());
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Basketball;
-
                     break;
                 case 4:
                     GridMain.Children.Clear();
@@ -75,6 +94,10 @@ namespace Training_Form
                 default:
                     break;
             }
+        }
+        private void ajoutElement_Click(object sender, RoutedEventArgs e)
+        {
+            PanelActif = PanelActif;
         }
     }
 }
