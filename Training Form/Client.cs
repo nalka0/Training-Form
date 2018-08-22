@@ -12,13 +12,11 @@ namespace Training_Form
         #region variables
         private string _interets;
         private string _justificatif;
+        private Statuts _statut;
 
         public string Interets
         {
-            get
-            {
-                return _interets;
-            }
+            get { return _interets; }
             set
             {
                 string stock = _interets;
@@ -34,10 +32,7 @@ namespace Training_Form
 
         public string Justificatif
         {
-            get
-            {
-                return _justificatif;
-            }
+            get { return _justificatif; }
             set
             {
                 if (getAge() < 25)
@@ -53,7 +48,6 @@ namespace Training_Form
                
             }
         }
-        private Statuts _statut;
         public Statuts Statut
         {
             get { return _statut; }
@@ -68,19 +62,35 @@ namespace Training_Form
                 }
             }
         }
+
+        private static int nombreClients;
         #endregion
 
         #region constructeurs
         public Client(string nom, string prenom, string email, DateTime dateNaissance, string justificatif, string interets, string numTelephonne, string adresse,Statuts statuts)
             : base(nom, prenom, email, dateNaissance, Permissions.Client, numTelephonne, adresse)
         {
-            this.Justificatif = justificatif;
-            this.Interets = interets;
+            Justificatif = justificatif;
+            Interets = interets;
             Statut = statuts;
+            Identifiant = genererIdentifiant();
+            nombreClients++;
         }
         #endregion
 
         #region methodes
+        private string genererIdentifiant()
+        {
+            string ret = "";
+            int position = 0;
+            while (position < 6)
+            {
+                ret = ((nombreClients / (int)Math.Pow(10, position)) % (int)Math.Pow(10, position + 1)).ToString() + ret;
+                position++;
+            }
+            return ret;
+        }
+
         public override string ToString()
         {
             return string.Format(Interets + ";" + Justificatif);

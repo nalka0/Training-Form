@@ -113,6 +113,8 @@ namespace Training_Form
                 }
             }
         }
+
+        private static int nombreServices;
         #endregion
 
         #region Constructeurs
@@ -133,10 +135,23 @@ namespace Training_Form
             Duree = duree;
             DebutAbo = debut;
             DureeMois = dureeMois;
+            CodeProduit = genererCodeProduit();
+            nombreServices++;
         }
         #endregion
 
         #region methodes
+        private string genererCodeProduit()
+        {
+            string ret = "";
+            int position = 0;
+            while (position < 6)
+            {
+                ret = ((nombreServices / (int)Math.Pow(10, position)) % (int)Math.Pow(10, position + 1)).ToString() + ret;
+                position++;
+            }
+            return ret;
+        }
         #endregion
     }
 }
