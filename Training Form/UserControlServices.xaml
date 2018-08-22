@@ -22,8 +22,8 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
-                            </DataTemplate>
+                            <Ellipse x:Name="AlertLightAbonnement" Fill="Chartreuse" Stroke="DarkSlateGray" Width="15" Height="15" StrokeThickness="1"></Ellipse>
+                        </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header=" Modifier">
