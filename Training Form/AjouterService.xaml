@@ -3,30 +3,42 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Name="ajouterServiceWin" x:Class="Training_Form.ajouterService"
         mc:Ignorable="d"
-        Title="Ajouter un service" Height="450" Width="498" Loaded="ajouterServiceWin_Loaded" ResizeMode="NoResize" Icon="trainingFormLogo.png">
-    <Grid Margin="0,0,34,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="95*"/>
-            <RowDefinition Height="324*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="146*"/>
-            <ColumnDefinition Width="645*"/>
-            <ColumnDefinition Width="0*"/>
-        </Grid.ColumnDefinitions>
-        <Button x:Name="annuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="227,269,0,0" Click="annuler_Click" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.481,0.856"/>
-        <Button x:Name="valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="123,269,0,0" Click="valider_Click" Grid.Row="1" RenderTransformOrigin="-0.699,-1.285" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="nomTB" ToolTip="Nom du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="nom" VerticalAlignment="Top" Width="120" Margin="123,24,0,0" Grid.Row="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="descriptionTB" ToolTip="Description du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="description" VerticalAlignment="Top" Width="120" Margin="123,61,0,0" Grid.ColumnSpan="2"/>
-        <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="200,203,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178" Grid.Column="1" Height="20" Width="41"/>
-        <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,102,0,0" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="3.243,0.63" Height="37" Width="68"/>
-        <TextBox x:Name="prixHTTB" ToolTip="Prix hors taxes du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,61,0,0" LostFocus="prixHTTB_LostFocus"/>
-        <TextBox x:Name="tauxTVATB" ToolTip="Taux de TVA appliqué au service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Taux TVA" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,24,0,0" Grid.Row="1" LostFocus="prixHTTB_LostFocus"/>
-        <Label Content="Date de début" Grid.Column="1" Margin="191,102,73,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.253,4.032" Height="26"/>
-        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="142" Margin="123,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
+        Title="Ajouter un service" Height="331.516" Width="421.404" Loaded="ajouterServiceWin_Loaded" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
+    <Grid Margin="0,0,34,10">
+        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="Purple" StrokeThickness="2"/>
+        <materialDesign:DialogHost
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          IsOpen="False"
+          CloseOnClickAway="True"
+          Name="PUWindow">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Padding="10" Margin="3" TextWrapping="Wrap" TextAlignment="Center">Tout les champs ne sont pas remplis
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="3">Voulez vous continuer ?</TextBlock>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Name="PUContinuer" Margin="5" Click="PUContinuer_Click">Continuer</Button>
+                        <Button Name="PUAnnuler" Margin="5" Click="PUAnnuler_Click">Annuler</Button>
+                    </WrapPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+
+        <Button x:Name="annuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="227,269,0,0" Click="annuler_Click"/>
+        <Button x:Name="valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="123,269,0,0" Click="valider_Click"/>
+        <TextBox x:Name="nomTB" ToolTip="Nom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="123,24,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="descriptionTB" ToolTip="Description" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Width="120" Margin="123,61,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="254,228,0,0" VerticalAlignment="Top" Height="20" Width="41" RenderTransformOrigin="-1.433,1.594" />
+        <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,164,0,0" Height="38" Width="68"/>
+        <TextBox x:Name="prixHTTB" ToolTip="PrixHT" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Margin="241,61,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="tauxTVATB" ToolTip="TauxTVA" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="TauxTVA" VerticalAlignment="Top" Width="120" Margin="241,24,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <Label Content="Date de début" Margin="254,133,10,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,4.032" Height="26"/>
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="142" Margin="123,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
             <StackPanel>
                 <RadioButton Name="semainesRB" Content="Semaines"/>
                 <RadioButton Name="moisRB"  Content="Mois"/>
