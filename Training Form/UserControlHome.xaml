@@ -10,9 +10,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <WrapPanel>
-            <Label Content="CAmois" FontSize="20" Height="50" Width="100" BorderThickness="1" VerticalAlignment="top" BorderBrush="Black" HorizontalAlignment="left" Margin="20,20,20,20"/>
+            <Label Content="CAmois" FontSize="20" Height="50" Width="100" BorderThickness="1" VerticalAlignment="top" BorderBrush="Black" HorizontalAlignment="left" Margin="25,25,25,25"/>
             <lvc:PieChart x:Name="Chart" Series="{Binding SeriesCollection}" 
-                      LegendLocation="Right" InnerRadius="100"  Margin="20,30,20,20" Height="157" RenderTransformOrigin="0.46,0.58" HorizontalAlignment="left" VerticalAlignment="top" Width="358">
+                      LegendLocation="Right" InnerRadius="100"  Margin="25,50,25,25" Height="157" RenderTransformOrigin="0.46,0.58" HorizontalAlignment="left" VerticalAlignment="top" Width="358" >
                 <lvc:PieChart.ChartLegend>
                     <lvc:DefaultLegend BulletSize="20"/>
                 </lvc:PieChart.ChartLegend>
@@ -20,16 +20,16 @@
                     <lvc:DefaultTooltip BulletSize="20"/>
                 </lvc:PieChart.DataTooltip>
             </lvc:PieChart>
-            <StackPanel Height="280" Width="278">
+            <StackPanel Height="280" Width="278" Margin="25,25,25,25">
                 <Label Content="Cinq derniers abonnés" Height="36" HorizontalAlignment="Center" Width="225" VerticalAlignment="Center" FontSize="20" Margin="36,0,17,0" BorderBrush="#FF020202"/>
-                <DataGrid x:Name="dataDerniersClients"  Margin="0,0,0,0" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
+                <DataGrid x:Name="dataDerniersClients"  AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-            <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top" Width="400" Height="268" x:Name="Charts2">
+            <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top"  Height="200" x:Name="Charts2" MinWidth="900" Margin="50,0,0,25">
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Mois" Labels="{Binding Labels}" FontSize="15" LabelsRotation="30" >
                         <lvc:Axis.Separator >
