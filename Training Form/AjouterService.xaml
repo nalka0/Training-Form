@@ -17,23 +17,21 @@
             <ColumnDefinition Width="645*"/>
             <ColumnDefinition Width="0*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="annuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="196,255,0,0" Click="annuler_Click" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.481,0.856"/>
-        <Button x:Name="valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="7,255,0,0" Click="valider_Click" Grid.Row="1" RenderTransformOrigin="-0.699,-1.285" Grid.Column="1"/>
-        <TextBox x:Name="nomTB" ToolTip="Nom du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="nom" VerticalAlignment="Top" Width="120" Margin="7,10,0,0" Grid.Row="1" Grid.Column="1"/>
-        <TextBox x:Name="descriptionTB" ToolTip="Description du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="description" VerticalAlignment="Top" Width="120" Margin="7,47,0,0" Grid.Column="1"/>
-        <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="230,165,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178" Grid.Column="1" Height="26" Width="41"/>
-        <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="269,88,0,0" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="3.243,0.63" Height="26" Width="94"/>
-        <TextBox x:Name="prixHTTB" ToolTip="Prix hors taxes du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="160,47,0,0" LostFocus="prixHTTB_LostFocus"/>
-        <TextBox x:Name="tauxTVATB" ToolTip="Taux de TVA appliqué au service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Taux TVA" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="160,10,0,0" Grid.Row="1" LostFocus="prixHTTB_LostFocus"/>
-        <Label Content="Date de début :" Grid.Column="1" Margin="160,88,104,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.253,4.032" Height="26"/>
-        <GroupBox Header="Durée en" HorizontalAlignment="Left" Height="117" Margin="7,92,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.Column="1">
+        <Button x:Name="annuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="89" Margin="227,269,0,0" Click="annuler_Click" Grid.Column="1" Grid.Row="1" RenderTransformOrigin="0.481,0.856"/>
+        <Button x:Name="valider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="123,269,0,0" Click="valider_Click" Grid.Row="1" RenderTransformOrigin="-0.699,-1.285" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="nomTB" ToolTip="Nom du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="nom" VerticalAlignment="Top" Width="120" Margin="123,24,0,0" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="descriptionTB" ToolTip="Description du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="description" VerticalAlignment="Top" Width="120" Margin="123,61,0,0" Grid.ColumnSpan="2"/>
+        <xctk:IntegerUpDown x:Name="dureeNUD" ToolTip="Durée du service" HorizontalAlignment="Left" Margin="200,203,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="7.212,-7.178" Grid.Column="1" Height="20" Width="41"/>
+        <DatePicker x:Name="debutDTP" ToolTip="Date de début du service" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,102,0,0" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="3.243,0.63" Height="37" Width="68"/>
+        <TextBox x:Name="prixHTTB" ToolTip="Prix hors taxes du service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="PrixHT" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,61,0,0" LostFocus="prixHTTB_LostFocus"/>
+        <TextBox x:Name="tauxTVATB" ToolTip="Taux de TVA appliqué au service" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Taux TVA" VerticalAlignment="Top" Width="120" Grid.Column="1" Margin="191,24,0,0" Grid.Row="1" LostFocus="prixHTTB_LostFocus"/>
+        <Label Content="Date de début" Grid.Column="1" Margin="191,102,73,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.253,4.032" Height="26"/>
+        <GroupBox Header="GroupBox" HorizontalAlignment="Left" Height="142" Margin="123,106,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2">
             <StackPanel>
                 <RadioButton Name="semainesRB" Content="Semaines"/>
-                <RadioButton x:Name="moisRB"  Content="Mois"/>
+                <RadioButton Name="moisRB"  Content="Mois"/>
             </StackPanel>
         </GroupBox>
-        <Label Content="Durée :" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Margin="174,165,0,0" Grid.Row="1" Height="26
-               "/>
 
     </Grid>
 </Window>

@@ -3,246 +3,216 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
-        mc:Ignorable="d"
-        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-        Title="MainWindow" WindowState="Maximized" Icon="trainingFormLogo.png" Height="994" Width="1372">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
 
-    <Grid Margin="0,0,0,0">
+    <Window.Resources>
+        <Storyboard x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="145"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="145"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
 
-        <TabControl x:Name="onglets" TabStripPlacement="Left" VerticalContentAlignment="Top" UseLayoutRounding="False" Grid.Row="0" Margin="10,60,10,10"   >
-            <TabItem x:Name="dashBoard"  Margin="-2,-2,2,-6" GotFocus="TabItem_GotFocus" >
-                <TabItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Name="img" Height="98" Width="100" Source="trainingFormLogo.png" />
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="ButtonCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid Background="LightGray" MouseDown="Grid_MouseDown">
+        <Grid x:Name="GridMain" Height="530" Width="1020" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        <!--<Grid Height="70" VerticalAlignment="Top" Background="#FF8946CB" 
+                materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Training Form 19</TextBlock>
+            <TextBox x:Name="recherche" VerticalAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="210 0 0 0"  TextWrapping="Wrap" Text="rechercher" Width="140"/>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                -->
+        <!--<TextBlock Text="Options" VerticalAlignment="Center" FontSize="18"/>
+                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Content="Compte"/>
+                        <Button Content="Paramètres"/>
                     </StackPanel>
-                </TabItem.Header>
-                <WrapPanel>
-                    <Label Content="CAmois" FontSize="20" Height="50" Width="100" BorderThickness="1" VerticalAlignment="top" BorderBrush="Black" HorizontalAlignment="left" Margin="20,20,20,20"/>
-                    <lvc:PieChart x:Name="Chart" Series="{Binding SeriesCollection}" 
-                      LegendLocation="Right" InnerRadius="100"  Margin="20,30,20,20" Height="157" RenderTransformOrigin="0.46,0.58" HorizontalAlignment="left" VerticalAlignment="top" Width="358">
-                        <lvc:PieChart.ChartLegend>
-                            <lvc:DefaultLegend BulletSize="20"/>
-                        </lvc:PieChart.ChartLegend>
-                        <lvc:PieChart.DataTooltip>
-                            <lvc:DefaultTooltip BulletSize="20"/>
-                        </lvc:PieChart.DataTooltip>
-                    </lvc:PieChart>
-                    <StackPanel Height="280" Width="278">
-                        <Label Content="Cinq derniers abonnés" Height="36" HorizontalAlignment="Center" Width="225" VerticalAlignment="Center" FontSize="20" Margin="36,0,17,0" BorderBrush="#FF020202"/>
-                        <DataGrid x:Name="dataDerniersClients"  Margin="0,0,0,0" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
-                                <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                </materialDesign:PopupBox>-->
+                
+                <!--Bouton d'ajout-->
+        <!--
+                
+                <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Name="ajoutElement"
+                        Margin="0 0 30 0" Width="45" Height="45"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                    <materialDesign:PackIcon Kind="AccountPlus" Height="35" Width="35"/>
+                </Button>
+                
+                -->
+        <!--fin bouton ajout-->
+        <!--
+                
+                <Button x:Name="Close" Click="Close_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>-->
+        
+     <!-- Panneau du haut -->   <materialDesign:ColorZone Mode="PrimaryMid"
+             Padding="10"                     
+             materialDesign:ShadowAssist.ShadowDepth="Depth2">
+            <DockPanel>
+                <TextBox x:Name="recherche" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                         Height="23"  TextWrapping="Wrap" Text="rechercher" Width="140" Margin="210 0 0 0"/>
+                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <!--<TextBlock Text="Options" VerticalAlignment="Center" FontSize="18"/>
+                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
+                    <StackPanel Width="150">
+                        <Button Content="Compte"/>
+                        <Button Content="Paramètres"/>
                     </StackPanel>
-                    <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top" Width="1000" Height="268" x:Name="Charts2">
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Mois" Labels="{Binding Labels}" FontSize="15" LabelsRotation="30" >
-                                <lvc:Axis.Separator >
-                                    <lvc:Separator IsEnabled="False" Step="1" ></lvc:Separator>
-                                </lvc:Axis.Separator>
-                            </lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Abonement" Labels="{Binding Abonement}" FontSize="20"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
-                    </lvc:CartesianChart>
+                </materialDesign:PopupBox>-->
 
-                </WrapPanel>
-            </TabItem>
-            <TabItem x:Name="Client" Header="Clients" Margin="0,7,0,-28" FontSize="20"  GotFocus="TabItem_GotFocus">
+                <!--Bouton d'ajout-->
 
-                <DataGrid Name="dataClients" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
+                    <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Name="ajoutElement"
+                        Margin="0 0 30 0" Width="45" Height="45"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3">
+                        <materialDesign:PackIcon Kind="AccountPlus" Height="35" Width="35"/>
+                    </Button>
 
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Code Client" IsReadOnly="True" Binding="{Binding Identifiant}"/>
-                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
-                        <DataGridTextColumn Header="Adresse Mail" IsReadOnly="True" Binding="{Binding Mail}"/>
-                        <DataGridTextColumn Header="Date de Naissance" IsReadOnly="True" Binding="{Binding DateNaissance}"/>
-                        <DataGridTextColumn Header="Interets" IsReadOnly="True" Binding="{Binding Interets}"/>
-                        <DataGridTextColumn Header="Adresse" IsReadOnly="True" Binding="{Binding Adresse}"/>
-                        <DataGridTextColumn Header="Telephone" IsReadOnly="True" Binding="{Binding NumTelephone}"/>
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header=" Modifier">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <materialDesign:PopupBox Margin="16,0,16,0" StaysOpen="True" IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
+                <!--fin bouton ajout-->
 
-                                        <Grid Width="150" Margin="8,8,8,8">
+                    <Button x:Name="Close" Click="Close_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8">
+                        <materialDesign:PackIcon Kind="Power"/>
+                    </Button>
+                </StackPanel>
+                <TextBlock Margin="-90 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="Training Form 19"></TextBlock>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <materialDesign:ColorZone
+            Mode="PrimaryDark"
+            materialDesign:ShadowAssist.ShadowDepth="Depth2"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Stretch"
+            x:Name="GridMenu"
+            Width="60">
+            <DockPanel>
+                <StackPanel VerticalAlignment="Top"
+                            HorizontalAlignment="Left">
+                <Grid Height="150" Background="White"
+                      
+                      VerticalAlignment="Top">
+                        <Image Source="trainingFormLogo.png" Margin="10"/>
+                        <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
+                    </Button>
+                </Grid>
+                
+                <!--<materialDesign:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                    <Grid x:Name="GridCursor" Margin="0 100 0 0" Background="#FF4B1481" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
+                </materialDesign:TransitioningContent>-->
+                
+                <ListView x:Name="ListViewMenu" 
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Left"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="White" SelectionChanged="ListViewMenu_SelectionChanged"  SelectedIndex="0">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Face" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Cart" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Services" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Worker" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+                </StackPanel>
+                
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <!--<Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF4B1481">
+            <StackPanel>
+                <Grid Height="150" Background="White">
+                    <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="ArrowLeft" Width="25" Height="25"/>
+                    </Button>
+                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
+                    </Button>
 
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                            </Grid.RowDefinitions>
+                </Grid>
+                --><!--<md:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{md:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
+                    <Grid x:Name="GridCursor" Margin="0 100 0 0" Background="#FF4B1481" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
+                </md:TransitioningContent>--><!--
+                <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF8946CB" SelectionChanged="ListViewMenu_SelectionChanged"  SelectedIndex="0">
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Face" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Cart" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Services" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="Worker" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                            <TextBlock Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+        </Grid>-->
 
-                                            <Button Click="editerClient_Click" Name="editerClient" Grid.Row="0" Content="Editer" />
-                                            <Button Grid.Row="1" Content="Fiche Client" />
-                                            <Button Click="supprimerClient_Click" Name="supprimerClient" Grid.Row="2" Content="Supprimer" />
-
-                                        </Grid>
-
-                                    </materialDesign:PopupBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-
-                </DataGrid>
-
-            </TabItem>
-
-            <TabItem x:Name="Article" Header="Articles" Margin="0,28,-2,-50"  FontSize="20" GotFocus="TabItem_GotFocus" >
-
-                <DataGrid Name="dataArticles" Margin="10,10,10,10" AutoGenerateColumns="False" ItemsSource="{Binding Articles}">
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Code Produit" IsReadOnly="True" Binding="{Binding CodeProduit}"/>
-                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="Image" IsReadOnly="True" Binding="{Binding ImageProduit}"/>
-                        <DataGridTextColumn Header="PrixHT" IsReadOnly="True" Binding="{Binding PrixHT}"/>
-                        <DataGridTextColumn Header="PrixTTC" IsReadOnly="True" Binding="{Binding PrixTTC}"/>
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header=" Modifier">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-
-                                    <materialDesign:PopupBox Margin="16,0,16,0" StaysOpen="True" IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
-
-                                        <Grid Width="150" Margin="8,8,8,8">
-
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                            </Grid.RowDefinitions>
-
-                                            <Button Name ="editerArticle" Click="editerArticle_Click" Grid.Row="0" Content="Editer" />
-                                            <Button Grid.Row="1" Content="Fiche Article" />
-                                            <Button Click="supprimerArticle_Click" Name="supprimerArticle" Grid.Row="2" Content="Supprimer" />
-
-                                        </Grid>
-
-                                    </materialDesign:PopupBox>
-                                    <!--Click="modifierSalarie_Click" />-->
-
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-
-                </DataGrid>
-
-            </TabItem>
-
-            <TabItem x:Name="Service" Header="Services" Margin="0,50,-2,-71" FontSize="20" GotFocus="TabItem_GotFocus" >
-
-                <DataGrid Name="dataServices" Margin="10,10,10,10"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}">
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Code Service" IsReadOnly="True" Binding="{Binding CodeProduit}"/>
-                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"/>
-                        <DataGridTextColumn Header="Date de Début" IsReadOnly="True" Binding="{Binding DebutAbo}"/>
-                        <DataGridTextColumn Header="Date de Fin" IsReadOnly="True" Binding="{Binding FinAbo}"/>
-                        <DataGridTemplateColumn>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header=" Modifier">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <materialDesign:PopupBox Margin="16,0,16,0" StaysOpen="True" IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
-
-                                        <Grid Width="150" Margin="8,8,8,8">
-
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                            </Grid.RowDefinitions>
-
-                                            <Button Name="editerService" Click="editerService_Click" Grid.Row="0" Content="Editer" />
-                                            <Button Grid.Row="1" Content="Fiche Service" />
-                                            <Button Click="supprimerService_Click" Name="supprimerService" Grid.Row="2" Content="Supprimer" />
-
-                                        </Grid>
-
-                                    </materialDesign:PopupBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-
-                </DataGrid>
-
-            </TabItem>
-
-            <TabItem x:Name="Salarie" Header="Salariés" Margin="0,70,-2,-92" FontSize="20"  GotFocus="TabItem_GotFocus">
-
-                <DataGrid Name="dataSalaries" Margin="10,10,10,10" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Salaries}">
-
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Identifiant" IsReadOnly="True" Binding="{Binding Identifiant}"/>
-                        <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
-                        <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
-                        <DataGridTextColumn Header="Adresse Mail" IsReadOnly="True" Binding="{Binding Mail}"/>
-                        <DataGridTextColumn Header="Adresse" IsReadOnly="True" Binding="{Binding Adresse}"/>
-                        <DataGridTextColumn Header="Telephone" IsReadOnly="True" Binding="{Binding NumTelephone}"/>
-                        <DataGridTextColumn Header="Date de Naissance" IsReadOnly="True" Binding="{Binding DateNaissance}"/>
-                        <DataGridTextColumn Header="Date d'embauche" IsReadOnly="True" Binding="{Binding DateEmbauche}"/>
-                        <DataGridTemplateColumn Header=" Modifier">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <materialDesign:PopupBox Margin="16,0,16,0" StaysOpen="True" IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
-
-                                        <Grid Width="150" Margin="8,8,8,8">
-
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                                <RowDefinition Height="*" />
-                                            </Grid.RowDefinitions>
-                                            <Button Name="editerSalarie" Click="editerSalarie_Click" Grid.Row="0" Content="Editer" />
-                                            <Button Grid.Row="1" Content="Fiche Salarié" />
-                                            <Button Click="supprimerSalarie_Click" Name="supprimerSalarie" Grid.Row="2" Content="Supprimer" />
-
-                                        </Grid>
-
-                                    </materialDesign:PopupBox>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </TabItem>
-        </TabControl>
-        <Label Name="emplacementActuel" HorizontalAlignment="Left" Margin="99,10,0,0" VerticalAlignment="Top" Width="312" Height="40" FontSize="25"/>
-        <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Name="ajoutElement"
-            Click="ajoutElement_Click" Margin="0,10,60,0" Width="56" Height="56" HorizontalAlignment="Right" VerticalAlignment="Top">
-            <materialDesign:PackIcon Kind="AccountPlus" Height="24" Width="24"/>
-        </Button>
-        <TextBox x:Name="recherche" HorizontalAlignment="Left" Height="23" Margin="470,22,0,0" TextWrapping="Wrap" Text="rechercher" VerticalAlignment="Top" Width="140" TextChanged="recherche_TextChanged"/>
     </Grid>
-
 </Window>

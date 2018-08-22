@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Training_Form.UserControlServices"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Training_Form"
+                                       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="DodgerBlue">
+    <Grid x:Name="Service">
+
+            <DataGrid Name="dataServices"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Code Service" IsReadOnly="True" Binding="{Binding CodeProduit}"/>
+                    <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
+                    <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"/>
+                    <DataGridTextColumn Header="Date de Début" IsReadOnly="True" Binding="{Binding DebutAbo}"/>
+                    <DataGridTextColumn Header="Date de Fin" IsReadOnly="True" Binding="{Binding FinAbo}"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header=" Modifier">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <materialDesign:PopupBox Margin="16,0,16,0" StaysOpen="True" IsEnabled="{Binding IsChecked, ElementName=PopupEnabled}">
+
+                                    <Grid Width="150" Margin="8,8,8,8">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+
+                                        <Button Name="editerService" Click="editerService_Click" Grid.Row="0" Content="Editer" />
+                                        <Button Grid.Row="1" Content="Fiche Service" />
+                                        <Button Click="supprimerService_Click" Name="supprimerService" Grid.Row="2" Content="Supprimer" />
+
+                                    </Grid>
+
+                                </materialDesign:PopupBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+    </Grid>
+</UserControl>

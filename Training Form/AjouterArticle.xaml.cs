@@ -23,7 +23,6 @@ namespace Training_Form
         public bool Canceled = true;
         public bool Notify = false;
         public bool Forced = false;
-        bool passer = false;
 
         public AjouterArticle()
         {
@@ -35,26 +34,55 @@ namespace Training_Form
 
         private void ProduitWind_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
-            if (!Canceled && !passer)
+            if (!Canceled)
             {
                 if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
                 {
+                    MessageBox.Show("Le nom n'a pas été renseigné", "Nom manquant", MessageBoxButton.OK, MessageBoxImage.Error);
                     Notify = true;
                 }
-                if (prixHTTextBox.Text == "0" || TVATextBox.Text == "0")
-                {
-                    Notify = true;
-                }
+
                 if (Notify)
                 {
-                    PUWindow.IsOpen = true;
+                    snackBar.IsActive = true;
                     e.Cancel = true;
                 }
             }
+            decimal useless;
+            if (!decimal.TryParse(prixHTTextBox.Text, out useless))
+            {
+               MessageBox.Show("Le prix HT n'est pas une valeur correcte", "PrixHT incorrect", MessageBoxButton.OK, MessageBoxImage.Error);
+                e.Cancel = true;
+            }
+            if (!decimal.TryParse(TVATextBox.Text, out useless))
+            {
+                MessageBox.Show("La TVA n'est pas une valeur correcte", "TVA incorrecte", MessageBoxButton.OK, MessageBoxImage.Error);
+                e.Cancel = true;
+            }
+
         }
 
         private void Valider_Click(object sender, RoutedEventArgs e)
+        {
+            Canceled = false;
+            Close();
+        }
+
+        private void Annuler_Click(object sender, RoutedEventArgs e)
+        {
+            Canceled = true;
+            Close();
+        }
+
+        private void snackBarMessage_ActionClick(object sender, RoutedEventArgs e)
+        {
+            Canceled = true;
+            Notify = false;
+            Forced = true;
+            Close();
+        }
+
+        private void prixHTTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             string resultat = "";
             foreach (char element in prixHTTextBox.Text)
@@ -74,68 +102,6 @@ namespace Training_Form
                     resultat += ',';
             }
             TVATextBox.Text = resultat;
-            Canceled = false;
-            passer = false;
-            foreach (char c in prixHTTextBox.Text)
-            {
-                if (!char.IsDigit(c))
-                {
-                    prixHTTextBox.Text = "0";
-                    prixHTTextBox.Foreground = Brushes.Red;
-                }
-            }
-            foreach (char c in TVATextBox.Text)
-            {
-                if (!char.IsDigit(c))
-                {
-                    TVATextBox.Text = "0";
-                    TVATextBox.Foreground = Brushes.Red;
-                }
-            }
-            Close();
-        }
-
-        private void Annuler_Click(object sender, RoutedEventArgs e)
-        {
-            Canceled = true;
-            Close();
-        }
-        private void PUAnnuler_Click(object sender, RoutedEventArgs e)
-        {
-            PUWindow.IsOpen = false;
-        }
-
-        private void PUContinuer_Click(object sender, RoutedEventArgs e)
-        {
-            Canceled = false;
-            passer = true;
-            Close();
-        }
-
-
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox.Text == textBox.ToolTip.ToString())
-            {
-                textBox.Text = "";
-                textBox.Foreground = Brushes.Black;
-            }
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox.Text == "")
-            {
-                textBox.Text = textBox.ToolTip.ToString();
-                textBox.Foreground = Brushes.Red;
-            }
-        }
-
-        private void NomTextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }
