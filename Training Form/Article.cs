@@ -33,14 +33,23 @@ namespace Training_Form
         public Article(string nom, string description, decimal prixHT, decimal tauxTVA)
             :base (nom, description, prixHT, tauxTVA)
         {
-
-            CodeProduit = nombreArticle.ToString();
+            CodeProduit = genererCodeProduit();
             nombreArticle++;
-           
         }
         #endregion
 
         #region methodes
+        private string genererCodeProduit()
+        {
+            string ret = "";
+            int position = 0;
+            while (position < 6)
+            {
+                ret = ((nombreArticle / (int)Math.Pow(10, position)) % (int)Math.Pow(10, position + 1)).ToString() + ret;
+                position++;
+            }
+            return ret;
+        }
         #endregion
     }
 }

@@ -16,7 +16,6 @@ namespace Training_Form
         private string _description;
         private decimal _prixHT;
         private decimal _tauxTVA;
-        private static int nombreProduits;
         /// <summary>
         /// Code permettant d'identifier le produit
         /// </summary>
@@ -32,7 +31,6 @@ namespace Training_Form
                     _codeProduit = value;
                     BetterNotifyPropertyChanged(stock, value);
                 }
-
             }
         }
         /// <summary>
@@ -50,7 +48,6 @@ namespace Training_Form
                     _nom = value;
                     BetterNotifyPropertyChanged(stock, value);
                 }
-
             }
         }
         /// <summary>
@@ -120,7 +117,6 @@ namespace Training_Form
             Description = description;
             PrixHT = prixHT;
             TauxTVA = tauxTVA;
-            nombreProduits++;
         }
         #endregion
 
