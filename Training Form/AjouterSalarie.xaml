@@ -3,22 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="AjoutUser" Height="334.39" Width="368.99" ResizeMode="NoResize" Icon="trainingFormLogo.png">
+        Title="AjoutUser" Height="334.39" Width="368.99" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
     <Grid Margin="0,0,2,-21">
-        <TextBox x:Name="textBoxNom" ToolTip="Nom du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <TextBox x:Name="textBoxPrenom" ToolTip="Prenom du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prénom" VerticalAlignment="Top" Width="120" Margin="224,10,0,0"/>
-        <DatePicker x:Name="textBoxDateNaissance" ToolTip="Date de naissance du salarié" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
-        <TextBox x:Name="textBoxAdresse" ToolTip="Adresse physique du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,68,0,0"/>
-        <TextBox x:Name="textBoxEmail" ToolTip="Adresse mail du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,124,0,0"/>
+        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="Purple" StrokeThickness="2"/>
+        <materialDesign:DialogHost
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          IsOpen="False"
+          CloseOnClickAway="True"
+          Name="PUWindow">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Padding="10" Margin="3" TextWrapping="Wrap" TextAlignment="Center">Tout les champs ne sont pas remplis
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="3">Voulez vous continuer ?</TextBlock>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Name="PUContinuer" Margin="5" Click="PUContinuer_Click">Continuer</Button>
+                        <Button Name="PUAnnuler" Margin="5" Click="PUAnnuler_Click">Annuler</Button>
+                    </WrapPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <TextBox x:Name="textBoxNom" ToolTip="Nom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
+        <TextBox x:Name="textBoxPrenom" ToolTip="Prenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prénom" VerticalAlignment="Top" Width="120" Margin="224,10,0,0"/>
+        <DatePicker x:Name="textBoxDateNaissance" ToolTip="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
+        <TextBox x:Name="textBoxAdresse" ToolTip="Adresse" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="334" Margin="10,68,0,0"/>
+        <TextBox x:Name="textBoxEmail" ToolTip="Email" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,124,0,0"/>
         <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="10,258,0,0" Click="boutonValider_Click"/>
         <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="256,258,0,0" Click="boutonAnnuler_Click"/>
-        <TextBox x:Name="textBoxPassword" ToolTip="Mot de passe du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Margin="224,124,0,0"/>
+        <TextBox x:Name="textBoxPassword" ToolTip="Password" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Width="120" Margin="224,124,0,0"/>
         <DatePicker x:Name="textBoxDateEmbauche" ToolTip="Date d'embauche du salarié" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,181,0,0" Width="120"/>
         <Label x:Name="labelDateEmbauche" Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,180,0,0"/>
         <Label Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>
         <TextBox x:Name="numTelephonneTB" ToolTip="Numéro de téléphonne du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Numéro de téléphonne" VerticalAlignment="Top" Width="132" Margin="10,152,0,0"/>
-
     </Grid>
 </Window>
