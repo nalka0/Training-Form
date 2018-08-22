@@ -133,9 +133,9 @@ namespace Training_Form
             }
         }
 
-        private void NomTextBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            DragMove();
         }
     }
 }

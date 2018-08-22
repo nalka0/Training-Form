@@ -6,8 +6,13 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png">
+        Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None" BorderBrush="Purple">
     <Grid Margin="0,0,0,0">
+        <Rectangle
+            Width="{Binding Width}"
+            Height="{Binding Height}"
+            Stroke="Purple"
+            StrokeThickness="2"/>
         <materialDesign:DialogHost
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
