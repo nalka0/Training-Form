@@ -59,19 +59,12 @@ namespace Training_Form
             get { return _mail; }
             set
             {
-                if (value.Contains("@") && value.Contains("."))
+                string stock = _mail;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
                 {
-                    string stock = _mail;
-                    BetterNotifyPropertyChanging(stock, value);
-                    if (argsChanging == null || !argsChanging.Cancel)
-                    {
-                        _mail = value;
-                        BetterNotifyPropertyChanged(stock, value);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Adresse e-mail invalide, veuillez recommencer", "Mauvaise adresse e-mail", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _mail = value;
+                    BetterNotifyPropertyChanged(stock, value);
                 }
             }
         }
@@ -85,19 +78,12 @@ namespace Training_Form
             get { return _dateNaissance; }
             set
             {
-                if (value.CompareTo(new DateTime(DateTime.Now.Year - 100, DateTime.Now.Month, DateTime.Now.Day)) > 0)
+                DateTime stock = _dateNaissance;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
                 {
-                    DateTime stock = _dateNaissance;
-                    BetterNotifyPropertyChanging(stock, value);
-                    if (argsChanging == null || !argsChanging.Cancel)
-                    {
-                        _dateNaissance = value;
-                        BetterNotifyPropertyChanged(stock, value);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Date de naissance invalide, veuillez recommencer", "Mauvaise date de naissance", MessageBoxButton.OK, MessageBoxImage.Error);
+                    _dateNaissance = value;
+                    BetterNotifyPropertyChanged(stock, value);
                 }
             }
         }
@@ -168,26 +154,13 @@ namespace Training_Form
             get { return _numTelephone; }
             set
             {
-                foreach (char character in value)
+                string stock = _numTelephone;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
                 {
-                    if (!Char.IsDigit(character))
-                    {
-                        MessageBox.Show("Le numéro de téléphone \"" + value + "\" contient des caractères invalides", "Muavais numéro de teléphonne", MessageBoxButton.OK, MessageBoxImage.Error);
-                        break;
-                    }
+                    _numTelephone = value;
+                    BetterNotifyPropertyChanged(stock, value);
                 }
-                if (value.Length == 10)
-                {
-                    string stock = _numTelephone;
-                    BetterNotifyPropertyChanging(stock, value);
-                    if (argsChanging == null || !argsChanging.Cancel)
-                    {
-                        BetterNotifyPropertyChanged(stock, value);
-                        _numTelephone = value;
-                    }
-                }
-                else
-                    MessageBox.Show("Le numéro de téléphone\"" + value + "\" ne contient pas 10 chiffres", "Mauvais numéro de téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         #endregion

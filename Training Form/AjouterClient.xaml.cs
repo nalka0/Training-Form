@@ -20,6 +20,8 @@ namespace Training_Form
     public partial class AjoutClient : Window
     {
         public bool Canceled = true;
+        public bool Notify = false;
+        public bool passer = false;
 
         public AjoutClient()
         {
@@ -36,26 +38,28 @@ namespace Training_Form
 
         public void AjoutClient_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!Canceled)
+            if (!Canceled && !passer)
             {
                 if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
                 {
-                    MessageBox.Show("Erreur dans la date", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
-                    e.Cancel = true;
+                    Notify = true;
                 }
                 if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains("."))
                 {
-                    MessageBox.Show("Le mail n'est pas conforme", "Erreur mail", MessageBoxButton.OK, MessageBoxImage.Error);
-                    e.Cancel = true;
+                    Notify = true;
                 }
                 foreach (char character in tbTelephone.Text)
                 {
                     if (!Char.IsDigit(character))
-                        e.Cancel = true;
+                        Notify = true;
                 }
                 if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0')
                 {
-                    MessageBox.Show("Le numéro de téléphone n'est pas conforme", "Erreur téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Notify = true;
+                }
+                if (Notify)
+                {
+                    PUWindow.IsOpen = true;
                     e.Cancel = true;
                 }
             }
@@ -64,6 +68,7 @@ namespace Training_Form
         public void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
             Canceled = true;
+            passer = false;
             Close();
         }
 
@@ -71,6 +76,42 @@ namespace Training_Form
         {
             Canceled = false;
             Close();
+        }
+
+        private void PUContinuer_Click(object sender, RoutedEventArgs e)
+        {
+            Canceled = false;
+            passer = true;
+            Close();
+        }
+
+        private void PUAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            PUWindow.IsOpen = false;
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == textBox.ToolTip.ToString())
+            {
+                textBox.Text = "";
+                textBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "")
+            {
+                textBox.Text = textBox.ToolTip.ToString();
+                textBox.Foreground = Brushes.Red;
+            }
         }
     }
 }

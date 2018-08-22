@@ -74,8 +74,6 @@ namespace Training_Form
                     resultat += ',';
             }
             TVATextBox.Text = resultat;
-            Canceled = false;
-            passer = false;
             foreach (char c in prixHTTextBox.Text)
             {
                 if (!char.IsDigit(c))
@@ -92,6 +90,8 @@ namespace Training_Form
                     TVATextBox.Foreground = Brushes.Red;
                 }
             }
+            Canceled = false;
+            passer = false;
             Close();
         }
 
