@@ -31,7 +31,7 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Grid Background="LightGray" MouseDown="Grid_MouseDown">
+    <Grid Background="LightGray" MouseLeftButtonDown="Grid_MouseDown">
         <Grid x:Name="GridMain" Height="530" Width="1020" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         <!--<Grid Height="70" VerticalAlignment="Top" Background="#FF8946CB" 
                 materialDesign:ShadowAssist.ShadowDepth="Depth3">
