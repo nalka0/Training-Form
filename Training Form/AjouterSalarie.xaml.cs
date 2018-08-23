@@ -20,6 +20,8 @@ namespace Training_Form
     public partial class AjouterSalarie : Window
     {
         public bool Canceled = true;
+        public bool Notify = false;
+        public bool passer = false;
 
         public AjouterSalarie()
         {
@@ -37,28 +39,32 @@ namespace Training_Form
 
         private void AjoutUser_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (DateTime.Compare((DateTime)textBoxDateNaissance.SelectedDate, DateTime.Now) >= 0)
+            if (!Canceled && !passer)
             {
-                MessageBox.Show("La date est incorrect", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
-                e.Cancel = true;
-            }
-            if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains("."))
-            {
-                MessageBox.Show("Le mail n'est pas conforme", "Erreur mail", MessageBoxButton.OK, MessageBoxImage.Error);
-                e.Cancel = true;
-            }
-            foreach (char character in numTelephonneTB.Text)
-                if (!Char.IsDigit(character))
+                if (DateTime.Compare((DateTime)textBoxDateNaissance.SelectedDate, DateTime.Now) >= 0)
+                {
+                    Notify = true;
+                }
+                if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains("."))
+                {
+                    Notify = true;
+                }
+                foreach (char character in numTelephonneTB.Text)
+                    if (!Char.IsDigit(character))
+                        Notify = true;
+                if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0')
+                {
+                    Notify = true;
+                }
+                if (DateTime.Compare((DateTime)textBoxDateEmbauche.SelectedDate, DateTime.Now) >= 0)
+                {
+                    Notify = true;
+                }
+                if (Notify)
+                {
+                    PUWindow.IsOpen = true;
                     e.Cancel = true;
-            if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0')
-            {
-                MessageBox.Show("Le numéro detéléphone n'est pas conforme", "Erreur téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
-                e.Cancel = true;
-            }
-            if (DateTime.Compare((DateTime)textBoxDateEmbauche.SelectedDate, DateTime.Now) >= 0)
-            {
-                MessageBox.Show("La date est incorrect", "Erreur date", MessageBoxButton.OK, MessageBoxImage.Error);
-                e.Cancel = true;
+                }
             }
         }
 
@@ -71,7 +77,43 @@ namespace Training_Form
         private void boutonAnnuler_Click(object sender, RoutedEventArgs e)
         {
             Canceled = true;
+            passer = false;
             Close();
+        }
+
+        private void PUContinuer_Click(object sender, RoutedEventArgs e)
+        {
+            Canceled = false;
+            passer = true;
+            Close();
+        }
+
+        private void PUAnnuler_Click(object sender, RoutedEventArgs e)
+        {
+            PUWindow.IsOpen = false;
+        }
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == textBox.ToolTip.ToString())
+            {
+                textBox.Text = "";
+                textBox.Foreground = Brushes.Black;
+            }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == "")
+            {
+                textBox.Text = textBox.ToolTip.ToString();
+                textBox.Foreground = Brushes.Red;
+            }
+        }
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }

@@ -11,10 +11,10 @@
              Background="DodgerBlue">
     <Grid x:Name="Service">
 
-            <DataGrid Name="dataServices"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}">
+            <DataGrid Name="dataServices"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Services}" FontSize="12">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Code Service" IsReadOnly="True" Binding="{Binding CodeProduit}"/>
+                    <!--<DataGridTextColumn Header="Code Service" IsReadOnly="True" Binding="{Binding CodeProduit}"/>-->
                     <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
                     <DataGridTextColumn Header="Description" IsReadOnly="True" Binding="{Binding Description}"/>
                     <DataGridTextColumn Header="Date de Début" IsReadOnly="True" Binding="{Binding DebutAbo}"/>
@@ -22,8 +22,8 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
-                            </DataTemplate>
+                            <Ellipse x:Name="AlertLightAbonnement" Fill="Chartreuse" Stroke="DarkSlateGray" Width="15" Height="15" StrokeThickness="1"></Ellipse>
+                        </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn Header=" Modifier">

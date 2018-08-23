@@ -9,10 +9,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid x:Name="Client">
-            <DataGrid Name="dataClients" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
+            <DataGrid Name="dataClients" Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Clients}" FontSize="12">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Code Client" IsReadOnly="True" Binding="{Binding Identifiant}"/>
+                    <!--<DataGridTextColumn Header="Code Client" IsReadOnly="True" Binding="{Binding Identifiant}"/>-->
                     <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
                     <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
                     <DataGridTextColumn Header="Adresse Mail" IsReadOnly="True" Binding="{Binding Mail}"/>
@@ -23,7 +23,7 @@
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Ellipse Fill="Red" Stroke="Black" Width="20" Height="20"></Ellipse>
+                                <Ellipse x:Name="AlertLightAbonnement" Fill="Crimson" Stroke="DarkSlateGray" Width="15" Height="15" StrokeThickness="1"></Ellipse>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

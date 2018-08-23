@@ -3,17 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="AjoutClient" Height="416" Width="475.142" ResizeMode="NoResize" Icon="trainingFormLogo.png">
-    <Grid Margin="0,0,2,0">
-        <TextBox x:Name="tbNom" ToolTip="Nom du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
-        <TextBox x:Name="tbPrenom" ToolTip ="Prenom du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="120" Margin="199,10,0,0"/>
+        Title="AjoutClient" Height="416" Width="475.142" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
+    <Grid Margin="0,0,2,0" >
+        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="Purple" StrokeThickness="2"/>
+        <materialDesign:DialogHost
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          IsOpen="False"
+          CloseOnClickAway="True"
+          Name="PUWindow">
+            <materialDesign:DialogHost.DialogContent>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Padding="10" Margin="3" TextWrapping="Wrap" TextAlignment="Center">Tout les champs ne sont pas remplis
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" TextAlignment="Center" Margin="3">Voulez vous continuer ?</TextBlock>
+                    <WrapPanel HorizontalAlignment="Center">
+                        <Button Name="PUContinuer" Margin="5" Click="PUContinuer_Click">Continuer</Button>
+                        <Button Name="PUAnnuler" Margin="5" Click="PUAnnuler_Click">Annuler</Button>
+                    </WrapPanel>
+                </StackPanel>
+            </materialDesign:DialogHost.DialogContent>
+        </materialDesign:DialogHost>
+        <TextBox x:Name="tbNom" ToolTip="Nom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Nom" VerticalAlignment="Top" Width="120" Margin="10,10,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="tbPrenom" ToolTip ="Prenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Prenom" VerticalAlignment="Top" Width="120" Margin="199,10,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
         <Label x:Name="lDateNaissance" Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,46,0,0"/>
         <DatePicker x:Name="tbDateNaissance" ToolTip="Date de naissance du client" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="199,39,0,0" Width="120"/>
-        <TextBox x:Name="tbAdresse" ToolTip="Adresse physique du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="309" Margin="10,64,0,0"/>
-        <TextBox x:Name="tbMail" ToolTip="Adresse mail du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,120,0,0"/>
-        <TextBox x:Name="tbTelephone" ToolTip="Numéro de téléphonne du client" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Telephone" VerticalAlignment="Top" Width="120" Margin="199,120,0,0"/>
+        <TextBox x:Name="tbAdresse" ToolTip="Adresse" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Adresse" VerticalAlignment="Top" Width="309" Margin="10,64,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="tbMail" ToolTip="Email" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="120" Margin="10,120,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="tbTelephone" ToolTip="Telephone" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Telephone" VerticalAlignment="Top" Width="120" Margin="199,120,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
         <GroupBox x:Name="gbStatuts" Header="Statut" HorizontalAlignment="Left" Height="113" VerticalAlignment="Top" Width="89" Margin="41,170,0,0">
             <StackPanel Width="79" Margin="0,0,0,-4">
                 <RadioButton x:Name="rbAdulte" Content="Adulte"/>
@@ -38,6 +58,5 @@
         </GroupBox>
         <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="350,337,0,0" Click="boutonAnnuler_Click"/>
         <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="41,337,0,0" Click="boutonValider_Click"/>
-
     </Grid>
 </Window>

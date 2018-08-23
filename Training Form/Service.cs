@@ -11,28 +11,13 @@ namespace Training_Form
 {
     public class Service : Produit
     {
+
         #region variables
+        private static int nombreService;
         private int _duree;
         private int _seances;
-        private static int nombreServices;
-        private bool _enMois;
         private DateTime _debutAbo;
         private DateTime _finAbo;
-
-        public bool EnMois
-        {
-            get { return _enMois; }
-            set
-            {
-                bool stock = _enMois;
-                BetterNotifyPropertyChanging(stock, value);
-                if (argsChanging == null || !argsChanging.Cancel)
-                {
-                    _enMois = value;
-                    BetterNotifyPropertyChanged(stock, value);
-                }
-            }
-        }
         /// <summary>
         /// Durée en mois du service.
         /// </summary>
@@ -120,38 +105,44 @@ namespace Training_Form
 
         #region Constructeurs
         /// <summary>
+        /// Créé un <see cref="Service"/> avec une durée en semaines.
+        /// </summary>
+        /// <param name="debut">Date de début du service</param>
+        /// <param name="dureeSemaines">Durée du service en semaines</param>
+        /// <param name="codeProduit">Code d'identification du produit. Sera peut-être supprimé dans des versions futures</param>
+        /// <param name="nom">Nom du service</param>
+        /// <param name="description">Description du service</param>
+        public Service(DateTime debut, int dureeSemaines, string nom, string description, decimal prixHT, decimal tauxTVA)
+            : base(nom, description, prixHT, tauxTVA)
+        {
+            
+            Duree = dureeSemaines;
+            DebutAbo = debut;
+            FinAbo = debut.AddDays(Duree * 7);
+            CodeProduit = nombreService++.ToString();
+        }
+
+        /// <summary>
         /// Créé un <see cref="Service"/> avec une durée en mois.
         /// </summary>
-        /// <param name="duree">Durée du service en mois</param>
+        /// <param name="dureeMois">Durée du service en mois</param>
         /// <param name="debut">Date de début du service</param>
+        /// <param name="codeProduit">Code d'identification du produit, sera peut-être supprimé dans des versions futures</param>
         /// <param name="nom">Nom du service</param>
         /// <param name="description">Description du service</param>
         /// <param name="seances">Nombre de séances avant expiration</param>
-        public Service(int duree, DateTime debut, decimal prixHT, decimal tauxTVA, string nom, string description, bool enMois, int seances = 0)
+        public Service(int dureeMois, DateTime debut, string nom, string description, decimal prixHT, decimal tauxTVA, int seances = 0)
             : base(nom, description, prixHT, tauxTVA)
         {
-            EnMois = enMois;
-            Duree = duree;
+            Duree = dureeMois;
             DebutAbo = debut;
             Seances = seances;
-            CodeProduit = genererCodeProduit();
-            FinAbo = EnMois ? debut.AddMonths(duree) : debut.AddDays(duree * 7);
-            nombreServices++;
+            FinAbo = debut.AddMonths(dureeMois);
+            CodeProduit = nombreService++.ToString();
         }
         #endregion
 
         #region methodes
-        private string genererCodeProduit()
-        {
-            string ret = "";
-            int position = 0;
-            while (position < 6)
-            {
-                ret = ((nombreServices / (int)Math.Pow(10, position)) % (int)Math.Pow(10, position + 1)).ToString() + ret;
-                position++;
-            }
-            return ret;
-        }
         #endregion
     }
 }

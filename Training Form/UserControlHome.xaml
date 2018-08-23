@@ -4,15 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Training_Form"
-             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <WrapPanel>
-            <Label Content="CAmois" FontSize="20" Height="50" Width="100" BorderThickness="1" VerticalAlignment="top" BorderBrush="Black" HorizontalAlignment="left" Margin="20,20,20,20"/>
+            <materialDesign:Card Background="#03a9f4"  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"  Padding="0" Width="150" Height="150" Margin="25,25,25,25" UniformCornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                          Height="Auto" />
+                        <RowDefinition
+                          Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                    <TextBlock Grid.Row="0" Margin="0 0 0 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}" FontSize="48" FontWeight="Bold"  Text="CA" HorizontalAlignment="center"/>
+                    <TextBlock Grid.Row="0" Margin="0 0 0 0" Style="{StaticResource MaterialDesignHeadlineTextBlock}" FontSize="24"   Text="Août" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="16 0 16 8" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon  VerticalAlignment="Center" Kind="ArrowTopRight" Width="32" Height="33" Foreground="Lime"/>
+                        <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MaterialDesignBody2TextBlock}" FontSize="24">
+                            + 18 %
+                        </TextBlock>
+                        <Button VerticalAlignment="Center" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignToolForegroundButton}" Width="30" Padding="2 0 2 0">
+
+                        </Button>
+
+                    </StackPanel>
+                </Grid>
+            </materialDesign:Card>
+
             <lvc:PieChart x:Name="Chart" Series="{Binding SeriesCollection}" 
-                      LegendLocation="Right" InnerRadius="100"  Margin="20,30,20,20" Height="157" RenderTransformOrigin="0.46,0.58" HorizontalAlignment="left" VerticalAlignment="top" Width="358">
+                      LegendLocation="Right" InnerRadius="100"  Margin="25,50,25,25" Height="157" RenderTransformOrigin="0.46,0.58" HorizontalAlignment="left" VerticalAlignment="top" Width="358" >
                 <lvc:PieChart.ChartLegend>
                     <lvc:DefaultLegend BulletSize="20"/>
                 </lvc:PieChart.ChartLegend>
@@ -20,16 +44,16 @@
                     <lvc:DefaultTooltip BulletSize="20"/>
                 </lvc:PieChart.DataTooltip>
             </lvc:PieChart>
-            <StackPanel Height="280" Width="278">
+            <StackPanel Height="280" Width="278" Margin="25,25,25,25">
                 <Label Content="Cinq derniers abonnés" Height="36" HorizontalAlignment="Center" Width="225" VerticalAlignment="Center" FontSize="20" Margin="36,0,17,0" BorderBrush="#FF020202"/>
-                <DataGrid x:Name="dataDerniersClients"  Margin="0,0,0,0" AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
+                <DataGrid x:Name="dataDerniersClients"  AutoGenerateColumns="False" ItemsSource="{Binding Clients}">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
                         <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </StackPanel>
-            <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top" Width="400" Height="268" x:Name="Charts2">
+            <lvc:CartesianChart Series="{Binding SeriesCollection2}" LegendLocation="Top"  Height="200" x:Name="Charts2" MinWidth="900" Margin="50,0,0,25">
                 <lvc:CartesianChart.AxisX>
                     <lvc:Axis Title="Mois" Labels="{Binding Labels}" FontSize="15" LabelsRotation="30" >
                         <lvc:Axis.Separator >
