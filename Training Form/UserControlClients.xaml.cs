@@ -92,6 +92,7 @@ namespace Training_Form
                 string nom = fenetreAjout.tbNom.Text;
                 string prenom = fenetreAjout.tbPrenom.Text;
                 DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
+                DateTime dateAbo = (DateTime)fenetreAjout.dateAboPicker.SelectedDate;
                 string adresse = fenetreAjout.tbAdresse.Text;
                 string email = fenetreAjout.tbMail.Text;
                 string tel = fenetreAjout.tbTelephone.Text;
@@ -121,7 +122,7 @@ namespace Training_Form
                 {
                     interets += "Zumba ";
                 }
-                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse, statut);
+                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse,dateAbo,fenetreAjout.typeAbo.SelectedIndex, statut);
                 JeuxTest.Clients.Add(client);
             }
         }
