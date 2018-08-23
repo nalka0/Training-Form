@@ -130,6 +130,12 @@
                                 <TextBlock x:Name="salarieText" Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Apps" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="trombinoscopeText" Text="Trombinoscope" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
                     </ListView>
                 </StackPanel>
 
