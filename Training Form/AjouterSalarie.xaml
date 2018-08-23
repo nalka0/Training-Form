@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
-        Title="AjoutUser" Height="334.39" Width="368.99" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
+        Title="AjoutUser" Height="340" Width="370" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
     <Grid>
         <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="{DynamicResource PrimaryHueDarkBrush}" StrokeThickness="2"/>
         <materialDesign:DialogHost
@@ -27,33 +27,39 @@
                 </StackPanel>
             </materialDesign:DialogHost.DialogContent>
         </materialDesign:DialogHost>
-        <TextBox x:Name="textBoxNom" ToolTip="Nom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" 
-                 materialDesign:HintAssist.Hint="Recherche"
+        <TextBox x:Name="textBoxNom" ToolTip="Nom" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" 
+                 materialDesign:HintAssist.Hint="Nom"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                 VerticalAlignment="Top" Width="120" Margin="10,10,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        <TextBox x:Name="textBoxPrenom" ToolTip="Prenom" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" 
-                 materialDesign:HintAssist.Hint="Recherche"
+                 VerticalAlignment="Top" Width="120" Margin="10,6,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="textBoxPrenom" ToolTip="Prenom" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" 
+                 materialDesign:HintAssist.Hint="Prénom"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                 VerticalAlignment="Top" Width="120" Margin="224,10,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        <DatePicker x:Name="textBoxDateNaissance" ToolTip="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,38,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
-        <TextBox x:Name="textBoxAdresse" ToolTip="Adresse" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" 
-                 materialDesign:HintAssist.Hint="Recherche"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="334" Margin="10,68,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        <TextBox x:Name="textBoxEmail" ToolTip="Email" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" 
-                 materialDesign:HintAssist.Hint="Recherche"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Width="120" Margin="10,124,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+                 VerticalAlignment="Top" Width="120" Margin="224,6,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <DatePicker x:Name="textBoxDateNaissance" ToolTip="Date de naissance" HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" Margin="224,45,0,0" Width="120" RenderTransformOrigin="1.592,0.588"/>
+        <TextBox x:Name="textBoxAdresse" ToolTip="Adresse" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" 
+                 materialDesign:HintAssist.Hint="Adresse"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 VerticalAlignment="Top" Width="334" Margin="10,68,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
+        <TextBox x:Name="textBoxEmail" ToolTip="eMail" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" 
+                 materialDesign:HintAssist.Hint="eMail"
+                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                 VerticalAlignment="Top" Width="120" Margin="10,114,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
         <Button x:Name="boutonValider" Content="Valider" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="10,258,0,0" Click="boutonValider_Click"/>
         <Button x:Name="boutonAnnuler" Content="Annuler" HorizontalAlignment="Left" VerticalAlignment="Top" Width="88" Margin="256,258,0,0" Click="boutonAnnuler_Click"/>
-        <TextBox x:Name="textBoxPassword" ToolTip="Password" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"
-                 materialDesign:HintAssist.Hint="Recherche"
+        <PasswordBox x:Name="textBoxPassword" HorizontalAlignment="Left" Height="35" 
+                 materialDesign:HintAssist.Hint="Mot de passe"
+                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                 VerticalAlignment="Top" Width="120" Margin="224,115,0,0" 
+                 />
+        <DatePicker x:Name="textBoxDateEmbauche" ToolTip="Date d'embauche du salarié" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="224,200,0,0" Width="120"/>
+        <Label x:Name="labelDateEmbauche" Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" 
+               Margin="10,200,0,0"/>
+        <Label Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,45,0,0"/>
+        <TextBox x:Name="numTelephonneTB" ToolTip="Numéro de téléphonne du salarié" HorizontalAlignment="Left" Height="35" TextWrapping="Wrap" 
+                 materialDesign:HintAssist.Hint="N° Tel"
                  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                 VerticalAlignment="Top" Width="120" Margin="224,124,0,0" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus"/>
-        <DatePicker x:Name="textBoxDateEmbauche" ToolTip="Date d'embauche du salarié" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,181,0,0" Width="120"/>
-        <Label x:Name="labelDateEmbauche" Content="Date d'embauche" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,180,0,0"/>
-        <Label Content="Date de naissance" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>
-        <TextBox x:Name="numTelephonneTB" ToolTip="Numéro de téléphonne du salarié" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" 
-                 materialDesign:HintAssist.Hint="Recherche"
-                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                 VerticalAlignment="Top" Width="132" Margin="10,152,0,0"/>
+                 VerticalAlignment="Top" Width="132" Margin="10,157,0,0"/>
     </Grid>
 </Window>

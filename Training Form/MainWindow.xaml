@@ -64,8 +64,8 @@
                 <TextBox x:Name="recherche" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Right" 
                          Height="40"  
                          Width="140" Margin="0 0 100 0"
-                         materialDesign:HintAssist.Hint="Recherche"
                          TextWrapping="Wrap"
+                         materialDesign:HintAssist.Hint="Recherche"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}">
                 </TextBox>
 
