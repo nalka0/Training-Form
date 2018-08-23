@@ -86,6 +86,13 @@ namespace Training_Form
                     ajoutElement.ToolTip = "Ajout salarié";
                     break;
                 default:
+                case 5:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new PanelUserControlTrombi());
+                    recherche.Visibility = Visibility.Collapsed;
+                    iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Worker;
+                    textBlockTitre.Text = trombinoscopeText.Text;
+                    break;
                     break;
             }
         }
