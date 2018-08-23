@@ -80,5 +80,49 @@ namespace Training_Form
             JeuxTest.Clients.Move(JeuxTest.Clients.Count - 1, dataClients.SelectedIndex);
             JeuxTest.Clients.RemoveAt(dataClients.SelectedIndex);
         }
+        public void addClient()
+        {
+
+            AjoutClient fenetreAjout = new AjoutClient();
+            //fenetreAjout.Owner = this;
+            fenetreAjout.ShowDialog();
+            if (!fenetreAjout.Canceled)
+            {
+                string nom = fenetreAjout.tbNom.Text;
+                string prenom = fenetreAjout.tbPrenom.Text;
+                DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
+                string adresse = fenetreAjout.tbAdresse.Text;
+                string email = fenetreAjout.tbMail.Text;
+                string tel = fenetreAjout.tbTelephone.Text;
+                Statuts statut = Statuts.Adulte;
+                if ((bool)fenetreAjout.rbCouple.IsChecked)
+                    statut = Statuts.Couple;
+                else if ((bool)fenetreAjout.rbEtudiant.IsChecked)
+                    statut = Statuts.Etudiant;
+                string interets = "";
+                if ((bool)fenetreAjout.cbCardio.IsChecked)
+                {
+                    interets += "Cardio ";
+                }
+                if ((bool)fenetreAjout.cbFitness.IsChecked)
+                {
+                    interets += "Fitness ";
+                }
+                if ((bool)fenetreAjout.cbMuscu.IsChecked)
+                {
+                    interets += "Muscu ";
+                }
+                if ((bool)fenetreAjout.cbPilate.IsChecked)
+                {
+                    interets += "Pilate ";
+                }
+                if ((bool)fenetreAjout.cbZumba.IsChecked)
+                {
+                    interets += "Zumba ";
+                }
+                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse, statut);
+                JeuxTest.Clients.Add(client);
+            }
+        }
     }
 }
