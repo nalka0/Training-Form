@@ -11,10 +11,10 @@
              Background="Azure">
     <Grid x:Name="Salarie">
 
-            <DataGrid Name="dataSalaries"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Salaries}">
+            <DataGrid Name="dataSalaries"  Width="auto" Height="auto" AutoGenerateColumns="False" ItemsSource="{Binding Salaries}" FontSize="12">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Identifiant" IsReadOnly="True" Binding="{Binding Identifiant}"/>
+                    <!--<DataGridTextColumn Header="Identifiant" IsReadOnly="True" Binding="{Binding Identifiant}"/>-->
                     <DataGridTextColumn Header="Nom" IsReadOnly="True" Binding="{Binding Nom}"/>
                     <DataGridTextColumn Header="Prenom" IsReadOnly="True" Binding="{Binding Prenom}"/>
                     <DataGridTextColumn Header="Adresse Mail" IsReadOnly="True" Binding="{Binding Mail}"/>
