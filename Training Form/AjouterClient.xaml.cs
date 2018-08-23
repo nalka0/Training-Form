@@ -29,6 +29,10 @@ namespace Training_Form
             Title = "Ajouter un client";
             Loaded += AjoutClient_Loaded;
             Closing += AjoutClient_Closing;
+            foreach (Service S in JeuxTest.Services)
+            {
+                typeAbo.Items.Add(S.Nom);
+            }
         }
 
         public void AjoutClient_Loaded(object sender, RoutedEventArgs e)
