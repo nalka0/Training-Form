@@ -122,16 +122,16 @@ namespace Training_Form
             }
         }
 
-        private int _identifiant;
+        private string _identifiant;
         /// <summary>
         /// Identifiant du <see cref="User"/>
         /// </summary>
-        public int Identifiant
+        public string Identifiant
         {
             get { return _identifiant; }
-            set
+            protected set
             {
-                int stock = _identifiant;
+                string stock = _identifiant;
                 BetterNotifyPropertyChanging(stock, value);
                 if (argsChanging == null || argsChanging.Cancel)
                 {
@@ -191,7 +191,6 @@ namespace Training_Form
                     MessageBox.Show("Le numéro de téléphone\"" + value + "\" ne contient pas 10 chiffres", "Mauvais numéro de téléphone", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-        private static int nombreUsers;
         #endregion
 
         #region notify
@@ -230,10 +229,8 @@ namespace Training_Form
             Mail = mail;
             DateNaissance = dateNaissance;
             Permission = permission;
-            Identifiant = nombreUsers;
             NumTelephone = numTelephonne;
             Adresse = adresse;
-            nombreUsers++;
         }
         #endregion
 
