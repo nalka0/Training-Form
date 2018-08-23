@@ -11,23 +11,8 @@ namespace Training_Form
     /// </summary>
     /// 
 
-    public partial class MainWindow : Window { 
-
-        private int _panelActif;
-
-
-        public int PanelActif
-        {
-            get
-            {
-                return _panelActif;
-            }
-            set
-            {
-                _panelActif = value;
-
-            }
-        }
+    public partial class MainWindow : Window
+    {
 
         public MainWindow()
         {
@@ -56,18 +41,17 @@ namespace Training_Form
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
             GridMain.Children.Clear();
-            int index = ListViewMenu.SelectedIndex;
-            PanelActif = index;
-            switch (index)
+            switch (ListViewMenu.SelectedIndex)
             {
                 case 0:
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlHome());
                     recherche.Visibility = Visibility.Collapsed;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
-                    textBlockTitre.Text = accueilText.Text;
+                    textBlockTitre.Text = "Training Form 19";
+                    ajoutElement.ToolTip = "Ajout client";
                     break;
                 case 1:
                     GridMain.Children.Clear();
@@ -75,6 +59,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
                     textBlockTitre.Text = clientText.Text;
+                    ajoutElement.ToolTip = "Ajout client";
                     break;
                 case 2:
                     GridMain.Children.Clear();
@@ -82,6 +67,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.CartPlus;
                     textBlockTitre.Text = articleText.Text;
+                    ajoutElement.ToolTip = "Ajout produit";
                     break;
                 case 3:
                     GridMain.Children.Clear();
@@ -89,6 +75,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Basketball;
                     textBlockTitre.Text = serviceText.Text;
+                    ajoutElement.ToolTip = "Ajout service";
                     break;
                 case 4:
                     GridMain.Children.Clear();
@@ -96,6 +83,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Worker;
                     textBlockTitre.Text = salarieText.Text;
+                    ajoutElement.ToolTip = "Ajout salarié";
                     break;
                 default:
                     break;
@@ -103,118 +91,30 @@ namespace Training_Form
         }
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
         {
-            PanelActif = PanelActif;
-                switch (PanelActif)
-                {
-                    case 0:
-                       addClient();
-                       break;
-                    case 3:
-                        addService();
-                        break;
-                    case 2:
-                        addArticle();
-                        break;
-                    case 4:
-                        addSalarie();
-                        break;
-                    case 1:
-                        addClient();
-                        break;
-                }
-            }
-            void addService()
+            //PanelActif = PanelActif;  ?????????????????????????????
+            switch (ListViewMenu.SelectedIndex)
             {
-                ajouterService fenetreAjout = new ajouterService();
-                fenetreAjout.Owner = this;
-                fenetreAjout.ShowDialog();
-                if (!fenetreAjout.Canceled)
-                {
-                    string nomNouveauService = fenetreAjout.nomTB.Text;
-                    int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
-                    string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
-                    decimal prixHt;
-                    decimal tauxTva;
-                    decimal.TryParse(fenetreAjout.prixHTTB.Text, out prixHt);
-                    decimal.TryParse(fenetreAjout.tauxTVATB.Text, out tauxTva);
-                    DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
-                    JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, nomNouveauService, descriptionNouveauService, prixHt, tauxTva));
-            }
-            }
-
-            void addArticle()
-            {
-                AjouterArticle fenetreAjout = new AjouterArticle();
-                fenetreAjout.Owner = this;
-                fenetreAjout.ShowDialog();
-                decimal prixHT;
-                decimal tauxTva;
-                if ((!fenetreAjout.Canceled || fenetreAjout.Forced) && decimal.TryParse(fenetreAjout.prixHTTextBox.Text, out prixHT) && decimal.TryParse(fenetreAjout.TVATextBox.Text, out tauxTva))
-                    JeuxTest.Articles.Add(new Article(fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, prixHT, tauxTva));
-            }
-
-            void addSalarie()
-            {
-                AjouterSalarie fenetreAjout = new AjouterSalarie();
-                 fenetreAjout.Owner = this;
-                fenetreAjout.ShowDialog();
-                if (!fenetreAjout.Canceled)
-                {
-                    string nom = fenetreAjout.textBoxNom.Text;
-                    string prenom = fenetreAjout.textBoxPrenom.Text;
-                    DateTime dateNaissance = (DateTime)fenetreAjout.textBoxDateNaissance.SelectedDate;
-                    string adresse = fenetreAjout.textBoxAdresse.Text;
-                    string email = fenetreAjout.textBoxEmail.Text;
-                    string password = fenetreAjout.textBoxPassword.Text;
-                    DateTime dateEmbauche = (DateTime)fenetreAjout.textBoxDateEmbauche.SelectedDate;
-                    string numTelephonne = fenetreAjout.numTelephonneTB.Text;
-                    JeuxTest.Salaries.Add(new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, adresse));
-                }
-            }
-
-            void addClient()
-            {
-
-                AjoutClient fenetreAjout = new AjoutClient();
-            fenetreAjout.Owner = this;
-                fenetreAjout.ShowDialog();
-                if (!fenetreAjout.Canceled)
-                {
-                    string nom = fenetreAjout.tbNom.Text;
-                    string prenom = fenetreAjout.tbPrenom.Text;
-                    DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
-                    string adresse = fenetreAjout.tbAdresse.Text;
-                    string email = fenetreAjout.tbMail.Text;
-                    string tel = fenetreAjout.tbTelephone.Text;
-                    Statuts statut = Statuts.Adulte;
-                    if ((bool)fenetreAjout.rbCouple.IsChecked)
-                        statut = Statuts.Couple;
-                    else if ((bool)fenetreAjout.rbEtudiant.IsChecked)
-                        statut = Statuts.Etudiant;
-                    string interets = "";
-                    if ((bool)fenetreAjout.cbCardio.IsChecked)
-                    {
-                        interets += "Cardio ";
-                    }
-                    if ((bool)fenetreAjout.cbFitness.IsChecked)
-                    {
-                        interets += "Fitness ";
-                    }
-                    if ((bool)fenetreAjout.cbMuscu.IsChecked)
-                    {
-                        interets += "Muscu ";
-                    }
-                    if ((bool)fenetreAjout.cbPilate.IsChecked)
-                    {
-                        interets += "Pilate ";
-                    }
-                    if ((bool)fenetreAjout.cbZumba.IsChecked)
-                    {
-                        interets += "Zumba ";
-                    }
-                    Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse, statut);
-                    JeuxTest.Clients.Add(client);
-                }
+                case 0:
+                    UserControlClients client = new UserControlClients();
+                    client.addClient();
+                    break;
+                case 1:
+                    UserControlClients client2 = new UserControlClients();
+                    client2.addClient();
+                    break;
+                case 2:
+                    UserControlProduits produit = new UserControlProduits();
+                    produit.addArticle();
+                    break;
+                case 3:
+                    UserControlServices service = new UserControlServices();
+                    service.addService();
+                    break;
+                case 4:
+                    UserControlSalarie salarie = new UserControlSalarie();
+                    salarie.addSalarie();
+                    break;
             }
         }
     }
+}

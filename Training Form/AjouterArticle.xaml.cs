@@ -37,11 +37,19 @@ namespace Training_Form
         {
             if (!Canceled && !passer)
             {
-                if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
+                if (NomTextBox.Text == "" || NomTextBox.Text == NomTextBox.ToolTip.ToString())
                 {
                     Notify = true;
                 }
-                if (prixHTTextBox.Text == "0" || TVATextBox.Text == "0")
+                if (descriptTextBox.Text == "" || descriptTextBox.Text == descriptTextBox.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (prixHTTextBox.Text == "0" || prixHTTextBox.Text == prixHTTextBox.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (TVATextBox.Text == "0" || TVATextBox.Text == TVATextBox.ToolTip.ToString())
                 {
                     Notify = true;
                 }

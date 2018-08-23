@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d" Height="600" Width="1080" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+        mc:Ignorable="d" 
+        Height="600" Width="1080" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None">
 
     <Window.Resources>
         <Storyboard x:Key="MenuOpen">
@@ -33,40 +36,6 @@
 
     <Grid Background="LightGray" MouseLeftButtonDown="Grid_MouseDown">
         <Grid x:Name="GridMain" Height="530" Width="1020" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-        <!--<Grid Height="70" VerticalAlignment="Top" Background="#FF8946CB" 
-                materialDesign:ShadowAssist.ShadowDepth="Depth3">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22">Training Form 19</TextBlock>
-            <TextBox x:Name="recherche" VerticalAlignment="Center" HorizontalAlignment="Left" Height="23" Margin="210 0 0 0"  TextWrapping="Wrap" Text="rechercher" Width="140"/>
-            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                -->
-        <!--<TextBlock Text="Options" VerticalAlignment="Center" FontSize="18"/>
-                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                    <StackPanel Width="150">
-                        <Button Content="Compte"/>
-                        <Button Content="Paramètres"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>-->
-                
-                <!--Bouton d'ajout-->
-        <!--
-                
-                <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" Name="ajoutElement"
-                        Margin="0 0 30 0" Width="45" Height="45"
-                        HorizontalAlignment="Right" VerticalAlignment="Top"
-                        materialDesign:ShadowAssist.ShadowDepth="Depth3">
-                    <materialDesign:PackIcon Kind="AccountPlus" Height="35" Width="35"/>
-                </Button>
-                
-                -->
-        <!--fin bouton ajout-->
-        <!--
-                
-                <Button x:Name="Close" Click="Close_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8">
-                    <materialDesign:PackIcon Kind="Power"/>
-                </Button>
-            </StackPanel>
-        </Grid>-->
-        
      <!-- Panneau du haut -->   <materialDesign:ColorZone Mode="PrimaryMid"
              Padding="10"                     
              materialDesign:ShadowAssist.ShadowDepth="Depth2">
@@ -74,13 +43,6 @@
                 <TextBlock x:Name="textBlockTitre" Margin="210 0 90 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" Text="Training Form 19"></TextBlock>
                
                 <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                <!--<TextBlock Text="Options" VerticalAlignment="Center" FontSize="18"/>
-                <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                    <StackPanel Width="150">
-                        <Button Content="Compte"/>
-                        <Button Content="Paramètres"/>
-                    </StackPanel>
-                </materialDesign:PopupBox>-->
 
                 <!--Bouton d'ajout-->
 
@@ -123,11 +85,7 @@
                         <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
                     </Button>
                 </Grid>
-                
-                <!--<materialDesign:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
-                    <Grid x:Name="GridCursor" Margin="0 100 0 0" Background="#FF4B1481" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
-                </materialDesign:TransitioningContent>-->
-                
+                    
                 <ListView x:Name="ListViewMenu" 
                           VerticalAlignment="Center"
                           HorizontalAlignment="Left"
@@ -167,54 +125,5 @@
                 
             </DockPanel>
         </materialDesign:ColorZone>
-        <!--<Grid x:Name="GridMenu" Width="60" HorizontalAlignment="Left" Background="#FF4B1481">
-            <StackPanel>
-                <Grid Height="150" Background="White">
-                    <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-
-                </Grid>
-                --><!--<md:TransitioningContent x:Name="TransitioningContentSlide" OpeningEffect="{md:TransitionEffect SlideInFromLeft, Duration=0:0:0.2}">
-                    <Grid x:Name="GridCursor" Margin="0 100 0 0" Background="#FF4B1481" Width="10" HorizontalAlignment="Left" Height="60" VerticalAlignment="Top"/>
-                </md:TransitioningContent>--><!--
-                <ListView x:Name="ListViewMenu" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF8946CB" SelectionChanged="ListViewMenu_SelectionChanged"  SelectedIndex="0">
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Face" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Cart" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Services" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Worker" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
-            </StackPanel>
-        </Grid>-->
-
     </Grid>
 </Window>

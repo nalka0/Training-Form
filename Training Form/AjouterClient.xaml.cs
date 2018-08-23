@@ -29,6 +29,10 @@ namespace Training_Form
             Title = "Ajouter un client";
             Loaded += AjoutClient_Loaded;
             Closing += AjoutClient_Closing;
+            foreach (Service S in JeuxTest.Services)
+            {
+                typeAbo.Items.Add(S.Nom);
+            }
         }
 
         public void AjoutClient_Loaded(object sender, RoutedEventArgs e)
@@ -40,11 +44,23 @@ namespace Training_Form
         {
             if (!Canceled && !passer)
             {
+                if (tbNom.Text == "" || tbNom.Text == tbNom.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (tbPrenom.Text == "" || tbPrenom.Text == tbPrenom.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (tbAdresse.Text == "" || tbAdresse.Text== tbAdresse.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
                 if (DateTime.Compare((DateTime)tbDateNaissance.SelectedDate, DateTime.Now) >= 0)
                 {
                     Notify = true;
                 }
-                if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains("."))
+                if (!tbMail.Text.Contains("@") && !tbMail.Text.Contains(".") || tbMail.Text == tbMail.ToolTip.ToString())
                 {
                     Notify = true;
                 }
@@ -53,7 +69,7 @@ namespace Training_Form
                     if (!Char.IsDigit(character))
                         Notify = true;
                 }
-                if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0')
+                if (tbTelephone.Text.Length != 10 || tbTelephone.Text[0] != '0' || tbTelephone.Text == tbTelephone.ToolTip.ToString())
                 {
                     Notify = true;
                 }

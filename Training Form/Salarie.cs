@@ -11,7 +11,7 @@ namespace Training_Form
         #region variables
         private DateTime _dateEmbauche;
         private string _password;
-
+        private static int nombreSalaries;
         public DateTime DateEmbauche
         {
             get { return _dateEmbauche; }
@@ -45,10 +45,12 @@ namespace Training_Form
 
         #region constructeurs
         public Salarie(string nom, string prenom, string mail, DateTime dateNaissance, Permissions permission, DateTime dateEmbauche, string password, string numTelephonne, string adresse)
-           : base(nom, prenom, mail, dateEmbauche, permission, numTelephonne, adresse)
+           : base(nom, prenom, mail, dateNaissance, permission, numTelephonne, adresse)
         {
             DateEmbauche = dateEmbauche;
             Password = password;
+            Identifiant = genererIdentifiant();
+            nombreSalaries++;
         }
         #endregion
 
@@ -67,9 +69,21 @@ namespace Training_Form
             return Identifiant == sal.Identifiant;
         }
 
-        public override int GetHashCode()
+        //public override int GetHashCode()
+        //{
+        //    return Identifiant.GetHashCode();
+        //}
+
+        private string genererIdentifiant()
         {
-            return Identifiant.GetHashCode();
+            string ret = "";
+            int position = 0;
+            while (position < 6)
+            {
+                ret = ((nombreSalaries / (int)Math.Pow(10, position)) % (int)Math.Pow(10, position + 1)).ToString() + ret;
+                position++;
+            }
+            return ret;
         }
         #endregion
     }

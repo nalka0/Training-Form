@@ -30,6 +30,8 @@ namespace Training_Form
             private void editerService_Click(object sender, RoutedEventArgs e)
         {
             ajouterService editerService = new ajouterService();
+            editerService.Owner = Application.Current.MainWindow;
+            editerService.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerService.Loaded -= editerService.ajouterServiceWin_Loaded;
             editerService.nomTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Nom;
             editerService.descriptionTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Description;
@@ -55,5 +57,25 @@ namespace Training_Form
             MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce service ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (result == MessageBoxResult.OK) { JeuxTest.Services.RemoveAt(dataServices.SelectedIndex); }
         }
+        public void addService()
+        {
+            ajouterService fenetreAjout = new ajouterService();
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            fenetreAjout.ShowDialog();
+            if (!fenetreAjout.Canceled)
+            {
+                string nomNouveauService = fenetreAjout.nomTB.Text;
+                int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
+                string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
+                decimal prixHt;
+                decimal tauxTva;
+                decimal.TryParse(fenetreAjout.prixHTTB.Text, out prixHt);
+                decimal.TryParse(fenetreAjout.tauxTVATB.Text, out tauxTva);
+                DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
+                JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, nomNouveauService, descriptionNouveauService, prixHt, tauxTva));
+            }
+        }
+
     }
 }

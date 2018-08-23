@@ -35,6 +35,8 @@ namespace Training_Form
         private void editerClient_Click(object sender, RoutedEventArgs e)
         {
             AjoutClient editerClient = new AjoutClient();
+            editerClient.Owner = Application.Current.MainWindow;
+            editerClient.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerClient.Loaded -= editerClient.AjoutClient_Loaded;
             editerClient.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
             editerClient.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
@@ -48,6 +50,8 @@ namespace Training_Form
             editerClient.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
             editerClient.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
             editerClient.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
+            editerClient.typeAbo.SelectedIndex = JeuxTest.Clients[dataClients.SelectedIndex].CodeAbo;
+            editerClient.dateAboPicker.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DebutAbo;
             switch (JeuxTest.Clients[dataClients.SelectedIndex].Statut)
             {
                 case Statuts.Couple:
@@ -67,11 +71,14 @@ namespace Training_Form
             JeuxTest.Clients[dataClients.SelectedIndex].Mail = editerClient.tbMail.Text;
             JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone = editerClient.tbTelephone.Text;
             JeuxTest.Clients[dataClients.SelectedIndex].Adresse = editerClient.tbAdresse.Text;
+            JeuxTest.Clients[dataClients.SelectedIndex].DebutAbo = (DateTime)editerClient.dateAboPicker.SelectedDate;
+            JeuxTest.Clients[dataClients.SelectedIndex].CodeAbo = editerClient.typeAbo.SelectedIndex;
             //Si la checkbox est cochée, on ajoute l'interet concerné dans la liste des interets, sinon on y ajoute rien
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets = "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbCardio.IsChecked ? "Cardio, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbFitness.IsChecked ? "Fitness, " : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbMuscu.IsChecked ? "Muscu, " : "";
-            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbPilate.IsChecked ? "Pilate ," : "";
+            JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbPilate.IsChecked ? "Pilate," : "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbZumba.IsChecked ? "Zumba, " : "";
             //Si le radioButton est sur couple alors le statut devient Couple sinon si le radioButton est sur Etudiant le statut devient étudiant sinon il devient adulte.
             JeuxTest.Clients[dataClients.SelectedIndex].Statut = (bool)editerClient.rbCouple.IsChecked ? Statuts.Couple : (bool)editerClient.rbEtudiant.IsChecked ? Statuts.Etudiant : Statuts.Adulte;
@@ -79,6 +86,52 @@ namespace Training_Form
             JeuxTest.Clients.Add(JeuxTest.Clients[dataClients.SelectedIndex]);
             JeuxTest.Clients.Move(JeuxTest.Clients.Count - 1, dataClients.SelectedIndex);
             JeuxTest.Clients.RemoveAt(dataClients.SelectedIndex);
+        }
+        public void addClient()
+        {
+
+            AjoutClient fenetreAjout = new AjoutClient();
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            fenetreAjout.ShowDialog();
+            if (!fenetreAjout.Canceled)
+            {
+                string nom = fenetreAjout.tbNom.Text;
+                string prenom = fenetreAjout.tbPrenom.Text;
+                DateTime dateNaissance = (DateTime)fenetreAjout.tbDateNaissance.SelectedDate;
+                DateTime dateAbo = (DateTime)fenetreAjout.dateAboPicker.SelectedDate;
+                string adresse = fenetreAjout.tbAdresse.Text;
+                string email = fenetreAjout.tbMail.Text;
+                string tel = fenetreAjout.tbTelephone.Text;
+                Statuts statut = Statuts.Adulte;
+                if ((bool)fenetreAjout.rbCouple.IsChecked)
+                    statut = Statuts.Couple;
+                else if ((bool)fenetreAjout.rbEtudiant.IsChecked)
+                    statut = Statuts.Etudiant;
+                string interets = "";
+                if ((bool)fenetreAjout.cbCardio.IsChecked)
+                {
+                    interets += "Cardio ";
+                }
+                if ((bool)fenetreAjout.cbFitness.IsChecked)
+                {
+                    interets += "Fitness ";
+                }
+                if ((bool)fenetreAjout.cbMuscu.IsChecked)
+                {
+                    interets += "Muscu ";
+                }
+                if ((bool)fenetreAjout.cbPilate.IsChecked)
+                {
+                    interets += "Pilate ";
+                }
+                if ((bool)fenetreAjout.cbZumba.IsChecked)
+                {
+                    interets += "Zumba ";
+                }
+                Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse,dateAbo,fenetreAjout.typeAbo.SelectedIndex, statut);
+                JeuxTest.Clients.Add(client);
+            }
         }
     }
 }

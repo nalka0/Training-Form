@@ -35,6 +35,8 @@ namespace Training_Form
         private void editerArticle_Click(object sender, RoutedEventArgs e)
         {
             AjouterArticle editerArticle = new AjouterArticle();
+            editerArticle.Owner = Application.Current.MainWindow;
+            editerArticle.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerArticle.NomTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Nom;
             editerArticle.descriptTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Description;
             editerArticle.prixHTTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].PrixHT.ToString();
@@ -49,5 +51,17 @@ namespace Training_Form
             JeuxTest.Articles.Move(JeuxTest.Articles.Count - 1, dataArticles.SelectedIndex);
             JeuxTest.Articles.RemoveAt(dataArticles.SelectedIndex);
         }
+        public void addArticle()
+        {
+            AjouterArticle fenetreAjout = new AjouterArticle();
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            fenetreAjout.ShowDialog();
+            decimal prixHT;
+            decimal tauxTva;
+            if ((!fenetreAjout.Canceled || fenetreAjout.Forced) && decimal.TryParse(fenetreAjout.prixHTTextBox.Text, out prixHT) && decimal.TryParse(fenetreAjout.TVATextBox.Text, out tauxTva))
+                JeuxTest.Articles.Add(new Article(fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, prixHT, tauxTva));
+        }
+
     }
 }

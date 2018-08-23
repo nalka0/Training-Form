@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Training_Form"
         mc:Ignorable="d"
         Title="Ajout d'un nouvelle article" Height="339.993" Width="654.764" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None" BorderBrush="Purple">
-    <Grid Margin="0,0,0,0">
+    <Grid>
         <Rectangle
             Width="{Binding Width}"
             Height="{Binding Height}"
