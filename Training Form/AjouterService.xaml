@@ -8,7 +8,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Name="ajouterServiceWin" x:Class="Training_Form.ajouterService"
         mc:Ignorable="d"
         Title="Ajouter un service" Height="331.516" Width="421.404" Loaded="ajouterServiceWin_Loaded" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
-    <Grid Margin="0,0,34,10">
+    <Grid>
         <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="Purple" StrokeThickness="2"/>
         <materialDesign:DialogHost
           HorizontalAlignment="Center"
