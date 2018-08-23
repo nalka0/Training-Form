@@ -14,22 +14,6 @@ namespace Training_Form
     public partial class MainWindow : Window
     {
 
-        private int _panelActif;
-
-
-        public int PanelActif
-        {
-            get
-            {
-                return _panelActif;
-            }
-            set
-            {
-                _panelActif = value;
-
-            }
-        }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -59,9 +43,7 @@ namespace Training_Form
         {
 
             GridMain.Children.Clear();
-            int index = ListViewMenu.SelectedIndex;
-            PanelActif = index;
-            switch (index)
+            switch (ListViewMenu.SelectedIndex)
             {
                 case 0:
                     GridMain.Children.Clear();
@@ -69,7 +51,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Collapsed;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
                     textBlockTitre.Text = "Training Form 19";
-                    ajoutElement.ToolTip = "Ajout client";               
+                    ajoutElement.ToolTip = "Ajout client";
                     break;
                 case 1:
                     GridMain.Children.Clear();
@@ -110,7 +92,7 @@ namespace Training_Form
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
         {
             //PanelActif = PanelActif;  ?????????????????????????????
-            switch (PanelActif)
+            switch (ListViewMenu.SelectedIndex)
             {
                 case 0:
                     UserControlClients client = new UserControlClients();
