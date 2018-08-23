@@ -35,6 +35,8 @@ namespace Training_Form
         private void editerArticle_Click(object sender, RoutedEventArgs e)
         {
             AjouterArticle editerArticle = new AjouterArticle();
+            editerArticle.Owner = Application.Current.MainWindow;
+            editerArticle.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerArticle.NomTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Nom;
             editerArticle.descriptTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].Description;
             editerArticle.prixHTTextBox.Text = JeuxTest.Articles[dataArticles.SelectedIndex].PrixHT.ToString();
@@ -52,7 +54,8 @@ namespace Training_Form
         public void addArticle()
         {
             AjouterArticle fenetreAjout = new AjouterArticle();
-            //fenetreAjout.Owner = this;
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             fenetreAjout.ShowDialog();
             decimal prixHT;
             decimal tauxTva;

@@ -30,6 +30,8 @@ namespace Training_Form
             private void editerService_Click(object sender, RoutedEventArgs e)
         {
             ajouterService editerService = new ajouterService();
+            editerService.Owner = Application.Current.MainWindow;
+            editerService.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerService.Loaded -= editerService.ajouterServiceWin_Loaded;
             editerService.nomTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Nom;
             editerService.descriptionTB.Text = JeuxTest.Services[dataServices.SelectedIndex].Description;
@@ -58,7 +60,8 @@ namespace Training_Form
         public void addService()
         {
             ajouterService fenetreAjout = new ajouterService();
-            //fenetreAjout.Owner = this;
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             fenetreAjout.ShowDialog();
             if (!fenetreAjout.Canceled)
             {

@@ -34,7 +34,9 @@ namespace Training_Form
         }
         private void editerClient_Click(object sender, RoutedEventArgs e)
         {
-            AjoutClient editerClient = new AjoutClient();            
+            AjoutClient editerClient = new AjoutClient();
+            editerClient.Owner = Application.Current.MainWindow;
+            editerClient.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerClient.Loaded -= editerClient.AjoutClient_Loaded;
             editerClient.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
             editerClient.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
@@ -89,7 +91,8 @@ namespace Training_Form
         {
 
             AjoutClient fenetreAjout = new AjoutClient();
-            //fenetreAjout.Owner = this;
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             fenetreAjout.ShowDialog();
             if (!fenetreAjout.Canceled)
             {

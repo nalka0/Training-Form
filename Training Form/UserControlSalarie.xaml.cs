@@ -30,6 +30,8 @@ namespace Training_Form
         private void editerSalarie_Click(object sender, RoutedEventArgs e)
         {
             AjouterSalarie editerSalarie = new AjouterSalarie();
+            editerSalarie.Owner = Application.Current.MainWindow;
+            editerSalarie.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             editerSalarie.Loaded -= editerSalarie.AjoutUser_Loaded;
             editerSalarie.textBoxNom.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Nom;
             editerSalarie.textBoxPrenom.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Prenom;
@@ -62,7 +64,8 @@ namespace Training_Form
         public void addSalarie()
         {
             AjouterSalarie fenetreAjout = new AjouterSalarie();
-            //fenetreAjout.Owner = this;
+            fenetreAjout.Owner = Application.Current.MainWindow;
+            fenetreAjout.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             fenetreAjout.ShowDialog();
             if (!fenetreAjout.Canceled)
             {
