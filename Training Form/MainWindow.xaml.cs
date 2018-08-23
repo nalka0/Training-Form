@@ -68,7 +68,8 @@ namespace Training_Form
                     GridMain.Children.Add(new UserControlHome());
                     recherche.Visibility = Visibility.Collapsed;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
-                    textBlockTitre.Text = accueilText.Text;
+                    textBlockTitre.Text = "Training Form 19";
+                    ajoutElement.ToolTip = "Ajout client";               
                     break;
                 case 1:
                     GridMain.Children.Clear();
@@ -76,6 +77,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
                     textBlockTitre.Text = clientText.Text;
+                    ajoutElement.ToolTip = "Ajout client";
                     break;
                 case 2:
                     GridMain.Children.Clear();
@@ -83,6 +85,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.CartPlus;
                     textBlockTitre.Text = articleText.Text;
+                    ajoutElement.ToolTip = "Ajout produit";
                     break;
                 case 3:
                     GridMain.Children.Clear();
@@ -90,6 +93,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Basketball;
                     textBlockTitre.Text = serviceText.Text;
+                    ajoutElement.ToolTip = "Ajout service";
                     break;
                 case 4:
                     GridMain.Children.Clear();
@@ -97,6 +101,7 @@ namespace Training_Form
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Worker;
                     textBlockTitre.Text = salarieText.Text;
+                    ajoutElement.ToolTip = "Ajout salarié";
                     break;
                 default:
                     break;
