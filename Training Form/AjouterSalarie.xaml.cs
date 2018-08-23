@@ -41,18 +41,26 @@ namespace Training_Form
         {
             if (!Canceled && !passer)
             {
+                if(textBoxNom.Text == "" || textBoxNom.Text == textBoxNom.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (textBoxPrenom.Text == "" || textBoxPrenom.Text == textBoxPrenom.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
                 if (DateTime.Compare((DateTime)textBoxDateNaissance.SelectedDate, DateTime.Now) >= 0)
                 {
                     Notify = true;
                 }
-                if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains("."))
+                if (!textBoxEmail.Text.Contains("@") && !textBoxEmail.Text.Contains(".") || textBoxEmail.Text == textBoxEmail.ToolTip.ToString())
                 {
                     Notify = true;
                 }
                 foreach (char character in numTelephonneTB.Text)
                     if (!Char.IsDigit(character))
                         Notify = true;
-                if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0')
+                if (numTelephonneTB.Text.Length != 10 || numTelephonneTB.Text[0] != '0' || numTelephonneTB.Text== numTelephonneTB.ToolTip.ToString())
                 {
                     Notify = true;
                 }
@@ -115,5 +123,6 @@ namespace Training_Form
         {
             DragMove();
         }
+        
     }
 }
