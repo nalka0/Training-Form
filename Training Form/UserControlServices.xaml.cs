@@ -77,5 +77,10 @@ namespace Training_Form
             }
         }
 
+        public void rechercheServices(string recherche)
+        {
+            dataServices.ItemsSource = JeuxTest.Services.Where(item => (item.Nom.ToLower().Contains(recherche.ToLower()))).ToList();
+        }
+
     }
 }

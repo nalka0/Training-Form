@@ -63,5 +63,10 @@ namespace Training_Form
                 JeuxTest.Articles.Add(new Article(fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, prixHT, tauxTva));
         }
 
+        public void rechercheProduit(String recherche)
+        {
+            dataArticles.ItemsSource = JeuxTest.Articles.Where(item => (item.CodeProduit.ToLower().Contains(recherche.ToLower())) || (item.Nom.ToLower().Contains(recherche.ToLower()))).ToList();
+        }
+
     }
 }

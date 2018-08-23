@@ -81,5 +81,10 @@ namespace Training_Form
             }
         }
 
+        public void rechercheSalaries(string recherche)
+        {
+            dataSalaries.ItemsSource = JeuxTest.Salaries.Where(item =>(item.Nom.ToLower().Contains(recherche.ToLower())) || (item.Prenom.ToLower().Contains(recherche.ToLower()))).ToList();
+        }
+
     }
 }

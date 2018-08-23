@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+
 
 namespace Training_Form
 {
@@ -10,9 +12,11 @@ namespace Training_Form
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     /// 
+    
 
     public partial class MainWindow : Window
     {
+       
 
         public MainWindow()
         {
@@ -93,7 +97,6 @@ namespace Training_Form
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Worker;
                     textBlockTitre.Text = trombinoscopeText.Text;
                     break;
-                    break;
             }
         }
         private void ajoutElement_Click(object sender, RoutedEventArgs e)
@@ -121,6 +124,32 @@ namespace Training_Form
                     UserControlSalarie salarie = new UserControlSalarie();
                     salarie.addSalarie();
                     break;
+            }
+            
+        }
+
+        private void recherche_TextChanged(object sender, TextChangedEventArgs e)
+        {
+               switch (ListViewMenu.SelectedIndex)
+                {
+
+                    case 1:
+                       UserControlClients clients = (UserControlClients)GridMain.Children[0];
+                       clients.rechercheClients(recherche.Text);
+                    break;
+                    case 2:
+                        UserControlProduits produits = (UserControlProduits)GridMain.Children[0];
+                        produits.rechercheProduit(recherche.Text);
+                    break;
+                    case 3:
+                         UserControlServices services = (UserControlServices)GridMain.Children[0];
+                         services.rechercheServices(recherche.Text);
+                    break;
+              
+                    case 4:
+                        UserControlSalarie salaries = (UserControlSalarie)GridMain.Children[0];
+                        salaries.rechercheSalaries(recherche.Text);
+                    break;           
             }
         }
     }

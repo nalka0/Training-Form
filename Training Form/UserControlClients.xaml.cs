@@ -133,5 +133,10 @@ namespace Training_Form
                 JeuxTest.Clients.Add(client);
             }
         }
+
+        public void rechercheClients(string recherche)
+        {
+            dataClients.ItemsSource = JeuxTest.Clients.Where(item =>(item.Nom.ToLower().Contains(recherche.ToLower())) || (item.Prenom.ToLower().Contains(recherche.ToLower()))).ToList();
+        }
     }
 }
