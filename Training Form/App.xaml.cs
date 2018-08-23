@@ -59,8 +59,8 @@ namespace Training_Form
             Service AboSixMoisCours = new Service(6, new DateTime(2018, 05, 15), "6 mois avec Cours", "Abonnement Cardio Training 6 Mois avec Cours colledtif", 0, 200, 15);
             Service AboSixMois = new Service(6, new DateTime(2017, 01, 02), "6 mois sans Cours", "Abonnement Cardio Training 6 Mois sans Cours colledtif", 0, 150, 15);
             Service SeanceDecouverte = new Service(0, new DateTime(2018, 08, 02), "Seance Decouverte", "Seance de décourverte de la salle", 1, 10, 15);
-            Service Semaine = new Service(new DateTime(2018, 07, 25), 1, "Decouverte 1 semaine", "Semaine de découverte de la salle", 50, 15);
-            Service DeuxSemaines = new Service(new DateTime(2018, 07, 02), 2, "Decouverte 2 semaines", "Deux semaines de découverte de la salle", 100, 15);
+            Service Semaine = new Service(0, new DateTime(2018, 07, 25), "Decouverte 1 semaine", "Semaine de découverte de la salle",0, 50, 15);
+            Service DeuxSemaines = new Service(0, new DateTime(2018, 07, 02), "Decouverte 2 semaines", "Deux semaines de découverte de la salle", 0, 100, 15);
             Service UnMois = new Service(1, new DateTime(2018, 08, 02), "Découverte Abonnement 1 Mois", "Abonnement découverte de la salle d'un mois", 0, 150, 15);
             Service TroisMois = new Service(3, new DateTime(2018, 08, 01), "Découverte Abonnement 3 Mois", "Abonnement découverte de la salle de 3 mois", 0, 200, 15);
             Service CarteVingtQuatre = new Service(12, new DateTime(2018, 06, 19), "Cartes 24 Séances", "Cartes découverte 24 séances valide 1 an", 24, 200, 15);

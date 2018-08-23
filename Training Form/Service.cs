@@ -128,7 +128,7 @@ namespace Training_Form
         /// <param name="nom">Nom du service</param>
         /// <param name="description">Description du service</param>
         /// <param name="seances">Nombre de séances avant expiration</param>
-        public Service(int dureeMois, decimal prixHT, decimal tauxTVA, DateTime debut, string nom, string description, int seances = 0)
+        public Service(int dureeMois, DateTime debut, string nom, string description, decimal prixHT, decimal tauxTVA, int seances = 0)
             : base(nom, description, prixHT, tauxTVA)
         {
             Duree = dureeMois;
