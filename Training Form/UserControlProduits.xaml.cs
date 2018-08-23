@@ -49,5 +49,16 @@ namespace Training_Form
             JeuxTest.Articles.Move(JeuxTest.Articles.Count - 1, dataArticles.SelectedIndex);
             JeuxTest.Articles.RemoveAt(dataArticles.SelectedIndex);
         }
+        public void addArticle()
+        {
+            AjouterArticle fenetreAjout = new AjouterArticle();
+            //fenetreAjout.Owner = this;
+            fenetreAjout.ShowDialog();
+            decimal prixHT;
+            decimal tauxTva;
+            if ((!fenetreAjout.Canceled || fenetreAjout.Forced) && decimal.TryParse(fenetreAjout.prixHTTextBox.Text, out prixHT) && decimal.TryParse(fenetreAjout.TVATextBox.Text, out tauxTva))
+                JeuxTest.Articles.Add(new Article(fenetreAjout.NomTextBox.Text, fenetreAjout.descriptTextBox.Text, prixHT, tauxTva));
+        }
+
     }
 }

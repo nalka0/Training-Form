@@ -59,5 +59,24 @@ namespace Training_Form
             MessageBoxResult result = MessageBox.Show("Voulez-vous vraiment supprimer ce salarié ?", "Supprimer", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             if (result == MessageBoxResult.OK) { JeuxTest.Salaries.RemoveAt(dataSalaries.SelectedIndex); }
         }
+        public void addSalarie()
+        {
+            AjouterSalarie fenetreAjout = new AjouterSalarie();
+            //fenetreAjout.Owner = this;
+            fenetreAjout.ShowDialog();
+            if (!fenetreAjout.Canceled)
+            {
+                string nom = fenetreAjout.textBoxNom.Text;
+                string prenom = fenetreAjout.textBoxPrenom.Text;
+                DateTime dateNaissance = (DateTime)fenetreAjout.textBoxDateNaissance.SelectedDate;
+                string adresse = fenetreAjout.textBoxAdresse.Text;
+                string email = fenetreAjout.textBoxEmail.Text;
+                string password = fenetreAjout.textBoxPassword.Text;
+                DateTime dateEmbauche = (DateTime)fenetreAjout.textBoxDateEmbauche.SelectedDate;
+                string numTelephonne = fenetreAjout.numTelephonneTB.Text;
+                JeuxTest.Salaries.Add(new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, adresse));
+            }
+        }
+
     }
 }

@@ -35,6 +35,22 @@ namespace Training_Form
         {
             if (!Canceled && !passer)
             {
+                if (nomTB.Text == "" || nomTB.Text == nomTB.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (descriptionTB.Text == "" || descriptionTB.Text == descriptionTB.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (prixHTTB.Text == "0" || prixHTTB.Text == prixHTTB.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
+                if (tauxTVATB.Text == "0" || tauxTVATB.Text == tauxTVATB.ToolTip.ToString())
+                {
+                    Notify = true;
+                }
                 if (DateTime.Compare((DateTime)debutDTP.SelectedDate, DateTime.Now) >= 0)
                 {
                     Notify = true;
