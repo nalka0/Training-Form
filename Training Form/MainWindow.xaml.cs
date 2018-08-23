@@ -67,30 +67,35 @@ namespace Training_Form
                     GridMain.Children.Add(new UserControlHome());
                     recherche.Visibility = Visibility.Collapsed;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
+                    textBlockTitre.Text = accueilText.Text;
                     break;
                 case 1:
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlClients());
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
+                    textBlockTitre.Text = clientText.Text;
                     break;
                 case 2:
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlProduits());
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.CartPlus;
+                    textBlockTitre.Text = articleText.Text;
                     break;
                 case 3:
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlServices());
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Basketball;
+                    textBlockTitre.Text = serviceText.Text;
                     break;
                 case 4:
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlSalarie());
                     recherche.Visibility = Visibility.Visible;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Worker;
+                    textBlockTitre.Text = salarieText.Text;
                     break;
                 default:
                     break;

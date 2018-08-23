@@ -71,8 +71,8 @@
              Padding="10"                     
              materialDesign:ShadowAssist.ShadowDepth="Depth2">
             <DockPanel>
-                <TextBox x:Name="recherche" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Right" 
-                         Height="23"  TextWrapping="Wrap" Text="rechercher" Width="140" Margin="210 0 0 0"/>
+                <TextBlock x:Name="textBlockTitre" Margin="210 0 90 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" Text="Training Form 19"></TextBlock>
+               
                 <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <!--<TextBlock Text="Options" VerticalAlignment="Center" FontSize="18"/>
                 <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
@@ -97,7 +97,9 @@
                         <materialDesign:PackIcon Kind="Power"/>
                     </Button>
                 </StackPanel>
-                <TextBlock Margin="-90 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="Training Form 19"></TextBlock>
+               
+                <TextBox x:Name="recherche" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Right" 
+                         Height="23"  TextWrapping="Wrap" Text="rechercher" Width="140" Margin="0 0 100 0"/>
             </DockPanel>
         </materialDesign:ColorZone>
         <materialDesign:ColorZone
@@ -133,31 +135,31 @@
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock x:Name="accueilText" Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Face" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock x:Name="clientText" Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Cart" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock x:Name="articleText" Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Services" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock x:Name="serviceText" Text="Services" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Worker" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock x:Name="salarieText" Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
