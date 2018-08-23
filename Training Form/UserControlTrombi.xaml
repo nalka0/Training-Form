@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="Training_Form.UserControlTrombi"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Training_Form"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+             mc:Ignorable="d" 
+            d:DesignHeight="286" d:DesignWidth="225">
+        <materialDesign:Flipper  Margin="25,25,0,0" x:Name="UserCard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="256">
+
+            <materialDesign:Flipper.FrontContent>
+                <Grid Height="256" Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="160" />
+                        <RowDefinition Height="96"/>
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="PrimaryLight" VerticalAlignment="Stretch">
+                        <materialDesign:PackIcon Kind="AccountCircle" Height="128" Width="128" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </materialDesign:ColorZone>
+                    <!--<Image Name="imageUser" Source="{Binding Path=MyUrlImage, Mode=TwoWay}"/>-->
+
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="White">
+                        <TextBlock Name="Nom" TextAlignment="Center" Margin="0,20,0,0" >
+                            James Willock
+                        </TextBlock>
+                        <Button Style="{StaticResource MaterialDesignFlatButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}"  Margin="0 4 0 0" Width="150">
+                            > En savoir plus
+                        </Button>
+                    </StackPanel>
+
+                </Grid>
+            </materialDesign:Flipper.FrontContent>
+            <materialDesign:Flipper.BackContent>
+                <Grid Height="256"  Width="200" Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <materialDesign:ColorZone Mode="Accent" Padding="6">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource MaterialDesignToolForegroundButton}" Command="{x:Static materialDesign:Flipper.FlipCommand}" HorizontalAlignment="Left">
+                                <materialDesign:PackIcon Kind="ArrowLeft" HorizontalAlignment="Right" />
+                            </Button>
+                            <TextBlock Margin="8 0 0 0" VerticalAlignment="Center">
+                                    Fiche user
+                            </TextBlock>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+                    <Grid Grid.Row="1" Margin="0 6 0 0" HorizontalAlignment="Center" VerticalAlignment="Top" Width="172">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <TextBox Name="DetailNom" materialDesign:HintAssist.Hint="First name" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                            James
+                        </TextBox>
+                        <TextBox Name="DetailPrenom" Grid.Row="1" materialDesign:HintAssist.Hint="Last name" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                            Willock
+                        </TextBox>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                            <TextBlock Name="DetailEmail" VerticalAlignment="Center">
+                                 Email Contact
+                            </TextBlock>
+                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                        </StackPanel>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
+                            <TextBlock Name="DetailTel" VerticalAlignment="Center">
+                                 Telephone Contact
+                            </TextBlock>
+                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </materialDesign:Flipper.BackContent>
+        </materialDesign:Flipper>
+</UserControl>
