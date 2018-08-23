@@ -128,8 +128,10 @@ namespace Training_Form
                     string nomNouveauService = fenetreAjout.nomTB.Text;
                     int dureeNouveauService = (int)fenetreAjout.dureeNUD.Value;
                     string descriptionNouveauService = fenetreAjout.descriptionTB.Text;
-                    decimal prixHt = decimal.Parse(fenetreAjout.prixHTTB.Text);
-                    decimal tauxTva = decimal.Parse(fenetreAjout.tauxTVATB.Text);
+                    decimal prixHt;
+                    decimal tauxTva;
+                    decimal.TryParse(fenetreAjout.prixHTTB.Text, out prixHt);
+                    decimal.TryParse(fenetreAjout.tauxTVATB.Text, out tauxTva);
                     DateTime debutNouveauService = (DateTime)fenetreAjout.debutDTP.SelectedDate;
                     JeuxTest.Services.Add(new Service(dureeNouveauService, debutNouveauService, nomNouveauService, descriptionNouveauService, prixHt, tauxTva));
             }
@@ -184,7 +186,28 @@ namespace Training_Form
                         statut = Statuts.Couple;
                     else if ((bool)fenetreAjout.rbEtudiant.IsChecked)
                         statut = Statuts.Etudiant;
-                    Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", "Muscu", tel, adresse, statut);
+                    string interets = "";
+                    if ((bool)fenetreAjout.cbCardio.IsChecked)
+                    {
+                        interets += "Cardio ";
+                    }
+                    if ((bool)fenetreAjout.cbFitness.IsChecked)
+                    {
+                        interets += "Fitness ";
+                    }
+                    if ((bool)fenetreAjout.cbMuscu.IsChecked)
+                    {
+                        interets += "Muscu ";
+                    }
+                    if ((bool)fenetreAjout.cbPilate.IsChecked)
+                    {
+                        interets += "Pilate ";
+                    }
+                    if ((bool)fenetreAjout.cbZumba.IsChecked)
+                    {
+                        interets += "Zumba ";
+                    }
+                    Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse, statut);
                     JeuxTest.Clients.Add(client);
                 }
             }

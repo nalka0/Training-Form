@@ -35,7 +35,6 @@ namespace Training_Form
 
         private void ProduitWind_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
             if (!Canceled && !passer)
             {
                 if (NomTextBox.Text == "" || NomTextBox.Text == "Nom")
