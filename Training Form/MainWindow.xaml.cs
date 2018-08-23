@@ -212,7 +212,7 @@ namespace Training_Form
                     {
                         interets += "Zumba ";
                     }
-                    Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse, statut);
+                    Client client = new Client(nom, prenom, email, dateNaissance, "justificatif", interets, tel, adresse,new DateTime(),5, statut);
                     JeuxTest.Clients.Add(client);
                 }
             }

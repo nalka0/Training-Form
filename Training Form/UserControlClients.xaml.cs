@@ -80,5 +80,6 @@ namespace Training_Form
             JeuxTest.Clients.Move(JeuxTest.Clients.Count - 1, dataClients.SelectedIndex);
             JeuxTest.Clients.RemoveAt(dataClients.SelectedIndex);
         }
+
     }
 }
