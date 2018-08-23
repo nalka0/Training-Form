@@ -11,7 +11,7 @@
         <Rectangle
             Width="{Binding Width}"
             Height="{Binding Height}"
-            Stroke="Purple"
+            Stroke="{DynamicResource PrimaryHueDarkBrush}"
             StrokeThickness="2"/>
         <materialDesign:DialogHost
           HorizontalAlignment="Center"

@@ -36,15 +36,16 @@
 
     <Grid Background="LightGray" MouseLeftButtonDown="Grid_MouseDown">
         <Grid x:Name="GridMain" Height="530" Width="1020" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-     <!-- Panneau du haut -->   <materialDesign:ColorZone Mode="PrimaryMid"
+        <!-- Panneau du haut -->
+        <materialDesign:ColorZone Mode="PrimaryDark"
              Padding="10"                     
              materialDesign:ShadowAssist.ShadowDepth="Depth2">
             <DockPanel>
                 <TextBlock x:Name="textBlockTitre" Margin="210 0 90 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" Text="Training Form 19"></TextBlock>
-               
+
                 <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <!--Bouton d'ajout-->
+                    <!--Bouton d'ajout-->
 
                     <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" x:Name="ajoutElement"
                         Margin="0 0 30 0" Width="45" Height="45" Click="ajoutElement_Click"
@@ -53,19 +54,28 @@
                         <materialDesign:PackIcon x:Name="iconElement" Kind="AccountPlus" Height="35" Width="35"/>
                     </Button>
 
-                <!--fin bouton ajout-->
+                    <!--fin bouton ajout-->
 
                     <Button x:Name="Close" Click="Close_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8">
                         <materialDesign:PackIcon Kind="Power"/>
                     </Button>
                 </StackPanel>
-               
+
                 <TextBox x:Name="recherche" DockPanel.Dock="Left" VerticalAlignment="Center" HorizontalAlignment="Right" 
-                         Height="23"  TextWrapping="Wrap" Text="rechercher" Width="140" Margin="0 0 100 0"/>
+                         Height="40"  
+                         Width="140" Margin="0 0 100 0"
+                         materialDesign:HintAssist.Hint="Recherche"
+                         TextWrapping="Wrap"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}">
+                </TextBox>
+
+                <!--<TextBox
+  materialDesign:HintAssist.Hint="Floating Hint"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
             </DockPanel>
         </materialDesign:ColorZone>
         <materialDesign:ColorZone
-            Mode="PrimaryDark"
+            Mode="PrimaryMid"
             materialDesign:ShadowAssist.ShadowDepth="Depth2"
             HorizontalAlignment="Left"
             VerticalAlignment="Stretch"
@@ -74,55 +84,55 @@
             <DockPanel>
                 <StackPanel VerticalAlignment="Top"
                             HorizontalAlignment="Left">
-                <Grid Height="150" Background="White"
+                    <Grid Height="150" Background="White"
                       
                       VerticalAlignment="Top">
                         <Image Source="trainingFormLogo.png" Margin="10"/>
                         <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="ArrowLeft" Width="25" Height="25"/>
-                    </Button>
-                    <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
-                    </Button>
-                </Grid>
-                    
-                <ListView x:Name="ListViewMenu" 
+                            <materialDesign:PackIcon Foreground="#FF4B1481" Kind="ArrowLeft" Width="25" Height="25"/>
+                        </Button>
+                        <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
+                            <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
+                        </Button>
+                    </Grid>
+
+                    <ListView x:Name="ListViewMenu" 
                           VerticalAlignment="Center"
                           HorizontalAlignment="Left"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="White" SelectionChanged="ListViewMenu_SelectionChanged"  SelectedIndex="0">
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="accueilText" Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Face" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="clientText" Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Cart" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="articleText" Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="serviceText" Text="Services" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Worker" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock x:Name="salarieText" Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
-                        </StackPanel>
-                    </ListViewItem>
-                </ListView>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="accueilText" Text="Accueil" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Face" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="clientText" Text="Clients" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Cart" Width="25" Margin="10" Height="25" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="articleText" Text="Articles" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="serviceText" Text="Services" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                        <ListViewItem Height="60">
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="Worker" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="salarieText" Text="Salariés" VerticalAlignment="Center" Margin="20 10"/>
+                            </StackPanel>
+                        </ListViewItem>
+                    </ListView>
                 </StackPanel>
-                
+
             </DockPanel>
         </materialDesign:ColorZone>
     </Grid>

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="AjoutClient" Height="416" Width="475.142" ResizeMode="NoResize" Icon="trainingFormLogo.png" WindowStartupLocation="CenterOwner" MouseLeftButtonDown="Grid_MouseDown" WindowStyle="None">
     <Grid>
-        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="Purple" StrokeThickness="2"/>
+        <Rectangle Width="{Binding Width}" Height="{Binding Height}" Stroke="{DynamicResource PrimaryHueDarkBrush}" StrokeThickness="2"/>
         <materialDesign:DialogHost
           HorizontalAlignment="Center"
           VerticalAlignment="Center"
