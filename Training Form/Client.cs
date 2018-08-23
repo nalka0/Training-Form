@@ -13,8 +13,8 @@ namespace Training_Form
         private string _interets;
         private string _justificatif;
         private static int nombreClients;
-        private DateTime DebutAbo;
-        private int CodeAbo;
+        private DateTime _debutAbo;
+        private int _codeAbo;
 
         public string Interets
         {
@@ -60,6 +60,40 @@ namespace Training_Form
                 if (argsChanging == null || !argsChanging.Cancel)
                 {
                     _statut = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
+
+        public DateTime DebutAbo
+        {
+            get
+            {
+                return _debutAbo;
+            }
+            set
+            {
+                DateTime stock =_debutAbo;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _debutAbo = value;
+                    BetterNotifyPropertyChanged(stock, value);
+                }
+            }
+        }
+        public int CodeAbo {
+            get
+            {
+                return _codeAbo;
+            }
+            set
+            {
+                int stock = _codeAbo;
+                BetterNotifyPropertyChanging(stock, value);
+                if (argsChanging == null || !argsChanging.Cancel)
+                {
+                    _codeAbo = value;
                     BetterNotifyPropertyChanged(stock, value);
                 }
             }

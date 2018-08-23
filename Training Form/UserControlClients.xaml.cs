@@ -34,7 +34,7 @@ namespace Training_Form
         }
         private void editerClient_Click(object sender, RoutedEventArgs e)
         {
-            AjoutClient editerClient = new AjoutClient();
+            AjoutClient editerClient = new AjoutClient();            
             editerClient.Loaded -= editerClient.AjoutClient_Loaded;
             editerClient.tbNom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Nom;
             editerClient.tbPrenom.Text = JeuxTest.Clients[dataClients.SelectedIndex].Prenom;
@@ -48,6 +48,8 @@ namespace Training_Form
             editerClient.cbMuscu.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Muscu");
             editerClient.cbPilate.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Pilate");
             editerClient.cbZumba.IsChecked = JeuxTest.Clients[dataClients.SelectedIndex].Interets.Contains("Zumba");
+            editerClient.typeAbo.SelectedIndex = JeuxTest.Clients[dataClients.SelectedIndex].CodeAbo;
+            editerClient.dateAboPicker.SelectedDate = JeuxTest.Clients[dataClients.SelectedIndex].DebutAbo;
             switch (JeuxTest.Clients[dataClients.SelectedIndex].Statut)
             {
                 case Statuts.Couple:
@@ -67,6 +69,8 @@ namespace Training_Form
             JeuxTest.Clients[dataClients.SelectedIndex].Mail = editerClient.tbMail.Text;
             JeuxTest.Clients[dataClients.SelectedIndex].NumTelephone = editerClient.tbTelephone.Text;
             JeuxTest.Clients[dataClients.SelectedIndex].Adresse = editerClient.tbAdresse.Text;
+            JeuxTest.Clients[dataClients.SelectedIndex].DebutAbo = (DateTime)editerClient.dateAboPicker.SelectedDate;
+            JeuxTest.Clients[dataClients.SelectedIndex].CodeAbo = editerClient.typeAbo.SelectedIndex;
             //Si la checkbox est cochée, on ajoute l'interet concerné dans la liste des interets, sinon on y ajoute rien
             JeuxTest.Clients[dataClients.SelectedIndex].Interets = "";
             JeuxTest.Clients[dataClients.SelectedIndex].Interets += (bool)editerClient.cbCardio.IsChecked ? "Cardio, " : "";
