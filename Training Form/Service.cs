@@ -11,7 +11,9 @@ namespace Training_Form
 {
     public class Service : Produit
     {
+
         #region variables
+        private static int nombreService;
         private int _duree;
         private int _seances;
         private DateTime _debutAbo;
@@ -113,9 +115,11 @@ namespace Training_Form
         public Service(DateTime debut, int dureeSemaines, string nom, string description, decimal prixHT, decimal tauxTVA)
             : base(nom, description, prixHT, tauxTVA)
         {
+            
             Duree = dureeSemaines;
             DebutAbo = debut;
             FinAbo = debut.AddDays(Duree * 7);
+            CodeProduit = nombreService++.ToString();
         }
 
         /// <summary>
@@ -134,6 +138,7 @@ namespace Training_Form
             DebutAbo = debut;
             Seances = seances;
             FinAbo = debut.AddMonths(dureeMois);
+            CodeProduit = nombreService++.ToString();
         }
         #endregion
 
