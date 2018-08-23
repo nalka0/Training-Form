@@ -108,6 +108,9 @@
     <Compile Include="ModifierArticle.xaml.cs">
       <DependentUpon>ModifierArticle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PanelUserControlTrombi.xaml.cs">
+      <DependentUpon>PanelUserControlTrombi.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Permissions.cs" />
     <Compile Include="Produit.cs" />
     <Compile Include="AjouterArticle.xaml.cs">
@@ -132,6 +135,9 @@
     </Compile>
     <Compile Include="UserControlServices.xaml.cs">
       <DependentUpon>UserControlServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlTrombi.xaml.cs">
+      <DependentUpon>UserControlTrombi.xaml</DependentUpon>
     </Compile>
     <Page Include="AjouterClient.xaml">
       <SubType>Designer</SubType>
@@ -161,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="PanelUserControlTrombi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControlClients.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControlServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlTrombi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
