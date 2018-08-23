@@ -40,7 +40,7 @@ namespace Training_Form
             editerSalarie.textBoxDateEmbauche.SelectedDate = JeuxTest.Salaries[dataSalaries.SelectedIndex].DateEmbauche;
             editerSalarie.textBoxAdresse.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Adresse;
             editerSalarie.numTelephonneTB.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].NumTelephone;
-            editerSalarie.textBoxPassword.Text = JeuxTest.Salaries[dataSalaries.SelectedIndex].Password;
+            editerSalarie.textBoxPassword.Password = JeuxTest.Salaries[dataSalaries.SelectedIndex].Password;
             editerSalarie.ShowDialog();
             JeuxTest.Salaries[dataSalaries.SelectedIndex].Nom = editerSalarie.textBoxNom.Text;
             JeuxTest.Salaries[dataSalaries.SelectedIndex].Prenom = editerSalarie.textBoxPrenom.Text;
@@ -49,7 +49,7 @@ namespace Training_Form
             JeuxTest.Salaries[dataSalaries.SelectedIndex].DateNaissance = (DateTime)editerSalarie.textBoxDateNaissance.SelectedDate;
             JeuxTest.Salaries[dataSalaries.SelectedIndex].DateEmbauche = (DateTime)editerSalarie.textBoxDateEmbauche.SelectedDate;
             JeuxTest.Salaries[dataSalaries.SelectedIndex].NumTelephone = editerSalarie.numTelephonneTB.Text;
-            JeuxTest.Salaries[dataSalaries.SelectedIndex].Password = editerSalarie.textBoxPassword.Text;
+            JeuxTest.Salaries[dataSalaries.SelectedIndex].Password = editerSalarie.textBoxPassword.Password;
             //sert à actualiser l'affichage
             JeuxTest.Salaries.Add(JeuxTest.Salaries[dataSalaries.SelectedIndex]);
             JeuxTest.Salaries.Move(JeuxTest.Salaries.Count - 1, dataSalaries.SelectedIndex);
@@ -74,7 +74,7 @@ namespace Training_Form
                 DateTime dateNaissance = (DateTime)fenetreAjout.textBoxDateNaissance.SelectedDate;
                 string adresse = fenetreAjout.textBoxAdresse.Text;
                 string email = fenetreAjout.textBoxEmail.Text;
-                string password = fenetreAjout.textBoxPassword.Text;
+                string password = fenetreAjout.textBoxPassword.Password;
                 DateTime dateEmbauche = (DateTime)fenetreAjout.textBoxDateEmbauche.SelectedDate;
                 string numTelephonne = fenetreAjout.numTelephonneTB.Text;
                 JeuxTest.Salaries.Add(new Salarie(nom, prenom, email, dateNaissance, Permissions.Salarie, dateEmbauche, password, numTelephonne, adresse));
