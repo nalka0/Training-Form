@@ -69,10 +69,10 @@ namespace Training_Form
             return Identifiant == sal.Identifiant;
         }
 
-        public override int GetHashCode()
-        {
-            return Identifiant.GetHashCode();
-        }
+        //public override int GetHashCode()
+        //{
+        //    return Identifiant.GetHashCode();
+        //}
 
         private string genererIdentifiant()
         {
