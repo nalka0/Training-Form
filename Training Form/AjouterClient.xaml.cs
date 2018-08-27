@@ -38,6 +38,7 @@ namespace Training_Form
         public void AjoutClient_Loaded(object sender, RoutedEventArgs e)
         {
             tbDateNaissance.SelectedDate = DateTime.Now;
+            dateAboPicker.SelectedDate = DateTime.Now;
         }
 
         public void AjoutClient_Closing(object sender, System.ComponentModel.CancelEventArgs e)
