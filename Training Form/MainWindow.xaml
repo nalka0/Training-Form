@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Training_Form"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" 
         Height="720" Width="1280" 
@@ -34,18 +35,37 @@
         </EventTrigger>
     </Window.Triggers>
 
-    <Grid Background="LightGray" MouseLeftButtonDown="Grid_MouseDown">
+    <Grid Background="{DynamicResource PrimaryHueDarkForegroundBrush}" MouseLeftButtonDown="Grid_MouseDown">
         <Grid x:Name="GridMain" Height="650" Width="1220" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         <!-- Panneau du haut -->
         <materialDesign:ColorZone Mode="PrimaryDark"
              Padding="10"                     
              materialDesign:ShadowAssist.ShadowDepth="Depth2">
             <DockPanel>
-                <TextBlock x:Name="textBlockTitre" Margin="210 0 90 0" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="22" Text="Training Form 19"></TextBlock>
+                <TextBlock x:Name="textBlockTitre" 
+                           Style="{StaticResource MaterialDesignHeadlineTextBlock}"
+                           Margin="210 0 90 0" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                           FontSize="26" Text="Training Form 19"></TextBlock>
 
-                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" 
+                            Orientation="Horizontal" HorizontalAlignment="Right">
+
+                    <!-- Bouton de refresh-->
+
+                    <Button x:Name="Refresh" ToolTip="Rafraichir la page"
+                            Margin="0, 0, 15, 0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Width="30" Height="30"
+                            Click="Refresh_Click"
+                            Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+                            >
+                        <materialDesign:PackIcon Width="25" Height="25" Kind="Refresh"/>
+
+                    </Button>
 
                     <!--Bouton d'ajout-->
+
 
                     <Button ToolTip="Ajouter un client" Style="{StaticResource MaterialDesignFloatingActionAccentButton}" x:Name="ajoutElement"
                         Margin="0 0 30 0" Width="45" Height="45" Click="ajoutElement_Click"
@@ -53,8 +73,6 @@
                         materialDesign:ShadowAssist.ShadowDepth="Depth3" >
                         <materialDesign:PackIcon x:Name="iconElement" Kind="AccountPlus" Height="35" Width="35"/>
                     </Button>
-
-                    <!--fin bouton ajout-->
 
                     <Button x:Name="Close" Click="Close_Click" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="8">
                         <materialDesign:PackIcon Kind="Power"/>
@@ -68,10 +86,6 @@
                          TextWrapping="Wrap"
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" TextChanged="recherche_TextChanged">
                 </TextBox>
-
-                <!--<TextBox
-  materialDesign:HintAssist.Hint="Floating Hint"
-  Style="{StaticResource MaterialDesignFloatingHintTextBox}" />-->
             </DockPanel>
         </materialDesign:ColorZone>
         <materialDesign:ColorZone
@@ -89,17 +103,17 @@
                       VerticalAlignment="Top">
                         <Image Source="trainingFormLogo.png" Margin="10"/>
                         <Button x:Name="ButtonCloseMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                            <materialDesign:PackIcon Foreground="#FF4B1481" Kind="ArrowLeft" Width="25" Height="25"/>
+                            <materialDesign:PackIcon Foreground="{DynamicResource PrimaryHueDarkBrush}" Kind="ArrowLeft" Width="25" Height="25"/>
                         </Button>
                         <Button x:Name="ButtonOpenMenu" Width="60" Height="60" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButtonOpenMenu_Click">
-                            <materialDesign:PackIcon Foreground="#FF4B1481" Kind="Menu" Width="25" Height="25"/>
+                            <materialDesign:PackIcon Foreground="{DynamicResource PrimaryHueDarkBrush}" Kind="Menu" Width="25" Height="25"/>
                         </Button>
                     </Grid>
 
                     <ListView x:Name="ListViewMenu" 
                           VerticalAlignment="Center"
                           HorizontalAlignment="Left"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="White" SelectionChanged="ListViewMenu_SelectionChanged"  SelectedIndex="0">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}" SelectionChanged="ListViewMenu_SelectionChanged"  SelectedIndex="0">
                         <ListViewItem Height="60">
                             <StackPanel Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="ViewDashboard" Margin="10"  Width="25" Height="25" VerticalAlignment="Center"/>
@@ -120,7 +134,7 @@
                         </ListViewItem>
                         <ListViewItem Height="60">
                             <StackPanel Orientation="Horizontal">
-                                <materialDesign:PackIcon Kind="Basketball" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
+                                <materialDesign:PackIcon Kind="RunFast" Margin="10" Width="25" Height="25" VerticalAlignment="Center"/>
                                 <TextBlock x:Name="serviceText" Text="Services" VerticalAlignment="Center" Margin="20 10"/>
                             </StackPanel>
                         </ListViewItem>

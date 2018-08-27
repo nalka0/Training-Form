@@ -53,6 +53,7 @@ namespace Training_Form
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlHome());
                     recherche.Visibility = Visibility.Collapsed;
+                    
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
                     textBlockTitre.Text = "Training Form 19";
                     ajoutElement.ToolTip = "Ajout client";
@@ -77,7 +78,7 @@ namespace Training_Form
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new UserControlServices());
                     recherche.Visibility = Visibility.Visible;
-                    iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Basketball;
+                    iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.RunFast;
                     textBlockTitre.Text = serviceText.Text;
                     ajoutElement.ToolTip = "Ajout service";
                     break;
@@ -89,13 +90,14 @@ namespace Training_Form
                     textBlockTitre.Text = salarieText.Text;
                     ajoutElement.ToolTip = "Ajout salarié";
                     break;
-                default:
                 case 5:
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new PanelUserControlTrombi());
                     recherche.Visibility = Visibility.Collapsed;
                     iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
                     textBlockTitre.Text = trombinoscopeText.Text;
+                    break;
+                default:
                     break;
             }
         }
@@ -153,7 +155,42 @@ namespace Training_Form
                     case 4:
                         UserControlSalarie salaries = (UserControlSalarie)GridMain.Children[0];
                         salaries.rechercheSalaries(recherche.Text);
-                    break;           
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            switch (ListViewMenu.SelectedIndex)
+            {
+                case 0:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new UserControlHome());
+                    break;
+                case 1:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new UserControlClients());
+                    break;
+                case 2:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new UserControlProduits());
+                    break;
+                case 3:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new UserControlServices());
+                    break;
+                case 4:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new UserControlSalarie());
+                    break;
+                case 5:
+                    GridMain.Children.Clear();
+                    GridMain.Children.Add(new PanelUserControlTrombi());
+                    break;
+                default:
+                    break;
             }
         }
     }

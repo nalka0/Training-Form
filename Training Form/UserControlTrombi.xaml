@@ -8,7 +8,10 @@
 
              mc:Ignorable="d" 
             >
-        <materialDesign:Flipper  Margin="25,25,0,0" x:Name="UserCard" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Height="256">
+        <materialDesign:Flipper  Margin="25,25,0,0" x:Name="UserCard" 
+                                 HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                 Width="200" Height="256"
+                                 >
 
             <materialDesign:Flipper.FrontContent>
                 <Grid Height="256" Width="200">
@@ -21,7 +24,7 @@
                     </materialDesign:ColorZone>
                     <!--<Image Name="imageUser" Source="{Binding Path=MyUrlImage, Mode=TwoWay}"/>-->
 
-                    <StackPanel Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="White">
+                <StackPanel Grid.Row="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="{DynamicResource PrimaryHueDarkForegroundBrush}">
                         <TextBlock Name="Nom" TextAlignment="Center" Margin="0,20,0,0" >
                             James Willock
                         </TextBlock>
@@ -33,7 +36,7 @@
                 </Grid>
             </materialDesign:Flipper.FrontContent>
             <materialDesign:Flipper.BackContent>
-                <Grid Height="256"  Width="200" Background="White">
+            <Grid Height="256"  Width="200" Background="{DynamicResource PrimaryHueDarkForegroundBrush}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
