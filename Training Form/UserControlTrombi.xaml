@@ -55,23 +55,21 @@
                             <RowDefinition />
                             <RowDefinition />
                         </Grid.RowDefinitions>
-                        <TextBox Name="DetailNom" materialDesign:HintAssist.Hint="First name" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                        <TextBox Name="DetailNom" materialDesign:HintAssist.Hint="Nom" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
                             James
                         </TextBox>
-                        <TextBox Name="DetailPrenom" Grid.Row="1" materialDesign:HintAssist.Hint="Last name" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
+                        <TextBox Name="DetailPrenom" Grid.Row="1" materialDesign:HintAssist.Hint="Prénom" materialDesign:HintAssist.IsFloating="True" Margin="0 12 0 0">
                             Willock
                         </TextBox>
                         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
                             <TextBlock Name="DetailEmail" VerticalAlignment="Center">
                                  Email Contact
                             </TextBlock>
-                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
                         </StackPanel>
                         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0 12 0 0" HorizontalAlignment="Right">
                             <TextBlock Name="DetailTel" VerticalAlignment="Center">
                                  Telephone Contact
                             </TextBlock>
-                            <ToggleButton Margin="8 0 0 0"></ToggleButton>
                         </StackPanel>
                     </Grid>
                 </Grid>

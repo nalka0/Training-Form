@@ -94,7 +94,7 @@ namespace Training_Form
                     GridMain.Children.Clear();
                     GridMain.Children.Add(new PanelUserControlTrombi());
                     recherche.Visibility = Visibility.Collapsed;
-                    iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Worker;
+                    iconElement.Kind = MaterialDesignThemes.Wpf.PackIconKind.Face;
                     textBlockTitre.Text = trombinoscopeText.Text;
                     break;
             }
@@ -123,6 +123,10 @@ namespace Training_Form
                 case 4:
                     UserControlSalarie salarie = new UserControlSalarie();
                     salarie.addSalarie();
+                    break;
+                case 5:
+                    UserControlClients client3 = new UserControlClients();
+                    client3.addClient();
                     break;
             }
             
