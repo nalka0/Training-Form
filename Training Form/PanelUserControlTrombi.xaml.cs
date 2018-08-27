@@ -34,6 +34,7 @@ namespace Training_Form
                 PanelUser.Children.Add(new UserControlTrombi(item.Nom, item.Prenom, item.NumTelephone, item.Mail));
                 
             }
+
         }
     }
 }

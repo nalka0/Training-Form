@@ -43,6 +43,18 @@ namespace Training_Form
             Client Cl7 = new Client("Goku", "Jean", "JeanPignondeParis@gmail.com", new DateTime(2000, 12, 25), "oui", "Zumba", "0123456789", "adresse de jean michel pierre paul", new DateTime(2018, 03, 05),6, Statuts.Etudiant);
             Client Cl8 = new Client("Gohan", "Bob", "Lemonbob@gmail.com", new DateTime(1975, 10, 20), "Non", "Pilate,Zumba", "9876543210", "adresse de jean michel pierre paul", new DateTime(2017, 11, 20),8, Statuts.Couple);
             Client Cl9 = new Client("C18", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19),1, Statuts.Adulte);
+            Client Cl10 = new Client("C19", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+            Client Cl11= new Client("C20", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+            Client Cl12 = new Client("C21", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+            Client Cl13 = new Client("C22", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+            Client Cl14 = new Client("C23", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+            Client Cl15 = new Client("C24", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+            Client Cl16 = new Client("C25", "Mister", "MisterFreeze@gmail.com", new DateTime(1995, 02, 10), "non", "Cardio", "1357902468", "adresse de jean michel pierre paul", new DateTime(2018, 07, 19), 1, Statuts.Adulte);
+
+
+
+
+
 
             JeuxTest.Clients.Add(Cl1);
             JeuxTest.Clients.Add(Cl2);
@@ -53,6 +65,15 @@ namespace Training_Form
             JeuxTest.Clients.Add(Cl7);
             JeuxTest.Clients.Add(Cl8);
             JeuxTest.Clients.Add(Cl9);
+            JeuxTest.Clients.Add(Cl10);
+            JeuxTest.Clients.Add(Cl11);
+            JeuxTest.Clients.Add(Cl12);
+            JeuxTest.Clients.Add(Cl13);
+            JeuxTest.Clients.Add(Cl14);
+            JeuxTest.Clients.Add(Cl15);
+            JeuxTest.Clients.Add(Cl16);
+
+
 
             Service AboDouzeMoisCours = new Service(12, new DateTime(2019, 08, 02), "12 mois avec Cours", "Abonnement Cardio Training 12 Mois avec Cours collectif", 0, 300, 15);
             Service AboDouzeMois = new Service(12, new DateTime(2017, 09, 06), "12 mois sans Cours", "Abonnement Cardio Training 12 Mois sans Cours colledtif", 0, 270, 15);

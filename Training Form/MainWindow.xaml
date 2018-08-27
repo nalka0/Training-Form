@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Training_Form"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" 
-        Height="600" Width="1080" 
+        Height="720" Width="1280" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" 
         WindowStyle="None">
 
@@ -14,12 +14,12 @@
         <Storyboard x:Key="MenuOpen">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
                 <EasingDoubleKeyFrame KeyTime="0" Value="60"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="145"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="180"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="MenuClose">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="GridMenu">
-                <EasingDoubleKeyFrame KeyTime="0" Value="145"/>
+                <EasingDoubleKeyFrame KeyTime="0" Value="180"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="60"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
@@ -35,7 +35,7 @@
     </Window.Triggers>
 
     <Grid Background="LightGray" MouseLeftButtonDown="Grid_MouseDown">
-        <Grid x:Name="GridMain" Height="530" Width="1020" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+        <Grid x:Name="GridMain" Height="650" Width="1220" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         <!-- Panneau du haut -->
         <materialDesign:ColorZone Mode="PrimaryDark"
              Padding="10"                     

@@ -5,9 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Training_Form"
              mc:Ignorable="d" 
-             d:DesignHeight="530" d:DesignWidth="1020">
+             d:DesignHeight="650" d:DesignWidth="1220">
     <Grid >
-        <WrapPanel x:Name="PanelUser" Width="1020" Height="530" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" MaxWidth="1020" MaxHeight="530">
-        </WrapPanel>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="PanelUser" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top" MaxWidth="1220">
+            </WrapPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
